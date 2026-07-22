@@ -435,7 +435,7 @@ button { font-family: inherit; cursor: pointer; }
    ============================================================ */
 .float-stage {
   position: relative;
-  height: 560px;
+  height: 680px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -443,6 +443,7 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   width: 150px;
   height: 110px;
+  transform: translate(-50%, -50%);
   border-radius: 14px;
   background: #241f18;
   border: 1px solid rgba(178,141,87,0.35);
@@ -518,15 +519,15 @@ button { font-family: inherit; cursor: pointer; }
 .obj-round { border-radius: 50%; }
 .float-object.obj-round.hovered { border-radius: 20px; }
 
-.obj-heartmath  { background-color: #2a2118; left: 50%; top: 0;   transform: translateX(-50%); animation-delay: 0s; }
+.obj-heartmath  { background-color: #2a2118; left: 55%; top: 28%; animation-delay: 0s; }
 .obj-heartmath.hovered  { background-image: linear-gradient(135deg,#3a2f22,#1c1712); }
-.obj-breathingbox { background-color: #262019; left: 10%; top: 26%; animation-delay: 1.2s; }
+.obj-breathingbox { background-color: #262019; left: 21%; top: 37%; animation-delay: 1.2s; }
 .obj-breathingbox.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
-.obj-movement { background-color: #262019; right: 8%; top: 16%; animation-delay: 2s; }
+.obj-movement { background-color: #262019; left: 22%; top: 78%; animation-delay: 2s; }
 .obj-movement.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
-.obj-contrast { background-color: #232821; left: 50%; bottom: 4%; transform: translateX(-50%); width: 130px; height: 130px; animation-delay: 0.6s; }
-.obj-contrast.hovered { width: 240px; height: 220px; transform: translateX(-50%); background-image: linear-gradient(135deg,#233028,#141a17); }
-.obj-rape { background-color: #262019; right: 4%; bottom: 0; animation-delay: 1.8s; }
+.obj-contrast { background-color: #232821; left: 49%; top: 65%; width: 130px; height: 130px; animation-delay: 0.6s; }
+.obj-contrast.hovered { width: 240px; height: 220px; background-image: linear-gradient(135deg,#233028,#141a17); }
+.obj-rape { background-color: #262019; left: 77%; top: 62%; animation-delay: 1.8s; }
 .obj-rape.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
 
 @keyframes drift {
