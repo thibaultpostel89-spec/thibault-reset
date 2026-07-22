@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- "From Survival to Presence" scroll-driven journey ----------
   const journeyWrap = document.getElementById('journeyScroll');
   if (journeyWrap) {
+    const stickyEl = document.querySelector('.journey-sticky');
     const bodyOutline = document.querySelector('.body-outline');
     const organBrain = document.querySelector('.organ-brain');
     const organLungs = document.querySelector('.organ-lungs');
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateJourney() {
       ticking = false;
       const rect = journeyWrap.getBoundingClientRect();
-      const total = journeyWrap.offsetHeight - window.innerHeight;
+      const total = journeyWrap.offsetHeight - stickyEl.offsetHeight;
       let progress = -rect.top / total;
       progress = Math.min(1, Math.max(0, progress));
 
