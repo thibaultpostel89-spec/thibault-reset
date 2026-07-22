@@ -24,7 +24,6 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-[id] { scroll-margin-top: var(--nav-height, 73px); }
 
 body {
   margin: 0;
@@ -65,7 +64,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .section-title {
   color: var(--gold);
-  font-size: clamp(33.9px, 4vw, 50.8px);
+  font-size: clamp(30.8px, 4vw, 46.2px);
   text-align: center;
   margin-bottom: 12px;
 }
@@ -74,14 +73,14 @@ button { font-family: inherit; cursor: pointer; }
 .section-subtitle {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 20.6px;
+  font-size: 18.7px;
   max-width: 560px;
   margin: 0 auto 40px;
 }
 .section-subtitle-onlight {
   text-align: center;
   color: var(--border);
-  font-size: 20.6px;
+  font-size: 18.7px;
   max-width: 560px;
   margin: 0 auto 40px;
   opacity: 0.85;
@@ -92,7 +91,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 15.7px;
+  font-size: 14.3px;
   color: var(--gold);
   text-align: center;
   margin-bottom: 28px;
@@ -102,7 +101,7 @@ button { font-family: inherit; cursor: pointer; }
 .micro-note {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 15.7px;
+  font-size: 14.3px;
   margin-top: 32px;
 }
 
@@ -115,7 +114,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 14px 28px;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 18.2px;
+  font-size: 16.5px;
   border: 1.5px solid transparent;
   transition: background var(--transition-med), color var(--transition-med), border-color var(--transition-med);
   white-space: normal;
@@ -163,7 +162,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-logo {
   font-family: var(--font-serif);
-  font-size: 24.2px;
+  font-size: 22px;
   color: var(--text);
 }
 .nav-links {
@@ -173,12 +172,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-links a:not(.btn) {
   font-weight: 600;
-  font-size: 18.2px;
+  font-size: 16.5px;
   color: var(--text);
   transition: color var(--transition-fast);
 }
 .nav-links a:not(.btn):hover { color: var(--gold); }
-.nav-cta { padding: 10px 22px; font-size: 16.9px; }
+.nav-cta { padding: 10px 22px; font-size: 15.4px; }
 
 .nav-burger {
   display: none;
@@ -248,13 +247,13 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
 }
 .hero-title {
-  font-size: clamp(41.1px, 6vw, 77.4px);
+  font-size: clamp(37.4px, 6vw, 70.4px);
   color: var(--cream);
   margin-bottom: 20px;
 }
 .hero-subtitle {
   font-family: var(--font-sans);
-  font-size: clamp(19.4px, 2.2vw, 24.2px);
+  font-size: clamp(17.6px, 2.2vw, 22px);
   color: var(--cream);
   max-width: 540px;
   margin: 0 auto 32px;
@@ -268,7 +267,7 @@ button { font-family: inherit; cursor: pointer; }
   bottom: 14px;
   right: 18px;
   z-index: 2;
-  font-size: 13.3px;
+  font-size: 12.1px;
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.03em;
 }
@@ -296,13 +295,13 @@ button { font-family: inherit; cursor: pointer; }
 .problem-card h3 {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 21.8px;
+  font-size: 19.8px;
   margin-bottom: 10px;
   color: var(--text);
   transition: color var(--transition-med);
 }
 .problem-card p {
-  font-size: 17.6px;
+  font-size: 16px;
   color: var(--text-secondary);
   margin: 0;
   transition: color var(--transition-med);
@@ -317,7 +316,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   margin-top: 36px;
   font-family: var(--font-serif);
-  font-size: 24.2px;
+  font-size: 22px;
   color: var(--text);
   max-width: 620px;
   margin-left: auto;
@@ -339,7 +338,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--white);
-  font-size: 16.9px;
+  font-size: 15.4px;
   font-weight: 600;
   color: var(--text);
   transition: background var(--transition-med), color var(--transition-med);
@@ -376,19 +375,19 @@ button { font-family: inherit; cursor: pointer; }
 .lever-icon { color: var(--gold); flex-shrink: 0; }
 .lever-label {
   font-weight: 700;
-  font-size: 15.7px;
+  font-size: 14.3px;
   letter-spacing: 0.12em;
   color: var(--gold);
 }
 .lever-card h3 {
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 24.2px;
+  font-size: 22px;
   margin-bottom: 12px;
 }
 .lever-featured h3 { color: var(--cream); }
 .lever-card p {
-  font-size: 18.2px;
+  font-size: 16.5px;
   color: var(--text);
   margin: 0;
 }
@@ -408,11 +407,11 @@ button { font-family: inherit; cursor: pointer; }
 .tool-mention-item h4 {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 20.6px;
+  font-size: 18.7px;
   margin: 16px 0 8px;
 }
 .tool-mention-item p {
-  font-size: 17.6px;
+  font-size: 16px;
   color: var(--text-secondary);
 }
 .photo-placeholder-box {
@@ -480,12 +479,12 @@ button { font-family: inherit; cursor: pointer; }
 .float-object .float-info .fi-name {
   font-weight: 700;
   color: var(--gold);
-  font-size: 16.9px;
+  font-size: 15.4px;
   display: block;
   margin-bottom: 2px;
 }
 .float-object .float-info .fi-desc {
-  font-size: 14.5px;
+  font-size: 13.2px;
   color: var(--cream);
   display: block;
   margin-bottom: 6px;
@@ -493,7 +492,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .float-object .float-info .fi-badge {
   display: inline-block;
-  font-size: 12.1px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -570,13 +569,12 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    JOURNEY — From Survival to Presence
    ============================================================ */
-.journey-section { padding: 42px 0 0; }
-.journey-header { text-align: center; margin-bottom: 8px; }
-.journey-scroll-container { height: 230vh; position: relative; }
+.journey-section { padding: 0; }
+.journey-scroll-container { height: 320vh; position: relative; }
 .journey-sticky {
   position: sticky;
   top: var(--nav-height, 73px);
-  height: min(620px, calc(100vh - var(--nav-height, 73px)));
+  height: calc(100vh - var(--nav-height, 73px));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -645,8 +643,15 @@ button { font-family: inherit; cursor: pointer; }
 .journey-text {
   position: relative;
   max-width: 440px;
+  min-height: 260px;
 }
-.journey-steps { position: relative; min-height: 150px; }
+.journey-eyebrow { text-align: left; margin-bottom: 10px; }
+.journey-heading {
+  font-size: clamp(30.8px, 3.4vw, 44px);
+  color: var(--cream);
+  margin-bottom: 36px;
+}
+.journey-steps { position: relative; min-height: 130px; }
 .journey-step {
   position: absolute;
   inset: 0;
@@ -661,7 +666,7 @@ button { font-family: inherit; cursor: pointer; }
 .journey-step .step-num {
   display: block;
   font-family: var(--font-serif);
-  font-size: 18.2px;
+  font-size: 16.5px;
   color: var(--gold);
   margin-bottom: 8px;
   letter-spacing: 0.08em;
@@ -669,22 +674,23 @@ button { font-family: inherit; cursor: pointer; }
 .journey-step h3 {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 26.6px;
+  font-size: 24.2px;
   color: var(--cream);
   margin-bottom: 12px;
   line-height: 1.3;
 }
 .step-terms {
-  font-size: 16.9px;
+  font-size: 15.4px;
   color: var(--gold-light);
   margin: 0;
 }
 
 @media (max-width: 900px) {
-  .journey-scroll-container { height: 200vh; }
-  .journey-sticky { flex-direction: column; gap: 24px; justify-content: center; height: auto; min-height: 560px; padding: 32px 24px; }
+  .journey-scroll-container { height: 260vh; }
+  .journey-sticky { flex-direction: column; gap: 24px; justify-content: center; padding-top: 40px; }
   .journey-illustration { width: 200px; }
   .journey-text { text-align: center; }
+  .journey-eyebrow, .journey-heading { text-align: center; }
 }
 
 /* ============================================================
@@ -713,19 +719,19 @@ button { font-family: inherit; cursor: pointer; }
   transform: translateX(-50%);
   background: var(--gold);
   color: #fff;
-  font-size: 13.3px;
+  font-size: 12.1px;
   font-weight: 800;
   letter-spacing: 0.08em;
   padding: 6px 16px;
   border-radius: 999px;
 }
 .offer-name {
-  font-size: 29px;
+  font-size: 26.4px;
   margin-bottom: 6px;
 }
 .offer-dark .offer-name { color: var(--cream); }
 .offer-format {
-  font-size: 15.7px;
+  font-size: 14.3px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -739,7 +745,7 @@ button { font-family: inherit; cursor: pointer; }
 .offer-dark .offer-format { color: var(--gold-light); }
 .offer-price {
   font-family: var(--font-serif);
-  font-size: 50.8px;
+  font-size: 46.2px;
   margin-bottom: 14px;
 }
 .offer-start-badge {
@@ -749,7 +755,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--gold);
   color: var(--gold);
   font-weight: 800;
-  font-size: 16.9px;
+  font-size: 15.4px;
   letter-spacing: 0.03em;
   padding: 8px 18px;
   border-radius: 8px;
@@ -757,22 +763,22 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-dark .offer-start-badge { background: rgba(210,171,116,0.14); color: var(--gold-light); border-color: var(--gold-light); }
 .offer-microline {
-  font-size: 15.2px;
+  font-size: 13.8px;
   color: var(--text-secondary);
   margin-bottom: 24px;
 }
 .offer-dark .offer-microline { color: var(--border); opacity: 0.8; }
 .offer-desc {
-  font-size: 18.2px;
+  font-size: 16.5px;
   margin-bottom: 18px;
 }
 .offer-feature {
-  font-size: 17.6px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
 }
 .offer-included-label {
-  font-size: 14.5px;
+  font-size: 13.2px;
   font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--gold);
@@ -787,7 +793,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 17.6px;
+  font-size: 16px;
   font-weight: 600;
   padding: 7px 0;
 }
@@ -798,7 +804,7 @@ button { font-family: inherit; cursor: pointer; }
 .offers-footnote {
   text-align: center;
   margin-top: 36px;
-  font-size: 17.6px;
+  font-size: 16px;
   color: var(--text-secondary);
 }
 .offers-footnote a { color: var(--gold); font-weight: 700; }
@@ -813,14 +819,14 @@ button { font-family: inherit; cursor: pointer; }
    ============================================================ */
 .bio-block {
   text-align: left;
-  font-size: 20px;
+  font-size: 18.2px;
   color: var(--text);
 }
 .bio-block p { margin-bottom: 1.1em; }
 .bio-mention {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 16.9px;
+  font-size: 15.4px;
   font-weight: 600;
   margin: 28px 0 36px;
   display: flex;
@@ -842,7 +848,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px 20px;
-  font-size: 16.4px;
+  font-size: 14.9px;
   font-weight: 700;
   color: var(--brown-deep);
 }
@@ -853,7 +859,7 @@ button { font-family: inherit; cursor: pointer; }
 .discovery-subtitle {
   text-align: center;
   font-family: var(--font-serif);
-  font-size: 26.6px;
+  font-size: 24.2px;
   color: var(--gold-light);
   margin-bottom: 16px;
 }
@@ -883,7 +889,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 20px 4px;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 19.4px;
+  font-size: 17.6px;
   color: var(--text);
   text-align: left;
 }
@@ -903,7 +909,7 @@ button { font-family: inherit; cursor: pointer; }
 .accordion-panel p {
   padding: 0 4px 20px;
   color: var(--text-secondary);
-  font-size: 18.2px;
+  font-size: 16.5px;
   margin: 0;
 }
 
@@ -923,23 +929,23 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 .discount-card h3 {
-  font-size: 23px;
+  font-size: 20.9px;
   margin: 16px 0 4px;
 }
 .discount-tagline {
   color: var(--gold);
   font-weight: 700;
-  font-size: 17.6px;
+  font-size: 16px;
   margin-bottom: 4px;
 }
 .discount-desc {
   color: var(--text-secondary);
-  font-size: 17.6px;
+  font-size: 16px;
   margin-bottom: 18px;
 }
 .discount-cta { width: 100%; }
 .affiliate-disclosure {
-  font-size: 14px;
+  font-size: 12.7px;
   color: var(--text-secondary);
   margin-top: 10px;
   margin-bottom: 0;
@@ -975,7 +981,7 @@ button { font-family: inherit; cursor: pointer; }
 .contact-link svg { color: var(--gold-light); transition: color var(--transition-med); }
 .contact-link span {
   font-weight: 700;
-  font-size: 16.9px;
+  font-size: 15.4px;
   letter-spacing: 0.02em;
 }
 .contact-link:hover {
@@ -992,7 +998,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 .footer-legal, .footer-copy {
-  font-size: 15.7px;
+  font-size: 14.3px;
   color: var(--border);
   opacity: 0.7;
   margin-bottom: 6px;
