@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thibault Postel — Nervous System Regulation Coaching</title>
+<meta name="description" content="From survival mode to presence. Breath, heart coherence, and somatic practices that teach your body it's safe to rest again. Coaching and education, not therapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= ICON SPRITE ================= -->
+<svg style="display:none">
+  <defs>
+    <symbol id="icon-lungs" viewBox="0 0 24 24"><path d="M12 3v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 9c-1.2-2-3-2.6-4.3-1.8C6 8 5 10 5 13c0 3 1 6.5 2.8 7.3 1.3.6 2.7-.2 3.2-1.8V9Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 9c1.2-2 3-2.6 4.3-1.8C17.9 8 19 10 19 13c0 3-1 6.5-2.8 7.3-1.3.6-2.7-.2-3.2-1.8V9Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-heart-pulse" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-9.8-9.3C.8 7.8 2.4 4.5 5.7 4c2-.3 3.6.9 4.8 2.4C11.7 5 13.3 3.7 15.3 4c3.3.5 4.9 3.8 3.5 7.2-1.1 2.7-4 5.4-6.8 7.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M4 12h3l1.5-3L11 15l1.5-4.5L14 12h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="icon-brain" viewBox="0 0 24 24"><path d="M9 4.5c-2 0-3.6 1.5-3.7 3.4C4 8.4 3 9.8 3 11.5S4 14.6 5.3 15c.2 1.9 1.8 3.5 3.9 3.5.6 0 1.2-.1 1.7-.4V6.2C10.4 5.1 9.7 4.5 9 4.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M15 4.5c2 0 3.6 1.5 3.7 3.4 1.3.5 2.3 1.9 2.3 3.6S19.8 14.6 18.5 15c-.2 1.9-1.8 3.5-3.9 3.5-.6 0-1.2-.1-1.7-.4V6.2c.5-1.1 1.2-1.7 2.1-1.7Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 6v12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-dumbbell" viewBox="0 0 24 24"><path d="M4 9v6M2.5 10.5v3M7 7v10M17 7v10M19.5 10.5v3M20 9v6M7 12h10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24"><path d="M12 3s6.5 7.1 6.5 11.5A6.5 6.5 0 1 1 5.5 14.5C5.5 10.1 12 3 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-feather" viewBox="0 0 24 24"><path d="M20 4c-4 0-14 2-15.5 10.5C3.8 18.3 6 20.2 9 19.6 17.5 18 20 8 20 4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 20 14 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.3" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-box" viewBox="0 0 24 24"><path d="M3 8l9-4.5L21 8l-9 4.5L3 8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M3 8v8l9 4.5V12.5M21 8v8l-9 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-silhouette" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 21c0-4 1-6 1.5-7.5C7 12.5 6.5 11 7 9.5 7.7 7.5 9.7 7 12 7s4.3.5 5 2.5c.5 1.5 0 3-1.5 4C16 14.9 17 16.9 17 21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= NAV ================= -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">Thibault Postel</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#method">Method</a>
+      <a href="#about">About</a>
+      <a href="#offers">Offers</a>
+      <a href="#contact">Contact</a>
+      <a href="#offers" class="btn btn-gold nav-cta">Book an Audit</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <svg width="24" height="24"><use href="#icon-menu"></use></svg>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#method">Method</a>
+    <a href="#about">About</a>
+    <a href="#offers">Offers</a>
+    <a href="#contact">Contact</a>
+    <a href="#offers" class="btn btn-gold nav-cta-mobile">Book an Audit</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-photo-placeholder" aria-hidden="true"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">From <span class="accent-light">survival mode</span> to <span class="accent-light">presence</span>.</h1>
+    <p class="hero-subtitle">Regulate your <span class="accent-light">nervous system</span> and feel <span class="accent-light">safe</span> in your body again.</p>
+    <a href="#offers" class="btn btn-gold hero-cta">Book an Audit</a>
+  </div>
+  <span class="photo-tag">Photo placeholder — final image to be added</span>
+</section>
+
+<!-- ================= SOUND FAMILIAR ================= -->
+<section class="section bg-light" id="sound-familiar">
+  <div class="container">
+    <h2 class="section-title">Sound familiar?</h2>
+    <div class="card-grid problem-grid">
+      <a href="#method" class="problem-card">
+        <h3>Brain fog</h3>
+        <p>Can't hold focus, even on things that matter.</p>
+      </a>
+      <a href="#method" class="problem-card">
+        <h3>Motivation loss</h3>
+        <p>Knowing what to do, still not doing it.</p>
+      </a>
+      <a href="#method" class="problem-card">
+        <h3>Socially distant</h3>
+        <p>Present in the room, absent from the moment.</p>
+      </a>
+      <a href="#method" class="problem-card">
+        <h3>Low recovery score</h3>
+        <p>The body never fully stands down.</p>
+      </a>
+    </div>
+    <p class="connector-line">All four come from the same place: a nervous system that won't let you be present.</p>
+  </div>
+</section>
+
+<!-- ================= PHYSICAL SIGNS ================= -->
+<section class="section bg-alt" id="physical-signs">
+  <div class="container">
+    <h2 class="section-title">The Physical Signs of a Nervous System Stuck in Survival Mode</h2>
+    <div class="signs-pool">
+      <a href="#method" class="sign-pill">Jaw clenching</a>
+      <a href="#method" class="sign-pill">Neck tension</a>
+      <a href="#method" class="sign-pill">Shoulder tension</a>
+      <a href="#method" class="sign-pill">Dry mouth</a>
+      <a href="#method" class="sign-pill">Shallow breathing</a>
+      <a href="#method" class="sign-pill">Tight chest</a>
+      <a href="#method" class="sign-pill">Acid reflux</a>
+      <a href="#method" class="sign-pill">Brain fog</a>
+      <a href="#method" class="sign-pill">Rumination</a>
+      <a href="#method" class="sign-pill">Insomnia</a>
+      <a href="#method" class="sign-pill">Waking at 3&ndash;4am</a>
+      <a href="#method" class="sign-pill">2&ndash;4pm energy crash</a>
+      <a href="#method" class="sign-pill">Always "on edge"</a>
+      <a href="#method" class="sign-pill">Blocked sinuses</a>
+      <a href="#method" class="sign-pill">Clogged nose</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THREE LEVERS / METHOD ================= -->
+<section class="section bg-light" id="method">
+  <div class="container">
+    <h2 class="section-title">Three levers. One system.</h2>
+    <p class="section-subtitle">Three science-backed tools. One regulated nervous system.</p>
+    <div class="card-grid levers-grid">
+      <div class="lever-card lever-featured">
+        <div class="lever-head"><svg class="lever-icon" width="26" height="26"><use href="#icon-lungs"></use></svg><span class="lever-label">FOUNDATION</span></div>
+        <h3>CO&#8322; Tolerance</h3>
+        <p>CO&#8322; tolerance training raises the threshold at which your body reacts to stress, helping your nervous system return to homeostasis instead of constantly preparing for danger.</p>
+      </div>
+      <div class="lever-card">
+        <div class="lever-head"><svg class="lever-icon" width="26" height="26"><use href="#icon-heart-pulse"></use></svg><span class="lever-label">REGULATION</span></div>
+        <h3>Heart-Rate Coherence</h3>
+        <p>Real-time HRV biofeedback strengthens your vagus nerve, making it easier to switch from stress into recovery (sympathetic &rarr; parasympathetic).</p>
+      </div>
+      <div class="lever-card">
+        <div class="lever-head"><svg class="lever-icon" width="26" height="26"><use href="#icon-silhouette"></use></svg><span class="lever-label">EMBODIMENT</span></div>
+        <h3>Somatic Mapping</h3>
+        <p>Identify where your body stores stress&mdash;jaw, shoulders, diaphragm&mdash;and release it through movement and breath so regulation becomes automatic, not just mental.</p>
+      </div>
+    </div>
+    <p class="micro-note">Coaching and education. Not psychotherapy or medical care.</p>
+  </div>
+</section>
+
+<!-- ================= TOOLS MENTION (light) ================= -->
+<section class="section bg-light" id="tools-mention">
+  <div class="container">
+    <h3 class="eyebrow-title">The tools we'll be using</h3>
+    <div class="tools-mention-grid">
+      <div class="tool-mention-item">
+        <div class="photo-placeholder-box">
+          <span class="photo-tag">Photo placeholder</span>
+        </div>
+        <h4>HeartMath&reg; Inner Balance</h4>
+        <p>Measures your heart-rate coherence in real time, so you can see your nervous system shift as it happens.</p>
+      </div>
+      <div class="tool-mention-item">
+        <div class="photo-placeholder-box">
+          <span class="photo-tag">Photo placeholder</span>
+        </div>
+        <h4>The Breathing Box</h4>
+        <p>6 physical tools you'll use to train your CO&#8322; tolerance between sessions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVERYTHING THAT SUPPORTS THE JOURNEY (floating still life) ================= -->
+<section class="section bg-dark" id="supports-journey">
+  <div class="container">
+    <h2 class="section-title section-title-onlight">Everything that supports the journey</h2>
+    <div class="float-stage">
+      <div class="float-object obj-heartmath" data-name="HeartMath&reg; Inner Balance" data-desc="Real-time heart-rate coherence measurement." data-badge="Included">
+        <svg class="float-icon" width="30" height="30"><use href="#icon-heart-pulse"></use></svg>
+      </div>
+      <div class="float-object obj-breathingbox" data-name="The Breathing Box" data-desc="6 physical tools to train CO&#8322; tolerance." data-badge="Included">
+        <svg class="float-icon" width="30" height="30"><use href="#icon-box"></use></svg>
+      </div>
+      <div class="float-object obj-movement" data-name="Movement Training" data-desc="Guided sessions to release stored tension." data-badge="Immersion only">
+        <svg class="float-icon" width="30" height="30"><use href="#icon-dumbbell"></use></svg>
+      </div>
+      <div class="float-object obj-contrast obj-round" data-name="Contrast Therapy" data-desc="Sauna and cold immersion for nervous system reset." data-badge="Immersion only">
+        <svg class="float-icon" width="30" height="30"><use href="#icon-droplet"></use></svg>
+      </div>
+      <div class="float-object obj-rape" data-name="Rap&eacute; Ceremony" data-desc="A grounding closing practice." data-badge="Optional">
+        <svg class="float-icon" width="30" height="30"><use href="#icon-feather"></use></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT ACTUALLY CHANGES / REAL PRESENCE ================= -->
+<section class="section bg-alt" id="real-presence">
+  <div class="container">
+    <p class="eyebrow-title centered">What actually changes</p>
+    <h2 class="section-title">Real presence</h2>
+    <div class="card-grid presence-grid">
+      <a href="#offers" class="problem-card">
+        <h3>Clarity</h3>
+        <p>You know what actually matters, not just what's urgent.</p>
+      </a>
+      <a href="#offers" class="problem-card">
+        <h3>Performance</h3>
+        <p>Output without the internal fight.</p>
+      </a>
+      <a href="#offers" class="problem-card">
+        <h3>Connection</h3>
+        <p>Actually there with the people around you.</p>
+      </a>
+      <a href="#offers" class="problem-card">
+        <h3>A life you actually live</h3>
+        <p>Not just get through.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FROM SURVIVAL TO PRESENCE (scroll-driven) ================= -->
+<section class="journey-section bg-dark" id="journey">
+  <div class="journey-scroll-container" id="journeyScroll">
+    <div class="journey-sticky">
+      <div class="journey-illustration">
+        <svg id="bodySvg" viewBox="0 0 300 460" class="body-svg">
+          <defs>
+            <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="4.5" result="blur"/>
+              <feMerge>
+                <feMergeNode in="blur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- central light beam -->
+          <line x1="150" y1="55" x2="150" y2="400" class="beam" />
+          <circle cx="150" cy="95" r="2.4" class="beam-dot" />
+          <circle cx="150" cy="200" r="2.4" class="beam-dot" />
+          <circle cx="150" cy="270" r="2.4" class="beam-dot" />
+          <circle cx="150" cy="340" r="2.4" class="beam-dot" />
+
+          <!-- body silhouette -->
+          <g class="body-outline">
+            <circle cx="150" cy="48" r="26"/>
+            <path d="M136 70 L136 90" />
+            <path d="M164 70 L164 90" />
+            <path d="M150 90
+                     C 100 92, 78 110, 74 150
+                     C 71 178, 80 200, 96 215
+                     C 84 250, 82 300, 90 350
+                     C 94 372, 108 385, 130 388
+                     L 170 388
+                     C 192 385, 206 372, 210 350
+                     C 218 300, 216 250, 204 215
+                     C 220 200, 229 178, 226 150
+                     C 222 110, 200 92, 150 90 Z"/>
+          </g>
+
+          <!-- brain -->
+          <g class="organ organ-brain">
+            <path d="M138 38 c-8 -6 -20 -2 -20 8 c-6 2 -8 12 -1 16 c0 8 8 13 15 11 c3 3 8 3 11 0 v-30 c-1 -3 -3 -4 -5 -5 Z"/>
+            <path d="M162 38 c8 -6 20 -2 20 8 c6 2 8 12 1 16 c0 8 -8 13 -15 11 c-3 3 -8 3 -11 0 v-30 c1 -3 3 -4 5 -5 Z"/>
+          </g>
+
+          <!-- lungs + diaphragm -->
+          <g class="organ organ-lungs">
+            <path d="M150 118 v34" class="trachea"/>
+            <path d="M147 128 c-14 -10 -34 -4 -38 14 c-4 18 2 42 14 50 c10 7 22 2 24 -10 Z"/>
+            <path d="M153 128 c14 -10 34 -4 38 14 c4 18 -2 42 -14 50 c-10 7 -22 2 -24 -10 Z"/>
+            <path d="M110 196 C 130 208, 170 208, 190 196" class="diaphragm"/>
+          </g>
+
+          <!-- heart -->
+          <g class="organ organ-heart">
+            <path d="M150 176 c-10 -14 -32 -8 -32 8 c0 16 20 28 32 38 c12 -10 32 -22 32 -38 c0 -16 -22 -22 -32 -8 Z"/>
+          </g>
+
+          <!-- gut -->
+          <g class="organ organ-gut">
+            <path d="M150 300
+                     m -26 0
+                     a 26 20 0 1 1 52 0
+                     a 20 15 0 1 1 -40 0
+                     a 14 11 0 1 1 28 0
+                     a 8 6 0 1 1 -16 0"/>
+          </g>
+
+          <!-- final radiance ring -->
+          <circle cx="150" cy="230" r="0" class="presence-ring" />
+        </svg>
+      </div>
+      <div class="journey-text">
+        <p class="eyebrow-title journey-eyebrow">THE JOURNEY</p>
+        <h2 class="journey-heading">From Survival to Presence</h2>
+        <div class="journey-steps">
+          <div class="journey-step active" data-step="0">
+            <span class="step-num">01</span>
+            <h3>Your Brain Constantly Scanning for Threats</h3>
+            <p class="step-terms">Sympathetic dominance &middot; Hypervigilance &middot; High mental activity</p>
+          </div>
+          <div class="journey-step" data-step="1">
+            <span class="step-num">02</span>
+            <h3>Restoring Physiological Balance Through Breath</h3>
+            <p class="step-terms">Breath mechanics &middot; CO&#8322; tolerance &middot; Homeostasis</p>
+          </div>
+          <div class="journey-step" data-step="2">
+            <span class="step-num">03</span>
+            <h3>Effortlessly Switching from Stress to Recovery</h3>
+            <p class="step-terms">HRV biofeedback &middot; Vagus nerve &middot; Autonomic flexibility</p>
+          </div>
+          <div class="journey-step" data-step="3">
+            <span class="step-num">04</span>
+            <h3>Making Presence Your New Baseline</h3>
+            <p class="step-terms">Safety &middot; Presence &middot; Connection</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFERS ================= -->
+<section class="section bg-alt" id="offers">
+  <div class="container">
+    <h2 class="section-title">Offers</h2>
+    <p class="section-subtitle">One-on-one coaching, built around your nervous system.</p>
+
+    <div class="card-grid offers-grid">
+
+      <!-- RESET Assessment -->
+      <div class="offer-card offer-white">
+        <h3 class="offer-name">RESET Assessment</h3>
+        <p class="offer-price">&euro;80</p>
+        <p class="offer-desc">One session to understand what's keeping your nervous system stuck.</p>
+        <p class="offer-feature">&rarr; Personalized action plan</p>
+        <p class="offer-feature">&rarr; 5 live tests, not just one score</p>
+        <a href="#contact" class="btn btn-gold offer-cta">Book Assessment</a>
+      </div>
+
+      <!-- RESET 12 -->
+      <div class="offer-card offer-dark">
+        <span class="offer-badge">MOST POPULAR</span>
+        <h3 class="offer-name">RESET 12</h3>
+        <p class="offer-format">Online</p>
+        <p class="offer-price">&euro;821</p>
+        <p class="offer-start-badge">START WITH &euro;221</p>
+        <p class="offer-microline">4-week start &middot; Non-refundable</p>
+        <p class="offer-desc">Regulate your nervous system and move beyond survival mode.</p>
+        <p class="offer-included-label">INCLUDED</p>
+        <ul class="offer-included-list">
+          <li><svg width="18" height="18"><use href="#icon-heart-pulse"></use></svg>HeartMath&reg; Inner Balance</li>
+          <li><svg width="18" height="18"><use href="#icon-box"></use></svg>Breathing Box</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold offer-cta">Apply for RESET</a>
+      </div>
+
+      <!-- RESET FULL IMMERSION -->
+      <div class="offer-card offer-outline">
+        <h3 class="offer-name">RESET FULL IMMERSION</h3>
+        <p class="offer-format"><svg width="14" height="14"><use href="#icon-pin"></use></svg>Hybrid &middot; Lisbon</p>
+        <p class="offer-price">&euro;1,721</p>
+        <p class="offer-start-badge">START WITH &euro;581</p>
+        <p class="offer-microline">4-week start &middot; Non-refundable</p>
+        <p class="offer-desc">Everything in RESET 12, plus in-person integration in Lisbon.</p>
+        <p class="offer-included-label">INCLUDED</p>
+        <ul class="offer-included-list">
+          <li><svg width="18" height="18"><use href="#icon-heart-pulse"></use></svg>HeartMath&reg; Inner Balance</li>
+          <li><svg width="18" height="18"><use href="#icon-box"></use></svg>Breathing Box</li>
+        </ul>
+        <p class="offer-included-label">IMMERSION ONLY</p>
+        <ul class="offer-included-list">
+          <li><svg width="18" height="18"><use href="#icon-dumbbell"></use></svg>4 Guided Gym &amp; Sauna Sessions</li>
+          <li><svg width="18" height="18"><use href="#icon-droplet"></use></svg>2 Contrast Therapy Sessions</li>
+          <li><svg width="18" height="18"><use href="#icon-feather"></use></svg>1 Optional Rap&eacute; Ceremony</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold-outline offer-cta">Apply for Immersion</a>
+      </div>
+
+    </div>
+    <p class="offers-footnote">Want to bring this to your team? <a href="#contact">Let's talk.</a></p>
+  </div>
+</section>
+
+<!-- ================= WHO I AM / ABOUT ================= -->
+<section class="section bg-light" id="about">
+  <div class="container container-narrow">
+    <h2 class="section-title">Who I am</h2>
+    <div class="bio-block">
+      <p>I'm Thibault. A few years ago, I was doing what looked like a successful career in digital marketing, working with international brands, while constantly running on stress without really noticing it.</p>
+      <p>Breathwork first came into my life before COVID. At the time, I was simply looking for something to help me feel better. What I didn't expect was how much it would change the way I lived. I became calmer, more focused, slept better, and started showing up differently in my relationships. I wasn't just managing stress anymore&mdash;I felt more present.</p>
+      <p>Curiosity turned into a passion. I spent years exploring different approaches, training in breathwork and heart-rate coherence, experimenting on myself long before sharing it with others. Friends began asking for help, then friends of friends, and it naturally grew from there.</p>
+      <p>Today, I still work in digital marketing, but I also help people who feel constantly "on" reconnect with a calmer, more resilient version of themselves through practical, science-informed tools.</p>
+      <p>I'm based in <svg width="14" height="14" class="inline-pin"><use href="#icon-pin"></use></svg>Lisbon and certified in Oxygen Advantage and HeartMath.</p>
+    </div>
+    <p class="bio-mention">Digital marketing &middot; Based in <svg width="12" height="12" class="inline-pin"><use href="#icon-pin"></use></svg>Lisbon &middot; Sessions in English or French</p>
+
+    <div class="qualifications">
+      <div class="qual-badge">Oxygen Advantage Certified Instructor</div>
+      <div class="qual-badge">HeartMath Certified Coach</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FREE DISCOVERY CALL ================= -->
+<section class="section bg-dark" id="discovery-call">
+  <div class="container container-narrow center-text">
+    <h2 class="section-title section-title-onlight">Not sure where to start?</h2>
+    <p class="discovery-subtitle">Let's talk.</p>
+    <p class="discovery-desc">Book a free 20-minute discovery call to explore your challenges, answer your questions, and see if we're the right fit.</p>
+    <a href="#contact" class="btn btn-gold">Book a Free Discovery Call</a>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section bg-light" id="faq">
+  <div class="container container-narrow">
+    <h2 class="section-title">FAQ</h2>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>How do I know if this is right for me?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>If you're constantly stressed, overwhelmed, overthinking, or feel stuck in survival mode, this program was designed for you.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>How is this different from therapy?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>Therapy often focuses on understanding and healing the past. My coaching focuses on helping you regulate your nervous system using practical, science-based tools you can apply in everyday life.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Do I need any experience with breathwork or meditation?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>Not at all. Everything is taught step by step and adapted to your experience.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>How long does it take to see results?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>Many people notice changes within the first few weeks. Lasting change comes from consistent practice over the 12-week journey.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>What if I don't have much time?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>The practices are designed to fit into a busy life. You don't need hours a day to see meaningful progress.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false">
+          <span>Is this a replacement for therapy or medical care?</span>
+          <svg class="chevron" width="20" height="20"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="accordion-panel">
+          <p>No. This coaching complements healthcare but doesn't replace psychotherapy or medical treatment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS DISCOUNT ================= -->
+<section class="section bg-alt" id="tools-discount">
+  <div class="container">
+    <h2 class="section-title">Tools Discount</h2>
+    <p class="section-subtitle">Sellable on their own &mdash; no coaching required.</p>
+    <div class="card-grid discount-grid">
+      <div class="discount-card">
+        <div class="photo-placeholder-box">
+          <span class="photo-tag">Photo placeholder</span>
+        </div>
+        <h3>HeartMath&reg; Inner Balance</h3>
+        <p class="discount-tagline">Measure. Train. Improve.</p>
+        <p class="discount-desc">Real-time heart-rate coherence training.</p>
+        <a href="#contact" class="btn btn-gold-outline discount-cta">Get 20% Off</a>
+        <p class="affiliate-disclosure">Affiliate link &mdash; we may earn a commission at no extra cost to you.</p>
+      </div>
+      <div class="discount-card">
+        <div class="photo-placeholder-box">
+          <span class="photo-tag">Photo placeholder</span>
+        </div>
+        <h3>The Breathing Box</h3>
+        <p class="discount-tagline">Train your breath. Anywhere.</p>
+        <p class="discount-desc">6 physical tools to improve your CO&#8322; tolerance.</p>
+        <a href="#contact" class="btn btn-gold-outline discount-cta">Order for &euro;39</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<footer class="section bg-dark" id="contact">
+  <div class="container center-text">
+    <h2 class="section-title section-title-onlight">Contact</h2>
+    <p class="section-subtitle-onlight">Three ways to start.</p>
+    <div class="card-grid contact-grid">
+      <div class="contact-card">
+        <h3>Book a session</h3>
+        <p>Ready to start? Book a free discovery call or an assessment.</p>
+        <a href="mailto:hello@thibault-reset.com?subject=Free%20Discovery%20Call" class="btn btn-gold">Book an Audit</a>
+      </div>
+      <div class="contact-card">
+        <h3>For your team</h3>
+        <p>Want to bring this to your team or organization?</p>
+        <a href="mailto:hello@thibault-reset.com?subject=Team%20Session" class="btn btn-gold-outline">Discuss a team session</a>
+      </div>
+      <div class="contact-card">
+        <h3>Stay in the loop</h3>
+        <p>Not ready yet? Join the interest list for updates.</p>
+        <form class="interest-form" onsubmit="return false;">
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn-gold-outline">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">Coaching and education. Not psychotherapy or medical care.</p>
+      <p class="footer-copy">&copy; <span id="year"></span> Thibault Postel. Based in <svg width="12" height="12" class="inline-pin"><use href="#icon-pin"></use></svg>Lisbon.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
