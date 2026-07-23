@@ -419,6 +419,8 @@ button { font-family: inherit; cursor: pointer; }
   aspect-ratio: 4/3;
   border-radius: 10px;
   background: linear-gradient(135deg, #dfd6c4, #cdbfa2);
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--border);
   display: flex;
   align-items: flex-end;
@@ -429,6 +431,28 @@ button { font-family: inherit; cursor: pointer; }
   position: static;
   color: rgba(28,27,24,0.45);
 }
+.photo-placeholder-box.has-photo .photo-tag { display: none; }
+
+/* ---------- portrait ---------- */
+.portrait-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, #dfd6c4, #cdbfa2);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portrait-fallback {
+  font-family: var(--font-serif);
+  font-size: 28.6px;
+  color: var(--brown-deep);
+}
+.portrait-circle.has-photo .portrait-fallback { display: none; }
 
 /* ============================================================
    EVERYTHING THAT SUPPORTS THE JOURNEY — floating still life
@@ -518,6 +542,7 @@ button { font-family: inherit; cursor: pointer; }
   background-position: center;
 }
 .float-object.hovered::after { opacity: 1; }
+.float-object.hovered.has-photo { background-image: var(--photo); }
 .float-object.hovered .float-icon { opacity: 0; }
 .float-object.hovered .float-info {
   opacity: 1;
@@ -853,6 +878,9 @@ button { font-family: inherit; cursor: pointer; }
   flex-wrap: wrap;
 }
 .qual-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -861,6 +889,18 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 700;
   color: var(--brown-deep);
 }
+.qual-logo {
+  display: none;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.qual-logo.has-photo { display: block; }
 
 /* ============================================================
    DISCOVERY CALL

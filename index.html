@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thibault Postel — Nervous System Regulation Coaching</title>
 <meta name="description" content="From survival mode to presence. Breath, heart coherence, and somatic practices that teach your body it's safe to rest again. Coaching and education, not therapy.">
+<link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,7 +61,7 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
-  <div class="hero-photo-placeholder" aria-hidden="true"></div>
+  <div class="hero-photo-placeholder" data-photo="images/hero-bg.jpg" aria-hidden="true"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">From <span class="accent-light">survival mode</span> to <span class="accent-light">presence</span>.</h1>
@@ -291,14 +292,14 @@
     <h3 class="eyebrow-title">The tools we'll be using</h3>
     <div class="tools-mention-grid">
       <div class="tool-mention-item">
-        <div class="photo-placeholder-box">
+        <div class="photo-placeholder-box" data-photo="images/tools/heartmath-device.jpg">
           <span class="photo-tag">Photo placeholder</span>
         </div>
         <h4>HeartMath&reg; Inner Balance</h4>
         <p>Measures your heart-rate coherence in real time, so you can see your nervous system shift as it happens.</p>
       </div>
       <div class="tool-mention-item">
-        <div class="photo-placeholder-box">
+        <div class="photo-placeholder-box" data-photo="images/tools/breathing-box.jpg">
           <span class="photo-tag">Photo placeholder</span>
         </div>
         <h4>The Breathing Box</h4>
@@ -314,19 +315,19 @@
     <h2 class="section-title section-title-onlight">Everything that supports the journey</h2>
     <p class="float-hint">Hover over each item to discover it</p>
     <div class="float-stage">
-      <div class="float-object obj-heartmath" data-name="HeartMath&reg; Inner Balance" data-desc="Real-time heart-rate coherence measurement." data-badge="Included">
+      <div class="float-object obj-heartmath" data-name="HeartMath&reg; Inner Balance" data-desc="Real-time heart-rate coherence measurement." data-badge="Included" data-photo="images/objects/heartmath.jpg">
         <svg class="float-icon" width="30" height="30"><use href="#icon-heart-pulse"></use></svg>
       </div>
-      <div class="float-object obj-breathingbox" data-name="The Breathing Box" data-desc="6 physical tools to train CO&#8322; tolerance." data-badge="Included">
+      <div class="float-object obj-breathingbox" data-name="The Breathing Box" data-desc="6 physical tools to train CO&#8322; tolerance." data-badge="Included" data-photo="images/objects/breathing-box.jpg">
         <svg class="float-icon" width="30" height="30"><use href="#icon-box"></use></svg>
       </div>
-      <div class="float-object obj-movement" data-name="Movement Training" data-desc="Guided sessions to release stored tension." data-badge="Immersion only">
+      <div class="float-object obj-movement" data-name="Movement Training" data-desc="Guided sessions to release stored tension." data-badge="Immersion only" data-photo="images/objects/movement-training.jpg">
         <svg class="float-icon" width="30" height="30"><use href="#icon-dumbbell"></use></svg>
       </div>
-      <div class="float-object obj-contrast obj-round" data-name="Contrast Therapy" data-desc="Sauna and cold immersion for nervous system reset." data-badge="Immersion only">
+      <div class="float-object obj-contrast obj-round" data-name="Contrast Therapy" data-desc="Sauna and cold immersion for nervous system reset." data-badge="Immersion only" data-photo="images/objects/contrast-therapy.jpg">
         <svg class="float-icon" width="30" height="30"><use href="#icon-droplet"></use></svg>
       </div>
-      <div class="float-object obj-rape" data-name="Rap&eacute; Ceremony" data-desc="A grounding closing practice." data-badge="Optional">
+      <div class="float-object obj-rape" data-name="Rap&eacute; Ceremony" data-desc="A grounding closing practice." data-badge="Optional" data-photo="images/objects/rape-ceremony.jpg">
         <svg class="float-icon" width="30" height="30"><use href="#icon-feather"></use></svg>
       </div>
     </div>
@@ -398,6 +399,7 @@
 <!-- ================= WHO I AM / ABOUT ================= -->
 <section class="section bg-light" id="about">
   <div class="container container-narrow">
+    <div class="portrait-circle" data-photo="images/thibault-portrait.jpg" aria-hidden="true"><span class="portrait-fallback">TP</span></div>
     <h2 class="section-title">Who I am</h2>
     <div class="bio-block">
       <p>I'm Thibault. A few years ago, I was doing what looked like a successful career in digital marketing, working with international brands, while constantly running on stress without really noticing it.</p>
@@ -409,8 +411,14 @@
     <p class="bio-mention">Digital marketing &middot; Based in <svg width="12" height="12" class="inline-pin"><use href="#icon-pin"></use></svg>Lisbon &middot; Sessions in English or French</p>
 
     <div class="qualifications">
-      <div class="qual-badge">Oxygen Advantage Certified Instructor</div>
-      <div class="qual-badge">HeartMath Certified Coach</div>
+      <div class="qual-badge">
+        <div class="qual-logo" data-photo="images/logos/oxygen-advantage.png"></div>
+        <span>Oxygen Advantage Certified Instructor</span>
+      </div>
+      <div class="qual-badge">
+        <div class="qual-logo" data-photo="images/logos/heartmath.png"></div>
+        <span>HeartMath Certified Coach</span>
+      </div>
     </div>
   </div>
 </section>
@@ -432,7 +440,7 @@
     <p class="section-subtitle">Sellable on their own &mdash; no coaching required.</p>
     <div class="card-grid discount-grid">
       <div class="discount-card">
-        <div class="photo-placeholder-box">
+        <div class="photo-placeholder-box" data-photo="images/discount/heartmath.jpg" data-photo-fallback="images/tools/heartmath-device.jpg">
           <span class="photo-tag">Photo placeholder</span>
         </div>
         <h3>HeartMath&reg; Inner Balance</h3>
@@ -442,7 +450,7 @@
         <p class="affiliate-disclosure">Affiliate link &mdash; we may earn a commission at no extra cost to you.</p>
       </div>
       <div class="discount-card">
-        <div class="photo-placeholder-box">
+        <div class="photo-placeholder-box" data-photo="images/discount/breathing-box.jpg" data-photo-fallback="images/tools/breathing-box.jpg">
           <span class="photo-tag">Photo placeholder</span>
         </div>
         <h3>The Breathing Box</h3>

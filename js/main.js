@@ -4,6 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ---------- real photo loader (graceful: keeps placeholder if the file isn't there yet) ----------
+  function applyPhoto(el, url) {
+    if (el.classList.contains('float-object')) {
+      el.style.setProperty('--photo', `url('${url}')`);
+    } else {
+      el.style.backgroundImage = `url('${url}')`;
+    }
+    el.classList.add('has-photo');
+  }
+  document.querySelectorAll('[data-photo]').forEach(el => {
+    const url = el.getAttribute('data-photo');
+    const fallbackUrl = el.getAttribute('data-photo-fallback');
+    const img = new Image();
+    img.onload = () => applyPhoto(el, url);
+    img.onerror = () => {
+      if (!fallbackUrl) return;
+      const fallbackImg = new Image();
+      fallbackImg.onload = () => applyPhoto(el, fallbackUrl);
+      fallbackImg.src = fallbackUrl;
+    };
+    img.src = url;
+  });
+
   // ---------- expose real nav height for sticky offsets ----------
   const siteNav = document.getElementById('siteNav');
   function setNavHeight() {
