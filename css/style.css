@@ -56,7 +56,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ---------- section rhythm ---------- */
 .section {
-  padding: 42px 0 72px;
+  padding: 42px 0 102px;
 }
 .bg-light { background: var(--bg); }
 .bg-alt { background: var(--bg-alt); }
@@ -66,7 +66,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--gold);
   font-size: clamp(30.8px, 4vw, 46.2px);
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 .section-title-onlight { color: var(--gold-light); }
 
@@ -433,6 +433,14 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    EVERYTHING THAT SUPPORTS THE JOURNEY — floating still life
    ============================================================ */
+.float-hint {
+  text-align: center;
+  color: var(--border);
+  opacity: 0.75;
+  font-size: 14px;
+  font-style: italic;
+  margin: -8px 0 24px;
+}
 .float-stage {
   position: relative;
   height: 680px;
@@ -441,8 +449,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .float-object {
   position: absolute;
-  width: 150px;
-  height: 110px;
+  width: 170px;
+  height: 125px;
   transform: translate(-50%, -50%);
   border-radius: 14px;
   background: #241f18;
@@ -465,7 +473,7 @@ button { font-family: inherit; cursor: pointer; }
   opacity: 0;
   transition: opacity var(--transition-med);
 }
-.float-object .float-icon { transition: opacity var(--transition-med); }
+.float-object .float-icon { width: 46px; height: 46px; transition: opacity var(--transition-med); }
 .float-object .float-info {
   position: absolute;
   left: 16px;
@@ -503,8 +511,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .float-object.hovered {
-  width: 260px;
-  height: 220px;
+  width: 285px;
+  height: 235px;
   z-index: 5;
   background-size: cover;
   background-position: center;
@@ -519,14 +527,14 @@ button { font-family: inherit; cursor: pointer; }
 .obj-round { border-radius: 50%; }
 .float-object.obj-round.hovered { border-radius: 20px; }
 
-.obj-heartmath  { background-color: #2a2118; left: 55%; top: 28%; animation-delay: 0s; }
-.obj-heartmath.hovered  { background-image: linear-gradient(135deg,#3a2f22,#1c1712); }
+.obj-heartmath  { background-color: #262019; left: 55%; top: 28%; animation-delay: 0s; }
+.obj-heartmath.hovered  { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
 .obj-breathingbox { background-color: #262019; left: 21%; top: 37%; animation-delay: 1.2s; }
 .obj-breathingbox.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
 .obj-movement { background-color: #262019; left: 22%; top: 78%; animation-delay: 2s; }
 .obj-movement.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
-.obj-contrast { background-color: #232821; left: 49%; top: 65%; width: 130px; height: 130px; animation-delay: 0.6s; }
-.obj-contrast.hovered { width: 240px; height: 220px; background-image: linear-gradient(135deg,#233028,#141a17); }
+.obj-contrast { background-color: #262019; left: 49%; top: 65%; width: 145px; height: 145px; animation-delay: 0.6s; }
+.obj-contrast.hovered { width: 260px; height: 235px; background-image: linear-gradient(135deg,#352a1f,#1a1611); }
 .obj-rape { background-color: #262019; left: 77%; top: 62%; animation-delay: 1.8s; }
 .obj-rape.hovered { background-image: linear-gradient(135deg,#352a1f,#1a1611); }
 
@@ -537,6 +545,7 @@ button { font-family: inherit; cursor: pointer; }
 .float-object.hovered { animation-play-state: paused; }
 
 @media (max-width: 900px) {
+  .float-hint { display: none; }
   .float-stage {
     height: auto;
     display: flex;
