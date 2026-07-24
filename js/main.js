@@ -115,6 +115,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ---------- floating still-life objects ----------
+  const isMobileFloats = window.matchMedia('(max-width: 900px)').matches;
+
+  let lightboxEl = null;
+  function openFloatLightbox(obj, name, desc, badge) {
+    if (!lightboxEl) {
+      lightboxEl = document.createElement('div');
+      lightboxEl.className = 'float-lightbox';
+      lightboxEl.innerHTML =
+        '<button class="float-lightbox-close" aria-label="Close">&times;</button>' +
+        '<div class="float-lightbox-card"><div class="float-lightbox-body"></div></div>';
+      document.body.appendChild(lightboxEl);
+      lightboxEl.addEventListener('click', (e) => {
+        if (e.target === lightboxEl) closeFloatLightbox();
+      });
+      lightboxEl.querySelector('.float-lightbox-close').addEventListener('click', closeFloatLightbox);
+    }
+    const card = lightboxEl.querySelector('.float-lightbox-card');
+    const photo = obj.style.getPropertyValue('--photo');
+    card.style.backgroundImage = photo || '';
+    lightboxEl.querySelector('.float-lightbox-body').innerHTML =
+      '<span class="fi-name">' + name + '</span>' +
+      '<span class="fi-desc">' + desc + '</span>' +
+      (badge ? '<span class="fi-badge">' + badge + '</span>' : '');
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => lightboxEl.classList.add('visible'));
+  }
+  function closeFloatLightbox() {
+    if (!lightboxEl) return;
+    lightboxEl.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
   document.querySelectorAll('.float-object').forEach(obj => {
     const name = obj.getAttribute('data-name') || '';
     const desc = obj.getAttribute('data-desc') || '';
@@ -127,14 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
       (badge ? '<span class="fi-badge">' + badge + '</span>' : '');
     obj.appendChild(info);
 
-    obj.addEventListener('mouseenter', () => obj.classList.add('hovered'));
-    obj.addEventListener('mouseleave', () => obj.classList.remove('hovered'));
-    obj.addEventListener('touchstart', () => {
-      document.querySelectorAll('.float-object.hovered').forEach(o => {
-        if (o !== obj) o.classList.remove('hovered');
-      });
-      obj.classList.toggle('hovered');
-    }, { passive: true });
+    if (isMobileFloats) {
+      const label = document.createElement('span');
+      label.className = 'float-mobile-label';
+      label.textContent = name;
+      obj.appendChild(label);
+      obj.addEventListener('click', () => openFloatLightbox(obj, name, desc, badge));
+    } else {
+      obj.addEventListener('mouseenter', () => obj.classList.add('hovered'));
+      obj.addEventListener('mouseleave', () => obj.classList.remove('hovered'));
+    }
   });
 
   // ---------- "From Survival to Presence" scroll-driven journey ----------

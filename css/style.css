@@ -701,14 +701,17 @@ button { font-family: inherit; cursor: pointer; }
 }
 .float-object.hovered { animation-play-state: paused; }
 
+.float-mobile-label { display: none; }
+
 @media (max-width: 900px) {
-  .float-hint { display: none; }
+  .float-hint { opacity: 0.75; }
   .float-stage {
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     align-items: stretch;
+    max-width: 480px;
   }
   .float-object {
     position: static;
@@ -716,20 +719,105 @@ button { font-family: inherit; cursor: pointer; }
     height: auto !important;
     transform: none !important;
     animation: none;
-    padding: 20px;
+    padding: 18px 20px;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     gap: 14px;
     border-radius: 12px;
   }
-  .float-object .float-info {
-    position: static;
-    opacity: 1;
-    transform: none;
-    text-align: left;
-  }
+  .float-object .float-info { display: none; }
   .float-object::after { display: none; }
-  .float-object .float-icon { flex-shrink: 0; }
+  .float-object .float-icon { flex-shrink: 0; opacity: 1 !important; }
+  .float-mobile-label { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 15.5px; color: var(--gold); }
+}
+
+/* ---------- mobile tap lightbox for floating objects ---------- */
+.float-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(15,12,8,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.float-lightbox.visible { opacity: 1; pointer-events: auto; }
+.float-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.float-lightbox-card {
+  width: 100%;
+  max-width: 380px;
+  max-height: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 22px;
+  background-color: var(--brown-deep);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  transform: scale(0.92);
+  transition: transform 0.3s ease;
+}
+.float-lightbox.visible .float-lightbox-card { transform: scale(1); }
+.float-lightbox-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 42%, rgba(0,0,0,0.05) 70%);
+}
+.float-lightbox-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px;
+  z-index: 2;
+}
+.float-lightbox-body .fi-name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 25px;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.float-lightbox-body .fi-desc {
+  display: block;
+  font-size: 15.5px;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.float-lightbox-body .fi-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 /* ============================================================
