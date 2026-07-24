@@ -1109,7 +1109,7 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute;
   width: 130px;
   text-align: center;
-  z-index: 2;
+  z-index: 4;
   transition: transform 0.1s linear;
 }
 .orbit-node .dot {
@@ -1155,7 +1155,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 640px) {
   .orbit-stage { transform: scale(0.58); transform-origin: center top; margin-bottom: -170px; }
-  .orbit-hint { margin-top: 20px; }
+  .orbit-hint { margin-top: 70px; }
+  .orbit-node .label { font-size: 23.25px; }
+  .orbit-node .desc { font-size: 19.5px; }
+  .orbit-node.near .desc { max-height: 140px; }
 }
 
 /* ============================================================
