@@ -390,6 +390,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.4;
   max-width: 80%;
 }
+.msg-short { display: none; }
 .msg-time {
   text-align: center;
   font-size: 11px;
@@ -429,8 +430,10 @@ button { font-family: inherit; cursor: pointer; }
 .sf-reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 640px) {
-  .phone-shell { width: 273px; }
-  .phone-screen { min-height: 399px; padding: 35.7px 13.7px 16.8px; }
+  .phone-shell { width: 290px; }
+  .phone-screen { min-height: 0; padding: 32px 14px 16px; }
+  .msg-full { display: none; }
+  .msg-short { display: inline; }
 }
 
 /* ---------- physical signs pool ---------- */
