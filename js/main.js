@@ -185,8 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function layoutOrbit() {
       const rect = orbitStage.getBoundingClientRect();
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
+      // use layout (unscaled) dimensions for positioning math, since a CSS
+      // transform: scale() on mobile changes the rendered rect but not the
+      // coordinate space that style.left/top and offsetWidth operate in.
+      const cx = orbitStage.offsetWidth / 2;
+      const cy = orbitStage.offsetHeight / 2;
       const vh = window.innerHeight;
       const stageCenterY = rect.top + rect.height / 2;
       let progress = 1 - Math.min(1, Math.max(0, stageCenterY / vh));

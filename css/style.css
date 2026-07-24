@@ -1059,12 +1059,13 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    REAL PRESENCE — orbit
    ============================================================ */
+#real-presence.section { padding-bottom: 76px; }
 .orbit-stage {
   position: relative;
   width: 100%;
-  max-width: 620px;
+  max-width: 560px;
   aspect-ratio: 1 / 1;
-  margin: 88px auto 0;
+  margin: 56px auto 0;
 }
 .orbit-decorative-ring {
   position: absolute;
@@ -1140,7 +1141,7 @@ button { font-family: inherit; cursor: pointer; }
   color: rgba(243,238,228,0.45);
   font-size: 13.5px;
   font-style: italic;
-  margin-top: 64px;
+  margin-top: -80px;
 }
 .orbit-lines {
   position: absolute;
@@ -1153,7 +1154,8 @@ button { font-family: inherit; cursor: pointer; }
   transition: stroke 0.3s ease;
 }
 @media (max-width: 640px) {
-  .orbit-stage { transform: scale(0.58); transform-origin: center top; margin-bottom: -230px; }
+  .orbit-stage { transform: scale(0.58); transform-origin: center top; margin-bottom: -170px; }
+  .orbit-hint { margin-top: 20px; }
 }
 
 /* ============================================================
