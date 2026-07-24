@@ -66,21 +66,21 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--gold);
   font-size: clamp(30.8px, 4vw, 46.2px);
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 .section-title-onlight { color: var(--gold-light); }
 
 .section-subtitle {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 18.7px;
+  font-size: 19.6px;
   max-width: 560px;
   margin: 0 auto 40px;
 }
 .section-subtitle-onlight {
   text-align: center;
   color: var(--border);
-  font-size: 18.7px;
+  font-size: 19.6px;
   max-width: 560px;
   margin: 0 auto 40px;
   opacity: 0.85;
@@ -101,7 +101,7 @@ button { font-family: inherit; cursor: pointer; }
 .micro-note {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 14.3px;
+  font-size: 15px;
   margin-top: 32px;
 }
 
@@ -114,7 +114,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 14px 28px;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 16.5px;
+  font-size: 17.3px;
   border: 1.5px solid transparent;
   transition: background var(--transition-med), color var(--transition-med), border-color var(--transition-med);
   white-space: normal;
@@ -172,12 +172,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-links a:not(.btn) {
   font-weight: 600;
-  font-size: 16.5px;
+  font-size: 17.3px;
   color: var(--text);
   transition: color var(--transition-fast);
 }
 .nav-links a:not(.btn):hover { color: var(--gold); }
-.nav-cta { padding: 10px 22px; font-size: 15.4px; }
+.nav-cta { padding: 10px 22px; font-size: 16.2px; }
 
 .nav-burger {
   display: none;
@@ -249,11 +249,11 @@ button { font-family: inherit; cursor: pointer; }
 .hero-title {
   font-size: clamp(37.4px, 6vw, 70.4px);
   color: var(--cream);
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 .hero-subtitle {
   font-family: var(--font-sans);
-  font-size: clamp(17.6px, 2.2vw, 22px);
+  font-size: clamp(18.5px, 2.2vw, 23.1px);
   color: var(--cream);
   max-width: 540px;
   margin: 0 auto 32px;
@@ -267,7 +267,7 @@ button { font-family: inherit; cursor: pointer; }
   bottom: 14px;
   right: 18px;
   z-index: 2;
-  font-size: 12.1px;
+  font-size: 12.7px;
   color: rgba(255,255,255,0.55);
   letter-spacing: 0.03em;
 }
@@ -296,12 +296,12 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 19.8px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   color: var(--text);
   transition: color var(--transition-med);
 }
 .problem-card p {
-  font-size: 16px;
+  font-size: 16.8px;
   color: var(--text-secondary);
   margin: 0;
   transition: color var(--transition-med);
@@ -316,7 +316,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   margin-top: 36px;
   font-family: var(--font-serif);
-  font-size: 22px;
+  font-size: 23.1px;
   color: var(--text);
   max-width: 620px;
   margin-left: auto;
@@ -338,7 +338,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--white);
-  font-size: 15.4px;
+  font-size: 16.2px;
   font-weight: 600;
   color: var(--text);
   transition: background var(--transition-med), color var(--transition-med);
@@ -383,11 +383,11 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 22px;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 .lever-featured h3 { color: var(--cream); }
 .lever-card p {
-  font-size: 16.5px;
+  font-size: 17.3px;
   color: var(--text);
   margin: 0;
 }
@@ -408,10 +408,10 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: 18.7px;
-  margin: 16px 0 8px;
+  margin: 16px 0 14px;
 }
 .tool-mention-item p {
-  font-size: 16px;
+  font-size: 16.8px;
   color: var(--text-secondary);
 }
 .photo-placeholder-box {
@@ -449,7 +449,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .portrait-fallback {
   font-family: var(--font-serif);
-  font-size: 28.6px;
+  font-size: 30px;
   color: var(--brown-deep);
 }
 .portrait-circle.has-photo .portrait-fallback { display: none; }
@@ -461,7 +461,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   color: var(--border);
   opacity: 0.75;
-  font-size: 14px;
+  font-size: 14.7px;
   font-style: italic;
   margin: -8px 0 24px;
 }
@@ -516,7 +516,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 2px;
 }
 .float-object .float-info .fi-desc {
-  font-size: 13.2px;
+  font-size: 13.9px;
   color: var(--cream);
   display: block;
   margin-bottom: 6px;
@@ -710,11 +710,11 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 700;
   font-size: 24.2px;
   color: var(--cream);
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   line-height: 1.3;
 }
 .step-terms {
-  font-size: 15.4px;
+  font-size: 16.2px;
   color: var(--gold-light);
   margin: 0;
 }
@@ -761,11 +761,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-name {
   font-size: 26.4px;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 .offer-dark .offer-name { color: var(--cream); }
 .offer-format {
-  font-size: 14.3px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -797,7 +797,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-dark .offer-start-badge { background: rgba(210,171,116,0.14); color: var(--gold-light); border-color: var(--gold-light); }
 .offer-microline {
-  font-size: 13.8px;
+  font-size: 14.5px;
   color: var(--text-secondary);
   margin-bottom: 24px;
 }
@@ -815,7 +815,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 16px;
 }
 .offer-stats p {
-  font-size: 14.9px;
+  font-size: 15.6px;
   font-weight: 600;
   color: var(--cream);
   text-align: center;
@@ -823,11 +823,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-stats p:last-child { margin-bottom: 0; }
 .offer-desc {
-  font-size: 16.5px;
+  font-size: 17.3px;
   margin-bottom: 18px;
 }
 .offer-feature {
-  font-size: 16px;
+  font-size: 16.8px;
   font-weight: 600;
   margin-bottom: 8px;
 }
@@ -847,7 +847,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   gap: 10px;
-  font-size: 16px;
+  font-size: 16.8px;
   font-weight: 600;
   padding: 7px 0;
 }
@@ -858,7 +858,7 @@ button { font-family: inherit; cursor: pointer; }
 .offers-footnote {
   text-align: center;
   margin-top: 36px;
-  font-size: 16px;
+  font-size: 16.8px;
   color: var(--text-secondary);
 }
 .offers-footnote a { color: var(--gold); font-weight: 700; }
@@ -873,14 +873,14 @@ button { font-family: inherit; cursor: pointer; }
    ============================================================ */
 .bio-block {
   text-align: left;
-  font-size: 18.2px;
+  font-size: 19.1px;
   color: var(--text);
 }
 .bio-block p { margin-bottom: 1.1em; }
 .bio-mention {
   text-align: center;
   color: var(--text-secondary);
-  font-size: 15.4px;
+  font-size: 16.2px;
   font-weight: 600;
   margin: 28px 0 36px;
   display: flex;
@@ -905,7 +905,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 12px 20px;
-  font-size: 14.9px;
+  font-size: 15.6px;
   font-weight: 700;
   color: var(--brown-deep);
 }
@@ -930,7 +930,7 @@ button { font-family: inherit; cursor: pointer; }
   font-family: var(--font-serif);
   font-size: 24.2px;
   color: var(--gold-light);
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 .discovery-desc {
   text-align: center;
@@ -958,7 +958,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 20px 4px;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 17.6px;
+  font-size: 18.5px;
   color: var(--text);
   text-align: left;
 }
@@ -978,7 +978,7 @@ button { font-family: inherit; cursor: pointer; }
 .accordion-panel p {
   padding: 0 4px 20px;
   color: var(--text-secondary);
-  font-size: 16.5px;
+  font-size: 17.3px;
   margin: 0;
 }
 
@@ -999,22 +999,22 @@ button { font-family: inherit; cursor: pointer; }
 }
 .discount-card h3 {
   font-size: 20.9px;
-  margin: 16px 0 4px;
+  margin: 16px 0 10px;
 }
 .discount-tagline {
   color: var(--gold);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 16.8px;
   margin-bottom: 4px;
 }
 .discount-desc {
   color: var(--text-secondary);
-  font-size: 16px;
+  font-size: 16.8px;
   margin-bottom: 18px;
 }
 .discount-cta { width: 100%; }
 .affiliate-disclosure {
-  font-size: 12.7px;
+  font-size: 13.3px;
   color: var(--text-secondary);
   margin-top: 10px;
   margin-bottom: 0;
@@ -1050,7 +1050,7 @@ button { font-family: inherit; cursor: pointer; }
 .contact-link svg { color: var(--gold-light); transition: color var(--transition-med); }
 .contact-link span {
   font-weight: 700;
-  font-size: 15.4px;
+  font-size: 16.2px;
   letter-spacing: 0.02em;
 }
 .contact-link:hover {
@@ -1067,7 +1067,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 .footer-legal, .footer-copy {
-  font-size: 14.3px;
+  font-size: 15px;
   color: var(--border);
   opacity: 0.7;
   margin-bottom: 6px;
