@@ -71,6 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- "Sound familiar?" phone thread reveal ----------
+  const sfItems = document.querySelectorAll('.sf-reveal');
+  if (sfItems.length) {
+    const sfObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 110);
+          sfObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sfItems.forEach(el => sfObserver.observe(el));
+  }
+
   // ---------- floating still-life objects ----------
   document.querySelectorAll('.float-object').forEach(obj => {
     const name = obj.getAttribute('data-name') || '';
