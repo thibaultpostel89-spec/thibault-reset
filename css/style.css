@@ -1234,12 +1234,6 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 18px;
 }
 .discount-cta { width: 100%; }
-.affiliate-disclosure {
-  font-size: 13.3px;
-  color: var(--text-secondary);
-  margin-top: 10px;
-  margin-bottom: 0;
-}
 
 @media (max-width: 700px) {
   .discount-grid { grid-template-columns: 1fr; }
