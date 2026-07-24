@@ -71,18 +71,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- "Sound familiar?" phone thread reveal ----------
+  // ---------- "Sound familiar?" phone thread reveal (one message at a time) ----------
   const sfItems = document.querySelectorAll('.sf-reveal');
   if (sfItems.length) {
+    const SF_STEP_MS = 1200; // pace between messages, capped well under 3s
+    let sfStarted = false;
     const sfObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 110);
-          sfObserver.unobserve(entry.target);
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !sfStarted) {
+          sfStarted = true;
+          sfItems.forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * SF_STEP_MS);
+          });
+          sfObserver.disconnect();
         }
       });
     }, { threshold: 0.2 });
-    sfItems.forEach(el => sfObserver.observe(el));
+    sfObserver.observe(sfItems[0]);
   }
 
   // ---------- floating still-life objects ----------
