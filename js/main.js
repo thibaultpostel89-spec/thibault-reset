@@ -14,17 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.add('has-photo');
   }
   document.querySelectorAll('[data-photo]').forEach(el => {
-    const url = el.getAttribute('data-photo');
-    const fallbackUrl = el.getAttribute('data-photo-fallback');
-    const img = new Image();
-    img.onload = () => applyPhoto(el, url);
-    img.onerror = () => {
-      if (!fallbackUrl) return;
-      const fallbackImg = new Image();
-      fallbackImg.onload = () => applyPhoto(el, fallbackUrl);
-      fallbackImg.src = fallbackUrl;
-    };
-    img.src = url;
+    const candidates = [el.getAttribute('data-photo')]
+      .concat((el.getAttribute('data-photo-fallback') || '').split(',').map(s => s.trim()).filter(Boolean));
+    function tryNext(i) {
+      if (i >= candidates.length) return;
+      const img = new Image();
+      img.onload = () => applyPhoto(el, candidates[i]);
+      img.onerror = () => tryNext(i + 1);
+      img.src = candidates[i];
+    }
+    tryNext(0);
   });
 
   // ---------- expose real nav height for sticky offsets ----------
