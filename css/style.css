@@ -802,6 +802,26 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 24px;
 }
 .offer-dark .offer-microline { color: var(--border); opacity: 0.8; }
+.offer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 4px 0 16px;
+}
+.offer-white .offer-divider,
+.offer-outline .offer-divider {
+  background: var(--border);
+}
+.offer-stats {
+  margin-bottom: 16px;
+}
+.offer-stats p {
+  font-size: 14.9px;
+  font-weight: 600;
+  color: var(--cream);
+  text-align: center;
+  margin: 0 0 6px;
+}
+.offer-stats p:last-child { margin-bottom: 0; }
 .offer-desc {
   font-size: 16.5px;
   margin-bottom: 18px;
