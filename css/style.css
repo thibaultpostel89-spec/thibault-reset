@@ -853,7 +853,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-included-list svg { color: var(--gold); flex-shrink: 0; }
 .offer-dark .offer-included-list svg { color: var(--gold-light); }
-.offer-cta { margin-top: auto; padding-top: 26px; align-self: center; width: 230px; }
+.offer-cta { margin-top: auto; padding-top: 26px; align-self: center; width: 100%; max-width: 320px; }
 
 .offers-footnote {
   text-align: center;
