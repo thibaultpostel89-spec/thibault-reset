@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- "Physical Signs" pills: appear one by one, in random order ----------
   const pillItems = Array.from(document.querySelectorAll('.pill-reveal'));
   if (pillItems.length) {
-    const PILL_STEP_MS = 1000;
+    const PILL_STEP_MS = 500;
     let pillsStarted = false;
     const shuffled = pillItems.slice();
     for (let i = shuffled.length - 1; i > 0; i--) {
