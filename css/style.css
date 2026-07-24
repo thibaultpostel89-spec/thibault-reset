@@ -454,12 +454,14 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 16.2px;
   font-weight: 600;
   color: var(--text);
-  transition: background var(--transition-med), color var(--transition-med);
+  transition: background var(--transition-med), color var(--transition-med), opacity 0.5s ease, transform 0.5s ease;
 }
 .sign-pill:hover {
   background: var(--brown-deep);
   color: var(--gold);
 }
+.sign-pill.pill-reveal { opacity: 0; transform: translateY(8px) scale(0.94); }
+.sign-pill.pill-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
 /* ============================================================
    THREE LEVERS / METHOD

@@ -90,6 +90,30 @@ document.addEventListener('DOMContentLoaded', () => {
     sfObserver.observe(sfItems[0]);
   }
 
+  // ---------- "Physical Signs" pills: appear one by one, in random order ----------
+  const pillItems = Array.from(document.querySelectorAll('.pill-reveal'));
+  if (pillItems.length) {
+    const PILL_STEP_MS = 2000;
+    let pillsStarted = false;
+    const shuffled = pillItems.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    const pillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !pillsStarted) {
+          pillsStarted = true;
+          shuffled.forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * PILL_STEP_MS);
+          });
+          pillObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    pillObserver.observe(pillItems[0]);
+  }
+
   // ---------- floating still-life objects ----------
   document.querySelectorAll('.float-object').forEach(obj => {
     const name = obj.getAttribute('data-name') || '';
