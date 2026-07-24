@@ -329,14 +329,6 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 15.5px;
   color: var(--text-secondary);
 }
-.connector-followup {
-  display: inline-block;
-  margin-top: 10px;
-  font-family: var(--font-sans);
-  font-style: italic;
-  font-size: 16.5px;
-  color: var(--gold);
-}
 
 /* ---------- "Sound familiar?" phone mockup ---------- */
 .phone-wrap {
