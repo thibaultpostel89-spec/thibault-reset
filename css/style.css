@@ -316,7 +316,7 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   margin-top: 36px;
   font-family: var(--font-serif);
-  font-size: 23.1px;
+  font-size: 24.3px;
   color: var(--text);
   max-width: 620px;
   margin-left: auto;
@@ -326,71 +326,73 @@ button { font-family: inherit; cursor: pointer; }
   display: inline-block;
   margin-bottom: 4px;
   font-family: var(--font-sans);
-  font-size: 15.5px;
+  font-size: 16.3px;
   color: var(--text-secondary);
 }
 
 /* ---------- "Sound familiar?" phone mockup ---------- */
+#sound-familiar .section-subtitle { font-size: 20.6px; }
+
 .phone-wrap {
   display: flex;
   justify-content: center;
   margin-top: 48px;
 }
 .phone-shell {
-  width: 300px;
+  width: 315px;
   background: #1C1B18;
-  border-radius: 42px;
-  padding: 12px;
+  border-radius: 44px;
+  padding: 12.6px;
   box-shadow: 0 30px 60px rgba(28,27,24,0.28), 0 4px 14px rgba(28,27,24,0.18);
   position: relative;
 }
 .phone-notch {
   position: absolute;
-  top: 12px;
+  top: 12.6px;
   left: 50%;
   transform: translateX(-50%);
-  width: 84px;
-  height: 22px;
+  width: 88px;
+  height: 23px;
   background: #1C1B18;
-  border-radius: 14px;
+  border-radius: 14.7px;
   z-index: 2;
 }
 .phone-screen {
   position: relative;
   background: var(--bg);
-  border-radius: 32px;
+  border-radius: 34px;
   overflow: hidden;
-  padding: 38px 16px 20px;
-  min-height: 420px;
+  padding: 40px 17px 21px;
+  min-height: 441px;
   display: flex;
   flex-direction: column;
 }
 .phone-statusbar {
   display: flex;
   justify-content: center;
-  font-size: 12px;
+  font-size: 12.6px;
   font-weight: 700;
   color: var(--text);
-  padding-bottom: 12px;
+  padding-bottom: 12.6px;
 }
 .thread {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 7.4px;
 }
 .msg-row { display: flex; justify-content: flex-end; }
 .bubble-me {
   background: var(--gold);
   color: #fff;
-  padding: 9px 14px;
-  border-radius: 16px 16px 4px 16px;
-  font-size: 14px;
+  padding: 9.5px 14.7px;
+  border-radius: 17px 17px 4px 17px;
+  font-size: 14.7px;
   line-height: 1.4;
   max-width: 80%;
 }
 .msg-time {
   text-align: center;
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--text-secondary);
   opacity: 0.7;
   margin: 2px 0 4px;
@@ -398,18 +400,18 @@ button { font-family: inherit; cursor: pointer; }
 .answer-row {
   display: flex;
   align-items: flex-start;
-  gap: 7px;
-  margin-top: 16px;
+  gap: 7.4px;
+  margin-top: 17px;
 }
-.answer-dot { font-size: 11px; margin-top: 8px; flex-shrink: 0; }
+.answer-dot { font-size: 11.6px; margin-top: 8px; flex-shrink: 0; }
 .bubble-answer {
   background: #fff;
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 12px 15px;
-  border-radius: 4px 16px 16px 16px;
+  padding: 12.6px 15.8px;
+  border-radius: 4px 17px 17px 17px;
   font-family: var(--font-serif);
-  font-size: 15.5px;
+  font-size: 16.3px;
   line-height: 1.4;
   box-shadow: 0 10px 24px rgba(74,59,44,0.08);
 }
@@ -417,7 +419,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--gold);
   font-weight: 600;
   font-family: var(--font-sans);
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   display: block;
@@ -427,8 +429,8 @@ button { font-family: inherit; cursor: pointer; }
 .sf-reveal.visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 640px) {
-  .phone-shell { width: 260px; }
-  .phone-screen { min-height: 380px; padding: 34px 13px 16px; }
+  .phone-shell { width: 273px; }
+  .phone-screen { min-height: 399px; padding: 35.7px 13.7px 16.8px; }
 }
 
 /* ---------- physical signs pool ---------- */
