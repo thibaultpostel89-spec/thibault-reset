@@ -432,6 +432,18 @@ button { font-family: inherit; cursor: pointer; }
   color: rgba(28,27,24,0.45);
 }
 .photo-placeholder-box.has-photo .photo-tag { display: none; }
+.photo-placeholder-box.has-photo {
+  background-color: transparent;
+  background-image: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-color: transparent;
+}
+.discount-card .photo-placeholder-box.has-photo {
+  background-color: #fff;
+  border-color: var(--border);
+}
 
 /* ---------- portrait ---------- */
 .portrait-circle {
@@ -493,7 +505,7 @@ button { font-family: inherit; cursor: pointer; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.82) 10%, rgba(0,0,0,0) 60%);
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.78) 26%, rgba(0,0,0,0) 56%);
   opacity: 0;
   transition: opacity var(--transition-med);
 }
@@ -542,7 +554,12 @@ button { font-family: inherit; cursor: pointer; }
   background-position: center;
 }
 .float-object.hovered::after { opacity: 1; }
-.float-object.hovered.has-photo { background-image: var(--photo); }
+.float-object.hovered.has-photo {
+  background-image: var(--photo);
+  background-size: 85%;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+}
 .float-object.hovered .float-icon { opacity: 0; }
 .float-object.hovered .float-info {
   opacity: 1;

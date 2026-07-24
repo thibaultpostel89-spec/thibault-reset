@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- real photo loader (graceful: keeps placeholder if the file isn't there yet) ----------
   function applyPhoto(el, url) {
     if (el.classList.contains('float-object')) {
-      el.style.setProperty('--photo', `url('${url}')`);
+      const absoluteUrl = new URL(url, document.baseURI).href;
+      el.style.setProperty('--photo', `url('${absoluteUrl}')`);
     } else {
       el.style.backgroundImage = `url('${url}')`;
     }
