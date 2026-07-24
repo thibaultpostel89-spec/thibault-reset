@@ -171,6 +171,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ---------- "Real presence" orbit: nodes converge toward center on scroll ----------
+  const orbitStage = document.getElementById('orbitStage');
+  if (orbitStage) {
+    const orbitNodes = document.querySelectorAll('.orbit-node');
+    const orbitLinesSvg = document.getElementById('orbitLines');
+    const orbitLineEls = [];
+    orbitNodes.forEach(() => {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      orbitLinesSvg.appendChild(line);
+      orbitLineEls.push(line);
+    });
+
+    function layoutOrbit() {
+      const rect = orbitStage.getBoundingClientRect();
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const vh = window.innerHeight;
+      const stageCenterY = rect.top + rect.height / 2;
+      let progress = 1 - Math.min(1, Math.max(0, stageCenterY / vh));
+      progress = Math.min(1, progress * 1.3);
+
+      orbitNodes.forEach((node, i) => {
+        const angle = parseFloat(node.dataset.angle) * Math.PI / 180;
+        const far = parseFloat(node.dataset.far);
+        const near = parseFloat(node.dataset.near);
+        const dist = far - (far - near) * progress;
+        const x = cx + Math.cos(angle) * dist;
+        const y = cy + Math.sin(angle) * dist;
+        node.style.left = (x - node.offsetWidth / 2) + 'px';
+        node.style.top = (y - node.offsetHeight / 2) + 'px';
+        node.classList.toggle('near', progress > 0.55);
+
+        const line = orbitLineEls[i];
+        line.setAttribute('x1', cx);
+        line.setAttribute('y1', cy);
+        line.setAttribute('x2', x);
+        line.setAttribute('y2', y);
+        line.style.stroke = progress > 0.55 ? 'rgba(210,171,116,0.5)' : 'rgba(210,171,116,0.2)';
+      });
+    }
+    layoutOrbit();
+    window.addEventListener('scroll', () => requestAnimationFrame(layoutOrbit), { passive: true });
+    window.addEventListener('resize', layoutOrbit);
+  }
+
   // ---------- "From Survival to Presence" scroll-driven journey ----------
   const journeyWrap = document.getElementById('journeyScroll');
   if (journeyWrap) {
