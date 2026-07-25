@@ -227,9 +227,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const organLungs = document.querySelector('.organ-lungs');
     const organHeart = document.querySelector('.organ-heart');
     const organGut = document.querySelector('.organ-gut');
+    const vagusPulse = document.querySelector('.vagus-pulse');
     const steps = document.querySelectorAll('.journey-step');
+    const TOTAL_STEPS = 5;
 
     let ticking = false;
+    let lastStepIndex = -1;
+    let finaleTimers = [];
+
+    function playFinaleSequence() {
+      finaleTimers.forEach(t => clearTimeout(t));
+      finaleTimers = [];
+      const order = [organBrain, organHeart, organLungs, organGut];
+      order.forEach((organ, i) => {
+        finaleTimers.push(setTimeout(() => {
+          organ.classList.add('flash');
+          setTimeout(() => organ.classList.remove('flash'), 450);
+        }, i * 260));
+      });
+      finaleTimers.push(setTimeout(() => {
+        bodyOutline.classList.add('presence');
+      }, order.length * 260));
+    }
 
     function updateJourney() {
       ticking = false;
@@ -238,20 +257,35 @@ document.addEventListener('DOMContentLoaded', () => {
       let progress = -rect.top / total;
       progress = Math.min(1, Math.max(0, progress));
 
-      let stepIndex = Math.floor(progress * 4);
-      if (stepIndex > 3) stepIndex = 3;
+      let stepIndex = Math.floor(progress * TOTAL_STEPS);
+      if (stepIndex > TOTAL_STEPS - 1) stepIndex = TOTAL_STEPS - 1;
       if (progress <= 0) stepIndex = 0;
 
       steps.forEach((step, i) => {
         step.classList.toggle('active', i === stepIndex);
       });
 
+      // 01 — brain scanning for threats
       organBrain.classList.toggle('active', stepIndex >= 0);
+      // 02 — breath restores balance
       organLungs.classList.toggle('active', stepIndex >= 1);
+      // 03 — heart lights up and pulses in coherence with the breath
       organHeart.classList.toggle('active', stepIndex >= 2);
+      // 04 — gut illuminates progressively; a vagus-nerve signal travels brain-to-gut
       organGut.classList.toggle('active', stepIndex >= 3);
-      bodyOutline.classList.toggle('active', stepIndex >= 3);
-      bodyOutline.classList.toggle('presence', stepIndex >= 3);
+      vagusPulse.classList.toggle('active', stepIndex === 3);
+      // 05 — brain, heart, lungs, gut light up in sequence, then the whole body
+      bodyOutline.classList.toggle('active', stepIndex >= 4);
+      if (stepIndex < 4) {
+        bodyOutline.classList.remove('presence');
+        finaleTimers.forEach(t => clearTimeout(t));
+        finaleTimers = [];
+      }
+
+      if (stepIndex === 4 && lastStepIndex !== 4) {
+        playFinaleSequence();
+      }
+      lastStepIndex = stepIndex;
     }
 
     window.addEventListener('scroll', () => {

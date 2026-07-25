@@ -792,7 +792,7 @@ button { font-family: inherit; cursor: pointer; }
    JOURNEY — From Survival to Presence
    ============================================================ */
 .journey-section { padding: 0; }
-.journey-scroll-container { height: 320vh; position: relative; }
+.journey-scroll-container { height: 400vh; position: relative; }
 .journey-sticky {
   position: sticky;
   top: var(--nav-height, 73px);
@@ -838,6 +838,42 @@ button { font-family: inherit; cursor: pointer; }
 .organ-gut path { fill: none; }
 .trachea { opacity: 0.3; }
 .organ-lungs.active .trachea { opacity: 1; }
+
+/* 03 — heart lights up and pulses in coherence with the breath */
+.organ-heart.active path {
+  animation: heart-coherence 4.4s ease-in-out infinite;
+}
+@keyframes heart-coherence {
+  0%, 100% { opacity: 0.85; stroke-width: 1.8; }
+  50% { opacity: 1; stroke-width: 2.4; }
+}
+
+/* 04 — gut illuminates gradually rather than snapping in */
+.organ-gut path { transition: opacity 1.6s ease, stroke-width 1.6s ease; }
+
+/* vagus-nerve signal traveling brain-to-gut along the central beam */
+.vagus-pulse {
+  fill: var(--gold-light);
+  opacity: 0;
+}
+.vagus-pulse.active {
+  animation: vagus-travel 2.4s ease-in-out infinite;
+}
+@keyframes vagus-travel {
+  0%   { cy: 60;  opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { cy: 300; opacity: 0; }
+}
+
+/* 05 — brief highlight flash as brain, heart, lungs, gut light up in sequence */
+.organ.flash path {
+  animation: organ-flash 0.45s ease-out;
+}
+@keyframes organ-flash {
+  0%   { opacity: 1; stroke-width: 3.2; filter: url(#glow); }
+  100% { opacity: 1; stroke-width: 1.8; }
+}
 
 .presence-ring {
   fill: none;
@@ -908,7 +944,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 @media (max-width: 900px) {
-  .journey-scroll-container { height: 260vh; }
+  .journey-scroll-container { height: 325vh; }
   .journey-sticky { flex-direction: column; gap: 14px; justify-content: flex-start; padding-top: 16px; }
   .journey-illustration { width: 200px; }
   .journey-text { text-align: center; }
