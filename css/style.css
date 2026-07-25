@@ -1156,7 +1156,7 @@ button { font-family: inherit; cursor: pointer; }
   transition: stroke 0.3s ease;
 }
 @media (max-width: 640px) {
-  .orbit-stage { transform: scale(0.58); transform-origin: center top; margin-bottom: -170px; }
+  .orbit-stage { transform: scale(0.58); transform-origin: center top; margin-top: 110px; margin-bottom: -170px; }
   .orbit-hint { margin-top: 70px; }
   .orbit-node .label { font-size: 23.25px; }
   .orbit-node .desc { font-size: 19.5px; }
