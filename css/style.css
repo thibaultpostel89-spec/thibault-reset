@@ -910,7 +910,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 900px) {
   .journey-scroll-container { height: 260vh; }
   .journey-sticky { flex-direction: column; gap: 14px; justify-content: flex-start; padding-top: 16px; }
-  .journey-illustration { width: 130px; }
+  .journey-illustration { width: 200px; }
   .journey-text { text-align: center; }
   .journey-eyebrow, .journey-heading { text-align: center; }
   .journey-heading { margin-bottom: 20px; }
