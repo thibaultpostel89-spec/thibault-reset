@@ -739,8 +739,9 @@ button { font-family: inherit; cursor: pointer; }
   aspect-ratio: 3/4;
   border-radius: 22px;
   background-color: var(--brown-deep);
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center 30%;
   position: relative;
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
