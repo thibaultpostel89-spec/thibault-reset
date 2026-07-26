@@ -1260,15 +1260,15 @@ button { font-family: inherit; cursor: pointer; }
 }
 .qual-logo {
   display: none;
-  width: 150px;
-  height: 56px;
+  width: 200px;
+  height: 74px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 .qual-logo-oxygen {
-  width: 200px;
-  height: 74px;
+  width: 260px;
+  height: 96px;
 }
 .qual-logo.has-photo { display: block; }
 
