@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pillObserver.observe(pillItems[0]);
   }
 
-  // ---------- "Physical Signs" pills: pick 5, then jump to the method section ----------
+  // ---------- "Physical Signs" pills: pick 5, then jump to the following section ----------
   const signsPool = document.getElementById('signsPool');
   if (signsPool) {
     const PICK_LIMIT = 5;
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         refreshPills();
         if (selected.size === PICK_LIMIT) {
           setTimeout(() => {
-            document.getElementById('method')?.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('journey')?.scrollIntoView({ behavior: 'smooth' });
           }, 350);
         }
       });
