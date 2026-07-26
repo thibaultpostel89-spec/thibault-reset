@@ -1258,14 +1258,6 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   gap: 10px;
 }
-.qual-caption {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
 .qual-logo {
   display: none;
   width: 150px;
@@ -1273,6 +1265,10 @@ button { font-family: inherit; cursor: pointer; }
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.qual-logo-oxygen {
+  width: 200px;
+  height: 74px;
 }
 .qual-logo.has-photo { display: block; }
 
