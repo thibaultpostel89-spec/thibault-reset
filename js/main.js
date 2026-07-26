@@ -114,6 +114,42 @@ document.addEventListener('DOMContentLoaded', () => {
     pillObserver.observe(pillItems[0]);
   }
 
+  // ---------- "Physical Signs" pills: pick 5, then jump to the method section ----------
+  const signsPool = document.getElementById('signsPool');
+  if (signsPool) {
+    const PICK_LIMIT = 5;
+    const signsCountEl = document.getElementById('signsPicked');
+    const pills = Array.from(signsPool.querySelectorAll('.sign-pill'));
+    const selected = new Set();
+
+    function refreshPills() {
+      if (signsCountEl) signsCountEl.textContent = String(selected.size);
+      const atLimit = selected.size >= PICK_LIMIT;
+      pills.forEach(pill => {
+        const isSelected = selected.has(pill);
+        pill.classList.toggle('selected', isSelected);
+        pill.classList.toggle('pill-disabled', atLimit && !isSelected);
+      });
+    }
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        if (selected.has(pill)) {
+          selected.delete(pill);
+        } else {
+          if (selected.size >= PICK_LIMIT) return;
+          selected.add(pill);
+        }
+        refreshPills();
+        if (selected.size === PICK_LIMIT) {
+          setTimeout(() => {
+            document.getElementById('method')?.scrollIntoView({ behavior: 'smooth' });
+          }, 350);
+        }
+      });
+    });
+  }
+
   // ---------- floating still-life objects ----------
   const isMobileFloats = window.matchMedia('(max-width: 900px)').matches;
 

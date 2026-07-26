@@ -408,6 +408,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ---------- physical signs pool ---------- */
+.signs-hint {
+  text-align: center;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: -8px 0 22px;
+}
+.signs-count { color: var(--gold); font-weight: 700; }
 .signs-pool {
   display: flex;
   flex-wrap: wrap;
@@ -422,15 +430,25 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--white);
+  font-family: inherit;
   font-size: 16.2px;
   font-weight: 600;
   color: var(--text);
-  transition: background var(--transition-med), color var(--transition-med), opacity 0.5s ease, transform 0.5s ease;
+  cursor: pointer;
+  transition: background var(--transition-med), color var(--transition-med), border-color var(--transition-med), opacity 0.5s ease, transform 0.5s ease;
 }
-.sign-pill:hover {
-  background: var(--brown-deep);
-  color: var(--gold);
+.sign-pill:hover { background: var(--brown-deep); color: var(--gold); }
+.sign-pill.selected {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--white);
 }
+.sign-pill.selected:hover { background: var(--brown-deep); color: var(--gold); }
+.sign-pill.pill-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.sign-pill.pill-disabled:hover { background: var(--white); color: var(--text); }
 .sign-pill.pill-reveal { opacity: 0; transform: translateY(8px) scale(0.94); }
 .sign-pill.pill-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
 
