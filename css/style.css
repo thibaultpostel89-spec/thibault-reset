@@ -256,6 +256,12 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--cream);
   margin-bottom: 26px;
 }
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2.6vw, 27px);
+  color: var(--gold-light);
+  margin-bottom: 18px;
+}
 .hero-subtitle {
   font-family: var(--font-sans);
   font-size: clamp(18.5px, 2.2vw, 23.1px);
