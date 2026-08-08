@@ -475,35 +475,6 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 
-/* ---------- who RESET is for ---------- */
-.who-for-list {
-  list-style: none;
-  margin: 24px 0 0;
-  padding: 0;
-  display: inline-flex;
-  flex-direction: column;
-  gap: 12px;
-  text-align: left;
-}
-.who-for-list li {
-  position: relative;
-  padding-left: 22px;
-  font-size: 16.5px;
-  color: var(--text);
-}
-.who-for-list li::before {
-  content: "\2022";
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-weight: 700;
-}
-.who-for-closing {
-  margin-top: 28px;
-  font-weight: 700;
-  color: var(--brown-deep);
-}
-
 /* ============================================================
    THREE LEVERS / METHOD
    ============================================================ */
