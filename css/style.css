@@ -101,6 +101,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-bottom: 28px;
 }
 .eyebrow-title.centered { margin-bottom: 6px; }
+.hero-eyebrow { margin-bottom: 14px; }
 
 .micro-note {
   text-align: center;
@@ -451,6 +452,65 @@ button { font-family: inherit; cursor: pointer; }
 .sign-pill.pill-disabled:hover { background: var(--white); color: var(--text); }
 .sign-pill.pill-reveal { opacity: 0; transform: translateY(8px) scale(0.94); }
 .sign-pill.pill-reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
+
+/* ---------- not a social-skills problem ---------- */
+.emphasis-line {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--gold);
+  margin-top: 28px;
+}
+
+/* ---------- what presence looks like ---------- */
+.presence-examples-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.presence-example {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 26px;
+}
+.presence-example h4 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+.presence-example p {
+  margin: 0;
+  color: var(--text);
+}
+
+/* ---------- who RESET is for ---------- */
+.who-for-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+.who-for-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 16.5px;
+  color: var(--text);
+}
+.who-for-list li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 700;
+}
+.who-for-closing {
+  margin-top: 28px;
+  font-weight: 700;
+  color: var(--brown-deep);
+}
 
 /* ============================================================
    THREE LEVERS / METHOD
@@ -1428,6 +1488,7 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 900px) {
   .levers-grid { grid-template-columns: 1fr; }
   .tools-mention-grid { grid-template-columns: 1fr; }
+  .presence-examples-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .section { padding: 40px 0 56px; }
