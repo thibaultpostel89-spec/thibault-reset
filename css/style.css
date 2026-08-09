@@ -266,6 +266,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .accent-light { color: var(--gold-light); }
 .hero-cta { padding: 16px 34px; }
+.hero-divider { display: none; }
 
 .hero-photo-wrap {
   flex: 0 0 45%;
@@ -303,23 +304,41 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 @media (max-width: 900px) {
-  .hero-split-inner { flex-direction: column; min-height: 0; }
-  .hero-text {
-    flex: none;
-    max-width: 100%;
-    padding: 100px 24px 40px;
-    align-items: center;
-    text-align: center;
+  .hero-split-inner {
+    display: block;
+    position: relative;
+    min-height: 100vh;
   }
-  .hero-eyebrow, .hero-problem, .hero-title, .hero-subtitle { text-align: center; }
-  .hero-subtitle { max-width: 480px; margin-left: auto; margin-right: auto; }
   .hero-photo-wrap {
+    position: absolute;
+    inset: 0;
+    max-width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .hero-photo { background-position: center center; }
+  .hero-photo-wrap::before {
+    background: linear-gradient(0deg, #0f0c08 0%, rgba(15,12,8,0.94) 34%, rgba(15,12,8,0.62) 54%, rgba(15,12,8,0.1) 74%, rgba(15,12,8,0) 88%);
+  }
+  .hero-text {
+    position: relative;
+    z-index: 2;
     flex: none;
     max-width: 100%;
-    height: 60vh;
+    min-height: 100vh;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+    padding: 100px 24px 56px;
   }
-  .hero-photo-wrap::before {
-    background: linear-gradient(0deg, #171310 0%, rgba(23,19,16,0.5) 10%, rgba(23,19,16,0) 26%);
+  .hero-eyebrow, .hero-problem, .hero-title, .hero-subtitle { text-align: left; }
+  .hero-subtitle { max-width: 100%; margin-left: 0; margin-right: 0; }
+  .hero-divider {
+    display: block;
+    width: 42px;
+    height: 2px;
+    background: var(--gold);
+    margin: 2px 0 20px;
   }
 }
 
