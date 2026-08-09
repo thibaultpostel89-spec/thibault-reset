@@ -282,7 +282,7 @@ button { font-family: inherit; cursor: pointer; }
     linear-gradient(160deg, #2c2620 0%, #1c1b18 55%, #33291c 100%);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 78%;
+  background-position: center top;
 }
 .hero-photo-wrap::before {
   content: "";
@@ -316,7 +316,7 @@ button { font-family: inherit; cursor: pointer; }
     height: 100%;
     z-index: 0;
   }
-  .hero-photo { background-position: center center; }
+  .hero-photo { background-size: auto 118%; background-position: center 85%; }
   .hero-photo-wrap::before {
     background: linear-gradient(0deg, #0f0c08 0%, rgba(15,12,8,0.94) 34%, rgba(15,12,8,0.62) 54%, rgba(15,12,8,0.1) 74%, rgba(15,12,8,0) 88%);
   }
