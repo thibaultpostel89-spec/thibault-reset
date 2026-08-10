@@ -592,11 +592,6 @@ button { font-family: inherit; cursor: pointer; }
   background-position: center;
   border-color: transparent;
 }
-.discount-card .photo-placeholder-box.has-photo {
-  background-color: #fff;
-  border-color: var(--border);
-}
-
 /* ---------- portrait ---------- */
 .portrait-circle {
   width: 260px;
@@ -1380,42 +1375,6 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text-secondary);
   font-size: 17.3px;
   margin: 0;
-}
-
-/* ============================================================
-   TOOLS DISCOUNT
-   ============================================================ */
-.discount-grid {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 760px;
-  margin: 0 auto;
-}
-.discount-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 26px;
-  text-align: center;
-}
-.discount-card h3 {
-  font-size: 20.9px;
-  margin: 16px 0 10px;
-}
-.discount-tagline {
-  color: var(--gold);
-  font-weight: 700;
-  font-size: 16.8px;
-  margin-bottom: 4px;
-}
-.discount-desc {
-  color: var(--text-secondary);
-  font-size: 16.8px;
-  margin-bottom: 18px;
-}
-.discount-cta { width: 100%; }
-
-@media (max-width: 700px) {
-  .discount-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
