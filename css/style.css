@@ -172,8 +172,8 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 .nav-logo-icon {
-  width: 46px;
-  height: 46px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   border: 1.5px solid var(--brown-deep);
   background-color: var(--bg);
@@ -188,13 +188,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-logo-title {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 21px;
   letter-spacing: 0.03em;
   color: var(--text);
 }
 .nav-logo-sub {
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 17px;
   color: var(--text-secondary);
 }
 .nav-links {
