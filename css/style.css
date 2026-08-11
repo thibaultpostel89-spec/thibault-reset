@@ -594,8 +594,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 /* ---------- portrait ---------- */
 .portrait-circle {
-  width: 260px;
-  height: 260px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
   margin: 0 auto 24px;
   border: 2px solid var(--gold);
@@ -607,7 +607,7 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: center;
 }
 @media (max-width: 600px) {
-  .portrait-circle { width: 200px; height: 200px; }
+  .portrait-circle { width: 260px; height: 260px; }
 }
 .portrait-fallback {
   font-family: var(--font-serif);
