@@ -174,10 +174,9 @@ button { font-family: inherit; cursor: pointer; }
 .nav-logo-icon {
   width: 84px;
   height: 84px;
-  border-radius: 50%;
-  border: 1.5px solid var(--brown-deep);
   background-color: var(--bg);
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   flex-shrink: 0;
 }
