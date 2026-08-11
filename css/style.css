@@ -166,9 +166,36 @@ button { font-family: inherit; cursor: pointer; }
   justify-content: space-between;
 }
 .nav-logo {
-  font-family: var(--font-serif);
-  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
   color: var(--text);
+}
+.nav-logo-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-deep);
+  background-color: var(--bg);
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.nav-logo-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+.nav-logo-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 .nav-links {
   display: flex;
