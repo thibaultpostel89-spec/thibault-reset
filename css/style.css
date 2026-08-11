@@ -160,7 +160,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav-inner {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,8 +172,8 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 .nav-logo-icon {
-  width: 62px;
-  height: 62px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   border: 1.5px solid var(--brown-deep);
   background-color: var(--bg);
