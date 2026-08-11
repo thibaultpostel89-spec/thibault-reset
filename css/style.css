@@ -240,6 +240,8 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-burger { display: block; }
+  .nav-logo-title { font-size: 23px; }
+  .nav-logo-sub { font-size: 17px; }
 }
 
 /* ============================================================
