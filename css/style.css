@@ -185,13 +185,15 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.15;
 }
 .nav-logo-title {
-  font-family: var(--font-serif);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 26px;
   letter-spacing: 0.03em;
   color: var(--text);
 }
 .nav-logo-sub {
-  font-family: var(--font-sans);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   font-size: 20px;
   color: var(--text-secondary);
 }
