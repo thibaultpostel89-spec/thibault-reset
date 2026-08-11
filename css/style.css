@@ -172,9 +172,8 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--text);
 }
 .nav-logo-icon {
-  width: 84px;
-  height: 84px;
-  background-color: var(--bg);
+  width: 108px;
+  height: 108px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
