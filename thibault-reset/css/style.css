@@ -241,8 +241,11 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-burger { display: block; }
-  .nav-logo-title { font-size: 23px; }
-  .nav-logo-sub { font-size: 17px; }
+  .nav-inner { padding: 10px 20px; }
+  .nav-logo { gap: 10px; }
+  .nav-logo-icon { width: 56px; }
+  .nav-logo-title { font-size: 19px; }
+  .nav-logo-sub { font-size: 14px; }
 }
 
 /* ============================================================
@@ -895,6 +898,7 @@ button { font-family: inherit; cursor: pointer; }
   position: sticky;
   top: var(--nav-height, 73px);
   height: calc(100vh - var(--nav-height, 73px));
+  height: calc(100dvh - var(--nav-height, 73px));
   display: flex;
   align-items: center;
   justify-content: center;
