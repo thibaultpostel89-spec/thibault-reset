@@ -1168,14 +1168,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-included-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 10px;
   font-size: 16.8px;
   font-weight: 600;
   padding: 7px 0;
 }
-.offer-included-list svg { color: var(--gold); flex-shrink: 0; }
+.offer-included-list svg { color: var(--gold); flex-shrink: 0; margin-top: 4px; }
 .offer-dark .offer-included-list svg { color: var(--gold-light); }
 .offer-cta { margin-top: auto; padding-top: 26px; align-self: center; width: 100%; max-width: 320px; }
 
