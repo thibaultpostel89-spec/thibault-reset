@@ -1507,3 +1507,405 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 560px) {
   .section { padding: 40px 0 56px; }
 }
+
+/* ============================================================
+   HUMAN PERFORMANCE AUDIT — full-screen questionnaire
+   ============================================================ */
+.audit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18,16,13,0.82);
+  backdrop-filter: blur(4px);
+  padding: 24px;
+}
+.audit-overlay.open { display: flex; }
+.audit-panel {
+  width: 100%;
+  max-width: 760px;
+  max-height: 92vh;
+  max-height: 92dvh;
+  background: var(--bg);
+  border-radius: 20px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.audit-head {
+  position: relative;
+  padding: 20px 56px 0 28px;
+  flex-shrink: 0;
+}
+.audit-headline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.audit-title {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  color: var(--text);
+}
+.audit-step {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.audit-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--text-secondary);
+  border-radius: 50%;
+}
+.audit-close:hover { background: var(--bg-alt); color: var(--text); }
+.audit-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: 3px;
+  margin: 14px 0 0;
+  overflow: hidden;
+}
+.audit-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.35s ease;
+}
+.audit-body {
+  padding: 26px 28px 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+.audit-sec {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.audit-sec-num {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 1px 7px;
+}
+.audit-sec-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.audit-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.audit-q {
+  font-family: var(--font-serif);
+  font-size: 25px;
+  line-height: 1.32;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.audit-help {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.audit-input { margin-top: 18px; }
+
+.audit-scale {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+}
+.audit-dot {
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast, 0.18s ease);
+}
+.audit-dot:hover { border-color: var(--gold); color: var(--gold); }
+.audit-dot.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.audit-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.audit-scale-labels span { max-width: 46%; }
+.audit-scale-labels span:last-child { text-align: right; }
+
+.audit-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--text);
+  transition: all var(--transition-fast, 0.18s ease);
+}
+.audit-opt:hover { border-color: var(--gold); }
+.audit-opt.on {
+  border-color: var(--gold);
+  background: rgba(176,141,87,0.1);
+  font-weight: 700;
+}
+.audit-opt.multi.on::before { content: "\2713  "; color: var(--gold); }
+
+.audit-field {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text);
+  resize: vertical;
+}
+.audit-field:focus { outline: none; border-color: var(--gold); }
+
+.audit-error {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #B4472F;
+}
+.audit-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 28px 22px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.audit-back {
+  border: none;
+  background: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 10px 4px;
+}
+.audit-back:hover:not(:disabled) { color: var(--gold); }
+.audit-back:disabled { opacity: 0.3; cursor: default; }
+.audit-next { min-width: 150px; }
+
+.audit-scores { margin: 20px 0 8px; }
+.audit-score { margin-bottom: 18px; }
+.audit-score-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.audit-score-top em {
+  font-style: normal;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.audit-score-bar {
+  height: 9px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.audit-score-bar i {
+  display: block;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 5px;
+}
+.audit-score.weak .audit-score-bar i { background: #B4472F; }
+.audit-score p {
+  margin-top: 6px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+.audit-cta {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: rgba(176,141,87,0.08);
+  text-align: center;
+}
+.audit-cta .btn { margin-top: 6px; }
+.audit-sent {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+  .audit-overlay { padding: 0; }
+  .audit-panel { max-width: 100%; max-height: 100dvh; height: 100dvh; border-radius: 0; }
+  .audit-head { padding: 16px 50px 0 18px; }
+  .audit-body { padding: 20px 18px 8px; }
+  .audit-nav { padding: 14px 18px 18px; }
+  .audit-q { font-size: 21px; }
+  .audit-scale { grid-template-columns: repeat(5, 1fr); }
+  .audit-next { min-width: 120px; }
+}
+
+/* ============================================================
+   PRE-OFFER PROMPT (desktop only)
+   ============================================================ */
+.promo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 890;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18,16,13,0.78);
+  backdrop-filter: blur(3px);
+  padding: 24px;
+}
+.promo-overlay.open { display: flex; }
+.promo-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 40px 40px 32px;
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.45);
+}
+.promo-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--text-secondary);
+  border-radius: 50%;
+}
+.promo-close:hover { background: var(--bg-alt); color: var(--text); }
+.promo-eyebrow {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.promo-title {
+  font-family: var(--font-serif);
+  font-size: 29px;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.promo-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 22px;
+}
+.promo-micro {
+  margin-top: 12px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+/* ---------- free audit band, above the offer cards ---------- */
+.free-band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto 44px;
+  padding: 28px 32px;
+  border: 1px solid var(--gold);
+  border-radius: 14px;
+  background: rgba(176,141,87,0.09);
+}
+.free-band-text { flex: 1 1 380px; }
+.free-band-eyebrow {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.free-band-title {
+  font-family: var(--font-serif);
+  font-size: 27px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.free-band-desc {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.free-band-action {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.free-band-micro {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+@media (max-width: 760px) {
+  .free-band { padding: 24px 20px; gap: 20px; text-align: center; }
+  .free-band-action { width: 100%; }
+  .free-band-action .btn { width: 100%; }
+  .free-band-title { font-size: 23px; }
+}
