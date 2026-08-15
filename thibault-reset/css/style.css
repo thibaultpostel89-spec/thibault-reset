@@ -2051,3 +2051,27 @@ button { font-family: inherit; cursor: pointer; }
   .audit-overall { gap: 14px; padding: 16px; }
   .audit-overall-num { font-size: 40px; }
 }
+
+/* ---------- personalised observations on the results screen ---------- */
+.audit-notes {
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--bg-alt);
+  border-radius: 0 10px 10px 0;
+}
+.audit-notes-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 10px;
+}
+.audit-notes p:not(.audit-notes-title) {
+  font-size: 15.4px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+.audit-notes p:last-child { margin-bottom: 0; }
