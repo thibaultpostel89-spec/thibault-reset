@@ -173,7 +173,7 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
   function normalise(q, v) {
     if (v === undefined || v === null || v === '') return null;
     var n = null;
-    if (q.type === 'scale') n = (Number(v) - 1) / 9;
+    if (q.type === 'scale') n = (Number(v) - 1) / 4;
     else if (q.type === 'choice') {
       var i = q.opts.indexOf(v);
       if (i < 0) return null;
@@ -275,11 +275,11 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
 
     if (q.type === 'scale') {
       var row = el('div', 'audit-scale');
-      for (var n = 1; n <= 10; n++) {
+      for (var n = 1; n <= 5; n++) {
         (function (n) {
           var b = el('button', 'audit-dot' + (Number(answers[i]) === n ? ' on' : ''), String(n));
           b.type = 'button';
-          b.onclick = function () { answers[i] = n; save(); render(); setTimeout(next, 180); };
+          b.onclick = function () { answers[i] = n; save(); render(); };
           row.appendChild(b);
         })(n);
       }
@@ -292,7 +292,7 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
       q.opts.forEach(function (o) {
         var b = el('button', 'audit-opt' + (answers[i] === o ? ' on' : ''), esc(o));
         b.type = 'button';
-        b.onclick = function () { answers[i] = o; save(); render(); setTimeout(next, 180); };
+        b.onclick = function () { answers[i] = o; save(); render(); };
         wrap.appendChild(b);
       });
 
@@ -562,12 +562,16 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     function onExit(e) {
       if (e.clientY <= 0) show();
     }
-    /* fire once the reader is roughly mid-way through the bio */
+    /* Fire based on how much of the bio has already scrolled off the top.
+       Desktop: half the text gone. Mobile: nearly at the section below it. */
     var bio = document.getElementById('about');
+    var TRIGGER = isDesktop ? 0.5 : 0.8;
     function onScroll() {
       if (!bio) return;
       var r = bio.getBoundingClientRect();
-      if (r.top < window.innerHeight * 0.5 - r.height * 0.35) show();
+      if (r.height <= 0) return;
+      var scrolledPast = -r.top / r.height;
+      if (scrolledPast >= TRIGGER) show();
     }
     function cleanup() {
       document.removeEventListener('mouseout', onExit);

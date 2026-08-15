@@ -1637,11 +1637,12 @@ button { font-family: inherit; cursor: pointer; }
 
 .audit-scale {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 6px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  max-width: 440px;
 }
 .audit-dot {
-  aspect-ratio: 1;
+  height: 62px;
   border: 1px solid var(--border);
   background: var(--white);
   border-radius: 9px;
@@ -1789,7 +1790,8 @@ button { font-family: inherit; cursor: pointer; }
   .audit-body { padding: 20px 18px 8px; }
   .audit-nav { padding: 14px 18px 18px; }
   .audit-q { font-size: 21px; }
-  .audit-scale { grid-template-columns: repeat(5, 1fr); }
+  .audit-scale { gap: 7px; max-width: 100%; }
+  .audit-dot { height: 54px; }
   .audit-next { min-width: 120px; }
 }
 
