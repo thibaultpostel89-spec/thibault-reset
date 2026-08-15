@@ -104,6 +104,25 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     { s: 'goal', type: 'scale', label: 'Motivation', q: 'How ready are you to build new practices into your daily life on a regular basis?', lo: 'Mostly curious', hi: 'Ready to commit seriously', req: true }
   ];
 
+  /* The short (free) audit: two questions per dimension, ~3 minutes.
+     The full 52 are kept for the paid Blueprint. Edit this list to
+     change which questions appear in the free version. */
+  var SHORT = [
+    'Focus', 'Brain fog',
+    'Return to calm', 'Autonomic flexibility',
+    'Blind or guided', 'Coherence response',
+    'BOLT score', 'Air hunger',
+    'Body awareness',
+    'Tension zones', 'Body armour',
+    'Autopilot', 'Presence with others',
+    'Connection to others', 'Isolation under stress',
+    'Single priority'
+  ];
+  QUESTIONS.forEach(function (q, i) {
+    q._i = i;
+    if (q.s === 'info' || SHORT.indexOf(q.label) > -1) q.short = true;
+  });
+
   var DIMS = {
     cognitive: { name: 'Cognitive Performance', desc: 'Focus, brain fog, energy and stimulant reliance.' },
     autonomic: { name: 'Autonomic Flexibility', desc: 'Reactivity, coming down, regulation under pressure.' },
@@ -119,19 +138,32 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
   var answers = {};
   var idx = 0;
   var root = null;
+  var mode = 'short';
+  var active = [];
+
+  function setMode(m) {
+    mode = m === 'full' ? 'full' : 'short';
+    active = mode === 'full'
+      ? QUESTIONS.slice()
+      : QUESTIONS.filter(function (q) { return q.short; });
+  }
+  function cur() { return active[idx]; }
 
   /* ---------- persistence ---------- */
   function save() {
-    try { localStorage.setItem(STORE, JSON.stringify({ a: answers, i: idx })); } catch (e) {}
+    try {
+      localStorage.setItem(STORE, JSON.stringify({ a: answers, i: idx, m: mode }));
+    } catch (e) {}
   }
   function load() {
     try {
       var raw = localStorage.getItem(STORE);
-      if (!raw) return;
+      if (!raw) return null;
       var d = JSON.parse(raw);
       answers = d.a || {};
       idx = typeof d.i === 'number' ? d.i : 0;
-    } catch (e) {}
+      return d.m || null;
+    } catch (e) { return null; }
   }
   function clear() {
     try { localStorage.removeItem(STORE); } catch (e) {}
@@ -197,9 +229,8 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
     });
   }
-  function isAnswered(i) {
-    var q = QUESTIONS[i];
-    var v = answers[i];
+  function isAnswered(q) {
+    var v = answers[q._i];
     if (!q.req) return true;
     if (q.type === 'multi') return Array.isArray(v) && v.length > 0;
     return v !== undefined && v !== null && String(v).trim() !== '';
@@ -209,14 +240,14 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
   function render() {
     if (!root) return;
     var body = root.querySelector('.audit-body');
-    var q = QUESTIONS[idx];
+    var q = cur();
     var sec = SECTIONS.filter(function (s) { return s.id === q.s; })[0];
     body.innerHTML = '';
 
-    var pct = Math.round((idx / QUESTIONS.length) * 100);
+    var pct = Math.round((idx / active.length) * 100);
     root.querySelector('.audit-bar-fill').style.width = pct + '%';
     root.querySelector('.audit-step').textContent =
-      'Question ' + (idx + 1) + ' of ' + QUESTIONS.length;
+      'Question ' + (idx + 1) + ' of ' + active.length;
 
     var head = el('div', 'audit-sec');
     head.innerHTML = (sec.num ? '<span class="audit-sec-num">' + sec.num + '</span>' : '') +
@@ -235,12 +266,12 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
 
     root.querySelector('.audit-back').disabled = idx === 0;
     var next = root.querySelector('.audit-next');
-    next.textContent = idx === QUESTIONS.length - 1 ? 'See my results' : 'Next';
+    next.textContent = idx === active.length - 1 ? 'See my results' : 'Next';
   }
 
   function buildInput(q) {
     var wrap = el('div', 'audit-input');
-    var i = idx;
+    var i = q._i;
 
     if (q.type === 'scale') {
       var row = el('div', 'audit-scale');
@@ -308,16 +339,16 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
   }
 
   function next() {
-    var q = QUESTIONS[idx];
-    if (!isAnswered(idx)) {
+    var q = cur();
+    if (!isAnswered(q)) {
       showError(q.type === 'multi' ? 'Pick at least one option.' : 'This one is required.');
       return;
     }
-    if (q.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(answers[idx]).trim())) {
+    if (q.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(answers[q._i]).trim())) {
       showError('That email does not look right.');
       return;
     }
-    if (idx === QUESTIONS.length - 1) { finish(); return; }
+    if (idx === active.length - 1) { finish(); return; }
     idx++;
     save();
     render();
@@ -350,7 +381,8 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
       lines.push((q.label || q.q) + ': ' + (Array.isArray(v) ? v.join(', ') : v));
     });
     var s = scores.map(function (d) { return d.name + ': ' + d.score + '/100'; }).join('\n');
-    return 'SCORES\n' + s + '\n\nANSWERS\n' + lines.join('\n');
+    return (mode === 'full' ? 'FULL AUDIT (52 questions)' : 'SHORT AUDIT (free)') +
+      '\n\nSCORES\n' + s + '\n\nANSWERS\n' + lines.join('\n');
   }
 
   function submit(scores) {
@@ -364,7 +396,7 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
-        subject: 'RESET Audit — ' + name,
+        subject: (mode === 'full' ? 'RESET Full Audit — ' : 'RESET Audit — ') + name,
         from_name: 'RESET Audit',
         email: email,
         name: name,
@@ -454,10 +486,14 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     });
   }
 
-  function open() {
+  function open(m) {
     if (!root) build();
-    load();
-    if (idx >= QUESTIONS.length) { idx = 0; answers = {}; }
+    var saved = load();
+    m = (m === 'full' || m === 'short') ? m : (saved || 'short');
+    /* a half-finished run of the other version should not leak into this one */
+    if (saved && saved !== m) { answers = {}; idx = 0; }
+    setMode(m);
+    if (idx >= active.length) { idx = 0; }
     root.querySelector('.audit-nav').style.display = '';
     root.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -475,7 +511,7 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     document.querySelectorAll('[data-audit-open]').forEach(function (b) {
       b.addEventListener('click', function (e) {
         e.preventDefault();
-        open();
+        open(b.getAttribute('data-audit-open'));
       });
     });
     initPopup();
@@ -484,26 +520,26 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
   window.RESETAudit = { open: open, close: close };
 
   /* ============================================================
-     Desktop-only prompt, shown once, before the offers section
+     Prompt shown once, when the reader reaches the bio section
+     (after the offers). Desktop also gets an exit-intent trigger.
      ============================================================ */
   function initPopup() {
-    var SEEN = 'reset_popup_v1';
+    var SEEN = 'reset_popup_v2';
     var isDesktop = window.innerWidth > 900 &&
       !('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    if (!isDesktop) return;
     try { if (localStorage.getItem(SEEN)) return; } catch (e) {}
 
     var pop = el('div', 'promo-overlay');
     pop.innerHTML =
       '<div class="promo-panel">' +
         '<button class="promo-close" type="button" aria-label="Close">&times;</button>' +
-        '<p class="promo-eyebrow">Before you look at prices</p>' +
+        '<p class="promo-eyebrow">Still deciding?</p>' +
         '<h3 class="promo-title">Find out what is actually stuck first.</h3>' +
-        '<p class="promo-text">A free Human Performance Audit: 8 dimensions, from breathing ' +
-        'efficiency to somatic load. You get your scores immediately and see which one is ' +
-        'your real bottleneck.</p>' +
+        '<p class="promo-text">A free Human Performance Audit: 18 questions, about 3 minutes. ' +
+        'You get scored across 8 dimensions and see which one is your real bottleneck ' +
+        '&mdash; before you spend anything.</p>' +
         '<button class="btn btn-gold promo-cta" type="button">Take the free audit</button>' +
-        '<p class="promo-micro">Free &middot; No card &middot; Your results on screen</p>' +
+        '<p class="promo-micro">Free &middot; 3 min &middot; Your results on screen</p>' +
       '</div>';
     document.body.appendChild(pop);
 
@@ -520,23 +556,24 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
       pop.classList.remove('open');
     }
     pop.querySelector('.promo-close').onclick = hide;
-    pop.querySelector('.promo-cta').onclick = function () { hide(); open(); };
+    pop.querySelector('.promo-cta').onclick = function () { hide(); open('short'); };
     /* deliberately no click-outside-to-close */
 
     function onExit(e) {
       if (e.clientY <= 0) show();
     }
-    var offers = document.getElementById('offers');
+    /* fire once the reader is roughly mid-way through the bio */
+    var bio = document.getElementById('about');
     function onScroll() {
-      if (!offers) return;
-      var top = offers.getBoundingClientRect().top;
-      if (top < window.innerHeight * 0.9) show();
+      if (!bio) return;
+      var r = bio.getBoundingClientRect();
+      if (r.top < window.innerHeight * 0.5 - r.height * 0.35) show();
     }
     function cleanup() {
       document.removeEventListener('mouseout', onExit);
       window.removeEventListener('scroll', onScroll);
     }
-    document.addEventListener('mouseout', onExit);
+    if (isDesktop) document.addEventListener('mouseout', onExit);
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 })();
