@@ -808,8 +808,8 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
         '<button class="promo-close" type="button" aria-label="Close">&times;</button>' +
         '<p class="promo-eyebrow">Still deciding?</p>' +
         '<h3 class="promo-title">Find out what is actually stuck first.</h3>' +
-        '<p class="promo-text">A free Human Performance Audit: 18 questions, about 3 minutes. ' +
-        'You get scored across 8 dimensions and see which one is your real bottleneck ' +
+        '<p class="promo-text">A free Human Performance Audit: 21 questions, about 3 minutes. ' +
+        'You get scored across 9 dimensions and see which one is your real bottleneck ' +
         'before you spend anything.</p>' +
         '<button class="btn btn-gold promo-cta" type="button">Take the free audit</button>' +
         '<p class="promo-micro">Free &middot; 3 min &middot; Your results on screen</p>' +
@@ -831,7 +831,12 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     }
     pop.querySelector('.promo-close').onclick = hide;
     pop.querySelector('.promo-cta').onclick = function () { hide(); open('short'); };
-    /* deliberately no click-outside-to-close */
+    /* Unlike the questionnaire, this is a light teaser: tapping the dark
+       backdrop dismisses it too, so it can never sit on top of the page
+       trapping taps meant for a CTA underneath. */
+    pop.addEventListener('click', function (e) {
+      if (e.target === pop) hide();
+    });
 
     function onExit(e) {
       if (e.clientY <= 0) show();
