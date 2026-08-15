@@ -532,6 +532,10 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
   function close() {
     if (!root) return;
+    /* On a standalone audit page there is nothing behind the modal,
+       so closing sends the visitor back to the main site instead. */
+    var home = document.body.getAttribute('data-audit-home');
+    if (home) { location.href = home; return; }
     root.classList.remove('open');
     document.body.style.overflow = '';
   }
@@ -544,6 +548,13 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
         open(b.getAttribute('data-audit-open'));
       });
     });
+    /* Standalone audit pages declare which version to run on <body>. */
+    var auto = document.body.getAttribute('data-audit-auto');
+    if (auto) {
+      open(auto);
+      return;
+    }
+
     /* Shareable links:
          ...?audit=short  opens the free audit straight away
          ...?audit=full   opens the 52-question version (send after payment)
