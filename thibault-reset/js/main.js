@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- "Sound familiar?" phone thread reveal (one message at a time) ----------
   const sfItems = document.querySelectorAll('.sf-reveal');
   if (sfItems.length) {
-    const SF_STEP_MS = 150; // pace between messages, whole sequence lands around 1s
+    const SF_STEP_MS = 500; // pace between messages, 0.5s per message
     let sfStarted = false;
     const sfObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
