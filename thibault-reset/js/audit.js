@@ -47,6 +47,9 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     { s: 'focus', type: 'choice', label: 'Stimulants', q: 'How many coffees, energy drinks, nicotine hits or other stimulants do you typically have per day?', opts: ['0', '1', '2 to 3', '4 to 5', 'More than 5'], req: true, dim: 'cognitive', inv: true },
     { s: 'focus', type: 'scale', label: 'Stimulant dependence', q: 'How much do you feel you need stimulants to work, think or hold your energy up?', lo: 'I function fine without', hi: 'I really struggle without', req: true, dim: 'cognitive', inv: true },
     { s: 'focus', type: 'scale', label: 'Performance anxiety', q: 'Before a presentation, an important call or a high-stakes situation, how much does your body fire up?', lo: 'Very calm', hi: 'Strong physical activation', req: true, dim: 'coherence', inv: true },
+    { s: 'focus', type: 'scale', label: 'Boredom', q: 'When you have nothing to do for a few minutes, how fast do you reach for something?', lo: 'I can sit with it', hi: 'Almost instantly', req: true, dim: 'stimulus', inv: true },
+    { s: 'focus', type: 'multi', label: 'What you reach for', q: 'What do you usually reach for when you want to check out?', opts: ['Scrolling social media', 'Series or films', 'Porn', 'Sugar or snacking', 'News', 'Gaming', 'Online shopping', 'Alcohol', 'Work itself', 'Nothing in particular'], req: true, dim: 'stimulus', inv: true },
+    { s: 'focus', type: 'scale', label: 'Urge intensity', q: 'When that urge hits, how hard is it to let it pass without acting on it?', lo: 'Easy to let pass', hi: 'Very hard to resist', req: true, dim: 'stimulus', inv: true },
 
     /* II — Autonomic Regulation & Heart Coherence */
     { s: 'autonomic', type: 'choice', label: 'Morning stress', q: 'How often do you wake up with mental pressure, a knot in your stomach, or thoughts firing immediately?', opts: FREQ_MORNING, req: true, dim: 'autonomic', inv: true },
@@ -112,14 +115,15 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
      change which questions appear in the free version. */
   var SHORT = [
     'Focus', 'Brain fog',
+    'Boredom', 'What you reach for', 'Urge intensity',
     'Return to calm', 'Autonomic flexibility',
     'Blind or guided', 'Coherence response',
-    'BOLT score', 'Air hunger',
+    'BOLT score',
     'Body awareness',
-    'Tension zones', 'Body armour',
+    'Tension zones',
     'Autopilot', 'Presence with others',
-    'Connection to others', 'Isolation under stress',
-    'Single priority'
+    'Connection to others',
+    'Single priority', 'Motivation'
   ];
   QUESTIONS.forEach(function (q, i) {
     q._i = i;
@@ -128,6 +132,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
   var DIMS = {
     cognitive: { name: 'Cognitive Performance', desc: 'Focus, brain fog, energy and stimulant reliance.' },
+    stimulus: { name: 'Stimulus Dependence', desc: 'Boredom tolerance, escape habits and how strong the urge gets.' },
     autonomic: { name: 'Autonomic Flexibility', desc: 'Reactivity, coming down, regulation under pressure.' },
     coherence: { name: 'Heart Coherence Capacity', desc: 'Physiological stability and response to regulation.' },
     breathing: { name: 'Breathing Efficiency', desc: 'Night breathing, stress breathing, air hunger, BOLT.' },
@@ -185,7 +190,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     } else if (q.type === 'multi') {
       var count = Array.isArray(v) ? v.length : 0;
       var none = Array.isArray(v) && v.some(function (x) {
-        return /^(none|no particular)/i.test(x);
+        return /^(none|nothing|no particular)/i.test(x);
       });
       if (none) count = 0;
       n = 1 - Math.min(count, 6) / 6;
@@ -466,8 +471,8 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
             '<div class="audit-pick featured">' +
               '<p class="audit-pick-price">&euro;80</p>' +
               '<p class="audit-pick-name">RESET Blueprint</p>' +
-              '<p class="audit-pick-desc">The full 52-question assessment, then your written plan ' +
-              'with the exact protocols for ' + esc(weakest) + '.</p>' +
+              '<p class="audit-pick-desc">The full 55-question assessment, your written plan with the ' +
+              'exact protocols for ' + esc(weakest) + ', and a 1-hour call to walk through it.</p>' +
               '<a class="btn btn-gold" href="' + BLUEPRINT_URL + '" target="_blank" rel="noopener">Get my Blueprint</a>' +
             '</div>' +
           '</div>' +
