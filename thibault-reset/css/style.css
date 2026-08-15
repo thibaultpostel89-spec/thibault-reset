@@ -523,12 +523,13 @@ button { font-family: inherit; cursor: pointer; }
 .presence-example h4 {
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: 17px;
+  font-size: 19px;
   color: var(--gold);
   margin: 0 0 8px;
 }
 .presence-example p {
   margin: 0;
+  font-size: 18px;
   color: var(--text);
 }
 
