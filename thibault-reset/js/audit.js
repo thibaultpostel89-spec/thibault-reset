@@ -121,8 +121,9 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     'BOLT score',
     'Body awareness',
     'Tension zones',
+    'Sleep',
     'Autopilot', 'Presence with others',
-    'Connection to others',
+    'Connection to others', 'Relational impact',
     'Single priority', 'Motivation'
   ];
   QUESTIONS.forEach(function (q, i) {
@@ -150,11 +151,11 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
   var BANDS = [
     { min: 0, label: 'Survival mode',
       text: 'Your system is running as if the threat never ended. That is physiology, not character — and it is the most trainable state of the four.' },
-    { min: 40, label: 'Holding it together',
+    { min: 40, label: 'Running on reserve',
       text: 'You are coping. But most of your energy goes into keeping it together instead of living.' },
-    { min: 60, label: 'Fine, but not present',
+    { min: 60, label: 'Fine, but not present enough yet',
       text: 'From the outside you function well. You are just rarely fully in the room — with yourself or with anyone else.' },
-    { min: 78, label: 'Genuinely regulated',
+    { min: 81, label: 'Genuinely regulated',
       text: 'Your system looks well regulated. Honestly, you may not need coaching right now. Work your lowest score on your own and see how far that takes you.' }
   ];
 
