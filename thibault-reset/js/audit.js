@@ -48,13 +48,13 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     { s: 'focus', type: 'scale', label: 'Stimulant dependence', q: 'How much do you feel you need stimulants to work, think or hold your energy up?', lo: 'I function fine without', hi: 'I really struggle without', req: true, dim: 'cognitive', inv: true },
     { s: 'focus', type: 'scale', label: 'Performance anxiety', q: 'Before a presentation, an important call or a high-stakes situation, how much does your body fire up?', lo: 'Very calm', hi: 'Strong physical activation', req: true, dim: 'coherence', inv: true },
     { s: 'focus', type: 'scale', label: 'Boredom', q: 'When you have nothing to do for a few minutes, how fast do you reach for something?', lo: 'I can sit with it', hi: 'Almost instantly', req: true, dim: 'stimulus', inv: true },
-    { s: 'focus', type: 'multi', label: 'What you reach for', q: 'What do you usually reach for when you want to check out?', opts: ['Scrolling social media', 'Series or films', 'Porn', 'Sugar or snacking', 'News', 'Gaming', 'Online shopping', 'Alcohol', 'Work itself', 'Nothing in particular'], req: true, dim: 'stimulus', inv: true },
+    { s: 'focus', type: 'multi', label: 'What you reach for', q: 'What do you usually reach for when you want to check out?', opts: ['Scrolling social media', 'Series or films', 'Porn', 'Sugar or snacking', 'Cigarettes or vaping', 'Alcohol', 'Other substances', 'News', 'Gaming', 'Online shopping', 'Work itself', 'Something else', 'Nothing in particular'], req: true, dim: 'stimulus', inv: true },
     { s: 'focus', type: 'scale', label: 'Urge intensity', q: 'When that urge hits, how hard is it to let it pass without acting on it?', lo: 'Easy to let pass', hi: 'Very hard to resist', req: true, dim: 'stimulus', inv: true },
 
     /* II — Autonomic Regulation & Heart Coherence */
     { s: 'autonomic', type: 'choice', label: 'Morning stress', q: 'How often do you wake up with mental pressure, a knot in your stomach, or thoughts firing immediately?', opts: FREQ_MORNING, req: true, dim: 'autonomic', inv: true },
     { s: 'autonomic', type: 'scale', label: 'Sensory sensitivity', q: 'How much do noise, light, notifications, conversations or movement around you disturb your state?', lo: 'Barely affected', hi: 'Very easily overstimulated', req: true, dim: 'coherence', inv: true },
-    { s: 'autonomic', type: 'multi', label: 'Physical stress signs', q: 'Which signs show up regularly when you are stressed, focused or under pressure?', opts: ['Dry mouth', 'Cold hands', 'Cold feet', 'Racing heart', 'Short breath', 'Held breath', 'Chest tightness', 'Clenched jaw', 'Raised shoulders', 'Abdominal tension', 'Sweating', 'Trembling', 'Frequent urge to urinate', 'None of these'], req: true, dim: 'load', inv: true },
+    { s: 'autonomic', type: 'multi', label: 'Physical stress signs', q: 'Which signs show up regularly when you are stressed, focused or under pressure?', opts: ['Dry mouth', 'Cold hands', 'Cold feet', 'Racing heart', 'Short breath', 'Held breath', 'Chest tightness', 'Clenched jaw', 'Raised shoulders', 'Abdominal tension', 'Sweating', 'Trembling', 'Frequent urge to urinate', 'Other', 'None of these'], req: true, dim: 'load', inv: true },
     { s: 'autonomic', type: 'scale', label: 'Return to calm', q: 'After a stressful situation, how well do you come back to baseline?', lo: 'I can stay activated for hours', hi: 'I come down quickly', req: true, dim: 'autonomic' },
     { s: 'autonomic', type: 'scale', label: 'Autonomic flexibility', q: 'How well can you deliberately move yourself from a stressed, highly activated state into a calmer one?', lo: 'Very hard', hi: 'Very easy', req: true, dim: 'autonomic' },
     { s: 'autonomic', type: 'scale', label: 'Regulation under pressure', q: 'When things get hard, can you stay calm enough to keep breathing properly, think, and make good decisions?', lo: 'I lose my grip fast', hi: 'I stay stable under pressure', req: true, dim: 'autonomic' },
@@ -75,7 +75,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     { s: 'biomech', type: 'scale', label: 'Posture', q: 'How far do your head and shoulders drift forward when you work or use your phone?', lo: 'Naturally good posture', hi: 'Strongly forward', req: true, dim: 'load', inv: true },
     { s: 'biomech', type: 'choice', label: 'Jaw', q: 'How often do you clench your jaw or teeth when focused, stressed, or asleep?', opts: ['Never', 'Rarely', 'Sometimes', 'Often', 'Almost constantly'], req: true, dim: 'load', inv: true },
     { s: 'biomech', type: 'scale', label: 'Core stability', q: 'How stable and supported do you feel through your trunk, pelvis and lower back?', lo: 'Very unstable / frequent pain', hi: 'Very stable and solid', req: true, dim: 'load' },
-    { s: 'biomech', type: 'multi', label: 'Tension zones', q: 'Where do you regularly feel tension, stiffness or a sense of blockage?', opts: ['Jaw', 'Neck', 'Traps', 'Shoulders', 'Chest', 'Diaphragm', 'Upper abdomen', 'Lower back', 'Psoas', 'Hips', 'Pelvis', 'None'], req: true, dim: 'load', inv: true },
+    { s: 'biomech', type: 'multi', label: 'Tension zones', q: 'Where do you regularly feel tension, stiffness or a sense of blockage?', opts: ['Jaw', 'Neck', 'Traps', 'Shoulders', 'Chest', 'Diaphragm', 'Upper abdomen', 'Lower back', 'Psoas', 'Hips', 'Pelvis', 'Other', 'None'], req: true, dim: 'load', inv: true },
 
     /* V — Somatic Mapping */
     { s: 'somatic', type: 'scale', label: 'Body awareness', q: 'How naturally do you notice the sensations present in your body during the day?', lo: 'I barely notice my body', hi: 'Very fine body perception', req: true, dim: 'awareness' },
@@ -99,11 +99,11 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     { s: 'presence', type: 'scale', label: 'Connection to yourself', q: 'How connected do you feel to what you feel, what you need, and your inner state?', lo: 'Very disconnected', hi: 'Very connected', req: true, dim: 'connection' },
     { s: 'presence', type: 'scale', label: 'Connection to others', q: 'How genuinely connected do you currently feel to the people around you?', lo: 'Very isolated / distant', hi: 'Deeply connected', req: true, dim: 'connection' },
     { s: 'presence', type: 'choice', label: 'Isolation under stress', q: 'When you go through a hard period, what do you usually do?', opts: ['I stay connected and ask for support easily', 'I keep my relationships but share little', 'I gradually reduce contact', 'I isolate heavily', 'It depends on the situation'], req: true, dim: 'connection', vals: [1, 0.65, 0.35, 0, 0.5] },
-    { s: 'presence', type: 'multi', label: 'Relational impact', q: 'Which behaviours show up most when you are stressed or overloaded?', opts: ['Less patient', 'I listen less', 'Physically there but mentally elsewhere', 'I isolate', 'I reply to messages less', 'More reactive', 'I seek more validation', 'Less desire to see people', 'I shut down emotionally', 'It barely affects my relationships'], req: true, dim: 'connection', inv: true },
+    { s: 'presence', type: 'multi', label: 'Relational impact', q: 'Which behaviours show up most when you are stressed or overloaded?', opts: ['Less patient', 'I listen less', 'Physically there but mentally elsewhere', 'I isolate', 'I reply to messages less', 'More reactive', 'I seek more validation', 'Less desire to see people', 'I shut down emotionally', 'Other', 'It barely affects my relationships'], req: true, dim: 'connection', inv: true },
 
     /* VIII — Your goal */
     { s: 'goal', type: 'longtext', label: 'Main transformation', q: 'If RESET worked exactly as you hope, what would concretely change in your life?', req: true },
-    { s: 'goal', type: 'multi', label: 'Priority outcomes', q: 'What matters most to you right now?', opts: ['Lower my stress level', 'Find inner calm', 'Improve my focus', 'Reduce rumination', 'More mental clarity', 'Stabilise my energy', 'Sleep better', 'Breathe more efficiently', 'Reduce physical tension', 'Feel more connected to my body', 'Recover better', 'Handle emotions better', 'Come down faster after stress', 'Be more present', 'Feel more connected to others', 'Feel less isolated', 'Improve my relationships', 'Improve physical performance'], req: true },
+    { s: 'goal', type: 'multi', label: 'Priority outcomes', q: 'What matters most to you right now?', opts: ['Lower my stress level', 'Find inner calm', 'Improve my focus', 'Reduce rumination', 'More mental clarity', 'Stabilise my energy', 'Sleep better', 'Breathe more efficiently', 'Reduce physical tension', 'Feel more connected to my body', 'Recover better', 'Handle emotions better', 'Come down faster after stress', 'Be more present', 'Feel more connected to others', 'Feel less isolated', 'Improve my relationships', 'Improve physical performance', 'Other'], req: true },
     { s: 'goal', type: 'text', label: 'Single priority', q: 'If you could only improve one thing over the coming weeks, which would it be?', req: true },
     { s: 'goal', type: 'choice', label: 'How long', q: 'How long have these difficulties been significantly affecting your daily life?', opts: ['Less than 3 months', '3 to 6 months', '6 to 12 months', '1 to 3 years', 'More than 3 years'], req: true },
     { s: 'goal', type: 'longtext', label: 'What you have tried', q: 'What have you already tried to improve your stress, energy, focus, body or nervous system?', help: 'Therapy, meditation, sport, breathwork, yoga, supplements, medication, coaching, massage, sauna, cold exposure, routine changes…' },
@@ -130,17 +130,39 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     if (q.s === 'info' || SHORT.indexOf(q.label) > -1) q.short = true;
   });
 
+  /* weight = how much this dimension counts towards the overall score.
+     Outcomes (presence, connection, regulation) are weighted above the
+     mechanisms used to fix them (breathing, somatic awareness). */
   var DIMS = {
-    cognitive: { name: 'Cognitive Performance', desc: 'Focus, brain fog, energy and stimulant reliance.' },
-    stimulus: { name: 'Stimulus Dependence', desc: 'Boredom tolerance, escape habits and how strong the urge gets.' },
-    autonomic: { name: 'Autonomic Flexibility', desc: 'Reactivity, coming down, regulation under pressure.' },
-    coherence: { name: 'Heart Coherence Capacity', desc: 'Physiological stability and response to regulation.' },
-    breathing: { name: 'Breathing Efficiency', desc: 'Night breathing, stress breathing, air hunger, BOLT.' },
-    awareness: { name: 'Somatic Awareness', desc: 'Interoception, locating stress, voluntary release.' },
-    load: { name: 'Somatic Load', desc: 'Tension, body armour, startle, irritability, recovery.' },
-    presence: { name: 'Presence', desc: 'Getting off autopilot and staying in the experience.' },
-    connection: { name: 'Connection', desc: 'Connection to self and others under stress.' }
+    cognitive: { name: 'Cognitive Performance', desc: 'Focus, brain fog, energy and stimulant reliance.', weight: 1.1 },
+    stimulus: { name: 'Stimulus Dependence', desc: 'Boredom tolerance, escape habits and how strong the urge gets.', weight: 1.2 },
+    autonomic: { name: 'Autonomic Flexibility', desc: 'Reactivity, coming down, regulation under pressure.', weight: 1.4 },
+    coherence: { name: 'Heart Coherence Capacity', desc: 'Physiological stability and response to regulation.', weight: 1.0 },
+    breathing: { name: 'Breathing Efficiency', desc: 'Night breathing, stress breathing, air hunger, BOLT.', weight: 0.8 },
+    awareness: { name: 'Somatic Awareness', desc: 'Interoception, locating stress, voluntary release.', weight: 0.7 },
+    load: { name: 'Somatic Load', desc: 'Tension, body armour, startle, irritability, recovery.', weight: 1.0 },
+    presence: { name: 'Presence', desc: 'Getting off autopilot and staying in the experience.', weight: 1.5 },
+    connection: { name: 'Connection', desc: 'Connection to self and others under stress.', weight: 1.4 }
   };
+
+  /* Overall verdict bands. The top band deliberately tells people they
+     may not need coaching — an audit nobody can "fail" is worthless. */
+  var BANDS = [
+    { min: 0, label: 'Survival mode',
+      text: 'Your system is running as if the threat never ended. That is physiology, not character — and it is the most trainable state of the four.' },
+    { min: 40, label: 'Running on reserve',
+      text: 'You are coping, but a large share of your capacity goes into holding it together rather than living.' },
+    { min: 60, label: 'Functional, not free',
+      text: 'You function well from the outside. You are just rarely fully in the room — with yourself or with anyone else.' },
+    { min: 78, label: 'Genuinely regulated',
+      text: 'Your system looks well regulated. Honestly, you may not need coaching right now. Work your lowest score on your own and see how far that takes you.' }
+  ];
+
+  function bandFor(n) {
+    var out = BANDS[0];
+    BANDS.forEach(function (b) { if (n >= b.min) out = b; });
+    return out;
+  }
 
   var STORE = 'reset_audit_v1';
   var answers = {};
@@ -219,10 +241,26 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     Object.keys(DIMS).forEach(function (k) {
       if (!acc[k] || !acc[k].length) return;
       var avg = acc[k].reduce(function (a, b) { return a + b; }, 0) / acc[k].length;
-      out.push({ key: k, name: DIMS[k].name, desc: DIMS[k].desc, score: Math.round(avg * 100) });
+      var w = DIMS[k].weight || 1;
+      out.push({
+        key: k, name: DIMS[k].name, desc: DIMS[k].desc, weight: w,
+        score: Math.round(avg * 100),
+        /* how much this weak spot actually costs, given its weight */
+        deficit: (1 - avg) * w
+      });
     });
-    out.sort(function (a, b) { return a.score - b.score; });
+    /* worst-and-most-important first, so the list reads as a priority order */
+    out.sort(function (a, b) { return b.deficit - a.deficit; });
     return out;
+  }
+
+  function overallScore(scores) {
+    var num = 0, den = 0;
+    scores.forEach(function (d) {
+      num += d.score * d.weight;
+      den += d.weight;
+    });
+    return den ? Math.round(num / den) : 0;
   }
 
   /* ---------- helpers ---------- */
@@ -425,8 +463,21 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     body.scrollTop = 0;
 
     body.appendChild(el('h3', 'audit-q', 'Your Human Performance map'));
+
+    var overall = overallScore(scores);
+    var band = bandFor(overall);
+    var headline = el('div', 'audit-overall band-' + Math.min(3, BANDS.indexOf(band)));
+    headline.innerHTML =
+      '<div class="audit-overall-num">' + overall + '<span>/100</span></div>' +
+      '<div class="audit-overall-text">' +
+        '<p class="audit-overall-label">' + esc(band.label) + '</p>' +
+        '<p class="audit-overall-desc">' + esc(band.text) + '</p>' +
+      '</div>';
+    body.appendChild(headline);
+
     body.appendChild(el('p', 'audit-help',
-      'Higher is better. Your lowest score is usually the bottleneck worth working on first.'));
+      'Higher is better. Listed in the order worth working on — weighted, ' +
+      'so what matters most to presence and connection counts for more.'));
 
     var list = el('div', 'audit-scores');
     scores.forEach(function (d, n) {
@@ -440,6 +491,8 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
       list.appendChild(row);
     });
     body.appendChild(list);
+    body.appendChild(el('p', 'audit-disclaimer',
+      'This is a self-assessment to point you at a starting place, not a medical diagnosis.'));
 
     var weakest = scores.length ? scores[0].name : 'your lowest score';
     var cta = el('div', 'audit-cta');
@@ -457,9 +510,13 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
           'and walk you through it on a call.</p>' +
           '<a class="btn btn-gold" href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Book your call</a>';
       } else {
+        var topBand = BANDS.indexOf(band) === BANDS.length - 1;
         cta.innerHTML = status +
-          '<p class="audit-help">Your bottleneck right now is <strong>' + esc(weakest) +
-          '</strong>. Two ways to work on it:</p>' +
+          '<p class="audit-help">' + (topBand
+            ? 'Nothing here is screaming for help. If you want to sharpen <strong>' +
+              esc(weakest) + '</strong> anyway, two options:'
+            : 'Your bottleneck right now is <strong>' + esc(weakest) +
+              '</strong>. Two ways to work on it:') + '</p>' +
           '<div class="audit-choice">' +
             '<div class="audit-pick">' +
               '<p class="audit-pick-price">Free</p>' +
