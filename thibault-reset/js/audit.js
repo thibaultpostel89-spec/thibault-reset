@@ -201,105 +201,105 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
   var INSIGHTS = [
     /* stimulus */
     { w: 9, t: function () { return num('Boredom') >= 4 && num('Urge intensity') >= 4; },
-      x: 'You cannot sit still for two minutes without reaching for something, and when the pull comes it is strong. That is not weak willpower. A system stuck in activation reads stillness as a threat.' },
+      x: 'Two minutes of nothing to do and you are already reaching for something. That is not a willpower problem. It is a nervous system that treats stillness like a threat.' },
     { w: 8, t: function () { return has('What you reach for', 'Work itself'); },
-      x: 'You escape into work. It is the one form of avoidance the world applauds, which is exactly what makes it invisible.' },
+      x: 'You escape into work. It is the one habit nobody questions, which is exactly why it works so well as an escape.' },
     { w: 6, t: function () { return has('What you reach for', 'Scrolling social media') && num('Boredom') >= 4; },
-      x: 'The scrolling is not a bad habit you picked up. It is the fastest available way to not feel what your body is doing.' },
+      x: 'The scrolling is not really a bad habit. It is the fastest way to stop feeling what your body is doing.' },
     { w: 7, t: function () {
         return has('What you reach for', 'Porn') || has('What you reach for', 'Alcohol') ||
                has('What you reach for', 'Other substances') || has('What you reach for', 'Cigarettes or vaping');
       },
-      x: 'Some of what you reach for delivers relief faster than the rest. There is nothing moral in that, but the faster the relief, the less reason your system has to learn regulating on its own.' },
+      x: 'Some of what you use for relief works fast, alcohol, nicotine, that kind of thing. The faster it works, the less your body ever learns to calm itself down without it.' },
     { w: 4, t: function () { return has('What you reach for', 'Sugar or snacking'); },
-      x: 'Reaching for sugar in the afternoon is usually a nervous system asking for a change of state, not a body asking for food.' },
+      x: 'Reaching for sugar in the afternoon is usually your nervous system asking for a reset, not your body asking for food.' },
 
     /* sleep */
     { w: 10, t: function () { return has('Sleep', 'Waking around 3–5am'); },
-      x: 'Waking between 3 and 5am is one of the clearest signs of a system that never fully powered down. Your body is finishing the day you did not close.' },
+      x: 'Waking up between 3 and 5am is a classic sign of a nervous system stuck on alert. Your body never fully powered down for the day.' },
     { w: 8, t: function () { return has('Sleep', 'Racing thoughts at bedtime'); },
-      x: 'Your mind speeds up the moment your body stops. That is a day of held activation arriving all at once, with nothing left to drown it out.' },
+      x: 'Your brain speeds up the second your body stops moving. That is a full day of stress catching up with you all at once.' },
     { w: 7, t: function () { return has('Sleep', 'Waking tired despite enough hours'); },
-      x: 'Enough hours in bed and still tired means the hours are not restorative. Time asleep and depth of sleep are two different things.' },
+      x: 'Enough hours in bed and still tired means the sleep is not doing its job. Hours in bed and quality of sleep are two different things.' },
     { w: 5, t: function () { return has('Sleep', 'Hard to fall asleep') && has('Sleep', 'Light sleep'); },
-      x: 'Slow to fall asleep and light once you do. Your system is standing guard through the night instead of standing down.' },
+      x: 'You take a while to fall asleep, then sleep light once you do. Your body is standing guard all night instead of switching off.' },
 
     /* presence */
     { w: 10, t: function () { return has('Relational impact', 'Physically there but mentally elsewhere'); },
-      x: 'People get your body in the room. They rarely get you. That gap is what the people closest to you actually feel, even when they cannot name it.' },
+      x: 'People get your body in the room. They rarely get you. That is the gap the people closest to you actually feel, even if they cannot put a word on it.' },
     { w: 8, t: function (s) { return sc(s, 'presence') !== null && sc(s, 'presence') < 40; },
-      x: 'You spend most of your life a few centimetres behind your own eyes, watching it rather than being in it.' },
+      x: 'You go through most of your life on autopilot, watching it happen instead of living it.' },
     { w: 6, t: function () { return is('Autopilot', 'Often', 'Very often'); },
-      x: 'Whole stretches of your day happen without you. You arrive at the end of them with no memory of having lived them.' },
+      x: 'Whole chunks of your day pass and you do not remember them. You were there. You were not really there.' },
 
     /* connection */
     { w: 9, t: function () { return is('Isolation under stress', 'I isolate heavily', 'I gradually reduce contact'); },
-      x: 'When things get heavy you pull away, at precisely the moment connection would settle you fastest. Isolation feels like protection and behaves like an accelerator.' },
+      x: 'When things get hard you pull away, right when connecting with someone would calm you down fastest. It feels safe. It usually makes things worse.' },
     { w: 7, t: function (s) { return sc(s, 'connection') !== null && sc(s, 'connection') < 40; },
-      x: 'You are around people without being with them. Company is not the same as connection, and your body knows the difference even when your calendar looks full.' },
+      x: 'You can be surrounded by people and still feel completely alone. Being around people is not the same as connecting with them.' },
     { w: 6, t: function () { return has('Relational impact', 'I shut down emotionally'); },
-      x: 'Under load you go flat rather than reactive. It reads as calm from outside. It is closer to a system pulling the shutters down.' },
+      x: 'Under pressure you go numb instead of reacting. It looks calm from the outside. It is really your system shutting the door.' },
 
     /* breathing */
     { w: 9, t: function () { var b = num('BOLT score'); return b !== null && b < 15; },
-      x: 'A BOLT score under 15 seconds means your body reacts to carbon dioxide early. In practice that is a system with almost no buffer before it tips into alarm.' },
+      x: 'Your BOLT score is under 15 seconds, that measures your tolerance to carbon dioxide. Under 15, your system is basically running with almost no buffer before it hits the alarm button.' },
     { w: 5, t: function () { var b = num('BOLT score'); return b !== null && b >= 15 && b < 25; },
-      x: 'Your BOLT score sits in the range where breathing is workable but never quite spare. There is room here, and it moves faster than most people expect.' },
+      x: 'Your BOLT score is decent but not great. There is real room here, and it moves faster than most people expect.' },
     { w: 6, t: function () {
         return is('Night breathing', 'Mostly through the mouth', 'Mixed nose and mouth') ||
                is('Dry mouth on waking', 'Often', 'Almost every morning');
       },
-      x: 'You are likely breathing through your mouth at night. Eight hours of that undoes a good deal of what you do while awake.' },
+      x: 'You are probably breathing through your mouth at night. Nose breathing makes a gas called nitric oxide that helps your body absorb oxygen. Skip that for eight hours and you lose it right when you need to recover most.' },
 
     /* coherence */
     { w: 9, t: function () { var b = num('Blind or guided'); return b !== null && b <= 2; },
-      x: 'When you try to calm yourself down, you are guessing. You have no feedback telling you whether it is working, which is the main reason it usually is not.' },
+      x: 'When you try to calm yourself down, you are guessing whether it works. No feedback, no proof, which is usually why it does not stick.' },
     { w: 6, t: function () { return is('Coherence response', 'I have never really tried', 'Very little'); },
-      x: 'You have never really felt a regulation practice work. That matters, because doing it without any sense of effect is how most people quietly conclude it is not for them.' },
+      x: 'You have never actually felt a calming technique work in the moment. Doing something without feeling it work is exactly why most people quietly give up on it.' },
     { w: 4, t: function () { return is('Real-time feedback', 'No, never', 'Only nightly averages from a watch or ring'); },
-      x: 'You have never watched your own heart rhythm change while you breathe. A nightly average from a watch tells you what happened. It cannot show you what you are doing right now.' },
+      x: 'You have never watched your own heart rhythm change while you breathe. A sleep tracker tells you what happened last night. It cannot show you what is happening right now.' },
 
     /* autonomic */
     { w: 9, t: function () { var r = num('Return to calm'); return r !== null && r <= 2; },
-      x: 'Once you are activated you stay activated, for hours, sometimes the rest of the day. Coming down is a skill and yours has gone rusty.' },
+      x: 'Once you are wound up, you stay wound up, sometimes the whole day. Your vagus nerve is basically the body\'s brake pedal, and right now it is slow to kick in.' },
     { w: 7, t: function () { return is('Morning stress', 'Often', 'Almost every morning'); },
-      x: 'Your day starts already switched on. Before anything has actually happened, your body has decided today is difficult.' },
+      x: 'You wake up already stressed. Before anything has even happened, your body has decided today is going to be hard.' },
     { w: 6, t: function () { var e = num('Emotional reactivity'); return e !== null && e >= 4; },
-      x: 'Emotion takes your body before your thinking gets a say. By the time you notice, you are already in it.' },
+      x: 'An emotion hits and your body reacts before your brain catches up. By the time you notice, you are already in it.' },
     { w: 5, t: function () { var e = num('End of day'); return e !== null && e <= 2; },
-      x: 'You cannot close your day. The work stops and your system keeps running, which is why the evening never feels like rest.' },
+      x: 'You cannot switch off at the end of the day. The work stops, your nervous system keeps running, which is why evenings never actually feel restful.' },
     { w: 5, t: function () { var r = num('Relationship to rest'); return r !== null && r <= 2; },
-      x: 'Doing nothing is uncomfortable for you. Rest registers as a threat rather than a relief, so you keep finding reasons to stay busy.' },
+      x: 'Doing nothing makes you uncomfortable. Your body treats rest like a threat, so you keep finding reasons to stay busy.' },
 
     /* cognitive */
     { w: 7, t: function () { var f = num('Focus'), b = num('Brain fog'); return f !== null && b !== null && f <= 2 && b >= 4; },
-      x: 'Poor focus and heavy fog together are rarely a discipline problem. That combination usually points at what happens overnight and how you breathe, not at your willpower.' },
+      x: 'Bad focus and heavy fog together are rarely about discipline. Nine times out of ten it comes down to how you sleep and how you breathe.' },
     { w: 7, t: function () { return is('Stimulants', '4 to 5', 'More than 5') && num('Stimulant dependence') >= 4; },
-      x: 'You are propping up a depleted system with stimulants. It works, right up until the moment it stops working.' },
+      x: 'You are running on stimulants to keep a tired system going. That works great, until the day it does not.' },
     { w: 4, t: function () { return is('Energy crash', 'Often', 'Almost every day'); },
-      x: 'The mid-afternoon drop is not a personal failing or a sleep debt you can caffeine your way out of. It is what a system running on activation does when the activation dips.' },
+      x: 'That afternoon crash is not laziness, and more coffee will not fix it. It is what happens when an already stressed system finally runs out of gas.' },
 
     /* somatic load */
     { w: 7, t: function () { return countOf('Tension zones') >= 4; },
-      x: 'You are holding tension in several places at once. That is not posture. That is a body braced against something and no longer noticing it does it.' },
+      x: 'You are holding tension in several places at once. That is not bad posture. That is a body braced for something, and it does not even notice it does it anymore.' },
     { w: 6, t: function () { return is('Jaw', 'Often', 'Almost constantly'); },
-      x: 'Your jaw is doing work nobody asked it to do. It is one of the last places to let go, and one of the first to tell you the system is still on.' },
+      x: 'Your jaw is doing a job nobody asked it to do. It is one of the last places to relax, and one of the first signs your system is still switched on.' },
     { w: 6, t: function () { return is('Body armour', 'Often', 'Almost always'); },
-      x: 'The tension comes back no matter what you do to it. Massage and stretching treat the tissue. What is holding it is upstream.' },
+      x: 'The tension keeps coming back no matter what you do to it. Massage and stretching work on the muscle. The real cause sits somewhere else.' },
     { w: 5, t: function () { return is('Startle reflex', 'Often', 'Very often'); },
-      x: 'You jump easily. A startle that fires that readily means your threat detection is set high before anything happens.' },
+      x: 'You jump easily at sudden noises. That means your threat detector is set way too high, before anything has even happened.' },
 
     /* awareness */
     { w: 6, t: function () { var b = num('Body awareness'); return b !== null && b <= 2; },
-      x: 'You barely register your body during the day. Which means the early signals, the ones that would let you catch stress before it compounds, never reach you at all.' },
+      x: 'You barely notice your own body during the day. Which means you miss the early warning signs, the ones that let you catch stress before it piles up.' },
 
     /* context */
     { w: 8, t: function () { return is('How long', '1 to 3 years', 'More than 3 years'); },
-      x: 'This has been running for years. Long enough that it stopped feeling like a problem and started feeling like your personality.' },
+      x: 'This has been going on for years. Long enough that it stopped feeling like a problem and started feeling like just who you are.' },
     { w: 3, t: function () { var m = num('Motivation'); return m !== null && m >= 4; },
-      x: 'You said you are ready to put the work in. That predicts your outcome more reliably than any score above it.' },
+      x: 'You said you are ready to actually put in the work. That matters more than any score on this page.' },
     { w: 3, t: function () { var m = num('Motivation'); return m !== null && m <= 2; },
-      x: 'You are curious more than committed right now, and that is fine. Worth knowing though: nothing on this list changes from reading about it.' }
+      x: 'Right now you are curious more than committed, and that is fine. Just know that nothing on this list changes from reading about it.' }
   ];
 
   function insightsFor(scores, max) {
