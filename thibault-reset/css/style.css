@@ -1181,6 +1181,37 @@ button { font-family: inherit; cursor: pointer; }
 }
 .offer-included-list svg { color: var(--gold); flex-shrink: 0; margin-top: 4px; }
 .offer-dark .offer-included-list svg { color: var(--gold-light); }
+.offer-guarantee {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: rgba(176,141,87,0.08);
+  font-size: 14.6px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.offer-guarantee strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 800;
+  color: var(--gold);
+}
+.offer-dark .offer-guarantee {
+  border-color: var(--gold-light);
+  background: rgba(210,171,116,0.12);
+  color: var(--border);
+}
+.offer-dark .offer-guarantee strong { color: var(--gold-light); }
+
+.discovery-microline {
+  margin-top: 14px;
+  font-size: 14.5px;
+  color: var(--border);
+  opacity: 0.85;
+}
+
 .offer-cta { margin-top: auto; padding-top: 26px; align-self: center; width: 100%; max-width: 320px; }
 
 .offers-footnote {
