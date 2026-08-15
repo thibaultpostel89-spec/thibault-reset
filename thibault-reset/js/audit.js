@@ -10,6 +10,9 @@
 
 var WEB3FORMS_KEY = 'PASTE_YOUR_KEY_HERE';
 var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
+var CALENDLY_URL = 'https://calendly.com/thibault-postel89/new-meeting';
+var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
+  encodeURIComponent("Hi Thibault, I've done the free audit and I'd like the RESET Blueprint.");
 
 (function () {
   'use strict';
@@ -433,21 +436,43 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     });
     body.appendChild(list);
 
+    var weakest = scores.length ? scores[0].name : 'your lowest score';
     var cta = el('div', 'audit-cta');
+
     if (state === 'sending') {
       cta.appendChild(el('p', 'audit-help', 'Saving your answers…'));
-    } else if (state === 'sent') {
-      cta.innerHTML =
-        '<p class="audit-sent">Sent. I read every one of these personally.</p>' +
-        '<p class="audit-help">Next step: a free 30-minute call to talk it through, ' +
-        'or the full written plan built from your answers.</p>' +
-        '<a class="btn btn-gold" href="https://calendly.com/thibault-postel89/new-meeting" target="_blank" rel="noopener">Book your free 30-min call</a>';
     } else {
-      cta.innerHTML =
-        '<p class="audit-sent">Your results are above, but the automatic send is not set up yet.</p>' +
-        '<p class="audit-help">Book a call and we will go through it together.</p>' +
-        '<a class="btn btn-gold" href="https://calendly.com/thibault-postel89/new-meeting" target="_blank" rel="noopener">Book your free 30-min call</a>' +
-        '<p class="audit-help">Or email <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a></p>';
+      var status = state === 'sent'
+        ? '<p class="audit-sent">Sent. I read every one of these personally.</p>'
+        : '<p class="audit-sent">Here are your results.</p>';
+
+      if (mode === 'full') {
+        cta.innerHTML = status +
+          '<p class="audit-help">I will build your written Blueprint from these answers ' +
+          'and walk you through it on a call.</p>' +
+          '<a class="btn btn-gold" href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Book your call</a>';
+      } else {
+        cta.innerHTML = status +
+          '<p class="audit-help">Your bottleneck right now is <strong>' + esc(weakest) +
+          '</strong>. Two ways to work on it:</p>' +
+          '<div class="audit-choice">' +
+            '<div class="audit-pick">' +
+              '<p class="audit-pick-price">Free</p>' +
+              '<p class="audit-pick-name">30-minute call</p>' +
+              '<p class="audit-pick-desc">We talk through your scores together. You leave with a ' +
+              'direction you can apply on your own.</p>' +
+              '<a class="btn btn-gold-outline" href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Book the free call</a>' +
+            '</div>' +
+            '<div class="audit-pick featured">' +
+              '<p class="audit-pick-price">&euro;80</p>' +
+              '<p class="audit-pick-name">RESET Blueprint</p>' +
+              '<p class="audit-pick-desc">The full 52-question assessment, then your written plan ' +
+              'with the exact protocols for ' + esc(weakest) + '.</p>' +
+              '<a class="btn btn-gold" href="' + BLUEPRINT_URL + '" target="_blank" rel="noopener">Get my Blueprint</a>' +
+            '</div>' +
+          '</div>' +
+          '<p class="audit-micro">The &euro;80 comes off the price if you join RESET 12 within 30 days.</p>';
+      }
     }
     body.appendChild(cta);
     clear();
@@ -514,6 +539,19 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
         open(b.getAttribute('data-audit-open'));
       });
     });
+    /* Shareable links:
+         ...?audit=short  opens the free audit straight away
+         ...?audit=full   opens the 52-question version (send after payment)
+       Anything else just loads the page normally. */
+    var direct = /[?&]audit=(short|full)/.exec(location.search);
+    if (direct) {
+      open(direct[1]);
+      return;
+    }
+    if (location.hash === '#audit') {
+      open('short');
+      return;
+    }
     initPopup();
   });
 
@@ -527,7 +565,12 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     var SEEN = 'reset_popup_v2';
     var isDesktop = window.innerWidth > 900 &&
       !('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    try { if (localStorage.getItem(SEEN)) return; } catch (e) {}
+    /* Add ?popup=test to the URL to force it to show again while testing.
+       Normal visitors only ever see it once. */
+    var testing = /[?&]popup=test/.test(location.search) || location.hash === '#popup';
+    if (!testing) {
+      try { if (localStorage.getItem(SEEN)) return; } catch (e) {}
+    }
 
     var pop = el('div', 'promo-overlay');
     pop.innerHTML =
@@ -544,6 +587,7 @@ var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
     document.body.appendChild(pop);
 
     function seen() {
+      if (testing) return;
       try { localStorage.setItem(SEEN, '1'); } catch (e) {}
     }
     function show() {
