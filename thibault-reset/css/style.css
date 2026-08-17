@@ -907,6 +907,9 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 1180px;
   margin: 0 auto;
   padding: 0 24px;
+  /* This panel is exactly one screen tall. Anything that does not fit has to
+     be clipped here, otherwise it paints on top of the next section. */
+  overflow: hidden;
 }
 .journey-illustration {
   flex-shrink: 0;
@@ -1048,12 +1051,16 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 900px) {
   .journey-scroll-container { height: 325vh; }
-  .journey-sticky { flex-direction: column; gap: 14px; justify-content: flex-start; padding-top: 16px; }
-  .journey-illustration { width: 200px; }
-  .journey-text { text-align: center; }
+  .journey-sticky { flex-direction: column; gap: 14px; justify-content: center; padding-top: 16px; }
+  /* The illustration is sized in vh so it gives up room first: step copy
+     varies in length and must never be what runs out of space. */
+  .journey-illustration { width: auto; height: 30vh; max-width: 200px; flex-shrink: 0; }
+  .body-svg { height: 100%; width: auto; }
+  .journey-text { text-align: center; min-height: 0; }
   .journey-eyebrow, .journey-heading { text-align: center; }
   .journey-heading { margin-bottom: 20px; }
-  .journey-steps { min-height: 160px; }
+  /* Tall enough for step 05, the longest one, at three wrapped lines. */
+  .journey-steps { min-height: 215px; }
 }
 
 /* ============================================================
