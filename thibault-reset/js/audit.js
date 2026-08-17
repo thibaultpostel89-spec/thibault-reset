@@ -576,7 +576,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
       lines.push((q.label || q.q) + ': ' + (Array.isArray(v) ? v.join(', ') : v));
     });
     var s = scores.map(function (d) { return d.name + ': ' + d.score + '/100'; }).join('\n');
-    return (mode === 'full' ? 'FULL AUDIT (52 questions)' : 'SHORT AUDIT (free)') +
+    return (mode === 'full' ? 'FULL AUDIT (55 questions)' : 'SHORT AUDIT (free)') +
       '\n\nSCORES\n' + s + '\n\nANSWERS\n' + lines.join('\n');
   }
 
