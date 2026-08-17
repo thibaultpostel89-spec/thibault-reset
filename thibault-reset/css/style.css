@@ -212,6 +212,21 @@ button { font-family: inherit; cursor: pointer; }
 .nav-links a:not(.btn):hover { color: var(--gold); }
 .nav-cta { padding: 10px 22px; font-size: 16.2px; }
 
+/* Language switch. Deliberately smaller than the nav links so adding it
+   cannot grow the bar. */
+.nav-links a.nav-lang {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+.nav-links a.nav-lang:hover { color: var(--gold); border-color: var(--gold); }
+.nav-mobile a.nav-lang-mobile { color: var(--text-secondary); }
+
 .nav-burger {
   display: none;
   background: none;
