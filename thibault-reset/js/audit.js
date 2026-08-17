@@ -8,7 +8,7 @@
    3. Paste that key below, replacing PASTE_YOUR_KEY_HERE
    ============================================================ */
 
-var WEB3FORMS_KEY = 'PASTE_YOUR_KEY_HERE';
+var WEB3FORMS_KEY = '3d8e2c89-e82d-479a-aa08-69727887bd39';
 var CONTACT_EMAIL = 'thibault.postel89@gmail.com';
 var CALENDLY_URL = 'https://calendly.com/thibault-postel89/new-meeting';
 var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
