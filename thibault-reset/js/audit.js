@@ -135,28 +135,28 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
      Outcomes (presence, connection, regulation) are weighted above the
      mechanisms used to fix them (breathing, somatic awareness). */
   var DIMS = {
-    cognitive: { name: 'Cognitive Performance', desc: 'Focus, brain fog, energy and stimulant reliance.', weight: 1.1 },
-    stimulus: { name: 'Stimulus Dependence', desc: 'Boredom tolerance, escape habits and how strong the urge gets.', weight: 1.2 },
-    autonomic: { name: 'Autonomic Flexibility', desc: 'Reactivity, coming down, regulation under pressure.', weight: 1.4 },
-    coherence: { name: 'Heart Coherence Capacity', desc: 'Physiological stability and response to regulation.', weight: 1.0 },
-    breathing: { name: 'Breathing Efficiency', desc: 'Night breathing, stress breathing, air hunger, BOLT.', weight: 0.8 },
-    awareness: { name: 'Somatic Awareness', desc: 'Interoception, locating stress, voluntary release.', weight: 0.7 },
-    load: { name: 'Somatic Load', desc: 'Tension, body armour, startle, irritability, recovery.', weight: 1.0 },
-    presence: { name: 'Presence', desc: 'Getting off autopilot and staying in the experience.', weight: 1.5 },
-    connection: { name: 'Connection', desc: 'Connection to self and others under stress.', weight: 1.4 }
+    cognitive: { name: 'Cognitive Performance', desc: 'Focus, mental clarity, energy and reliance on stimulants.', weight: 1.1 },
+    stimulus: { name: 'Stimulus Dependence', desc: 'How well you tolerate boredom, urges and the need for stimulation or escape.', weight: 1.2 },
+    autonomic: { name: 'Autonomic Flexibility', desc: 'How effectively you shift from activation back to calm.', weight: 1.4 },
+    coherence: { name: 'Heart Coherence Capacity', desc: 'Physiological stability and how well your nervous system responds to regulation.', weight: 1.0 },
+    breathing: { name: 'Breathing Efficiency', desc: 'Breathing patterns, air hunger, night breathing and BOLT.', weight: 0.8 },
+    awareness: { name: 'Somatic Awareness', desc: 'How clearly you notice, locate and voluntarily release tension in your body.', weight: 0.7 },
+    load: { name: 'Somatic Load', desc: 'How much tension, guarding, irritability and recovery debt your body is carrying.', weight: 1.0 },
+    presence: { name: 'Presence', desc: 'How consistently you stay in the moment instead of slipping into autopilot.', weight: 1.5 },
+    connection: { name: 'Connection', desc: 'How connected you remain to yourself and others, especially under stress.', weight: 1.4 }
   };
 
   /* Overall verdict bands. The top band deliberately tells people they
      may not need coaching — an audit nobody can "fail" is worthless. */
   var BANDS = [
     { min: 0, label: 'Survival mode',
-      text: 'Your system is running as if the threat never ended. That is physiology, not character, and it is the most trainable of the four states.' },
+      text: 'Your nervous system looks like it is spending too much time in protection mode. The good news is that these patterns are trainable, and this is where the biggest gains are likely to come from.' },
     { min: 40, label: 'Running on reserve',
-      text: 'You are coping. But most of your energy goes into keeping it together instead of living.' },
-    { min: 60, label: 'Fine, but not present enough yet',
-      text: 'From the outside you function well. You are just rarely fully in the room, with yourself or with anyone else.' },
+      text: 'Your nervous system is coping, but it is using too much energy just to keep you functioning instead of recovering, connecting and being fully present.' },
+    { min: 60, label: 'Fine, but not fully present yet',
+      text: 'Your nervous system is functioning fairly well, but there is still a gap between getting through the day and being fully present in it.' },
     { min: 81, label: 'Genuinely regulated',
-      text: 'Your system looks well regulated. Honestly, you may not need coaching right now. Work your lowest score on your own and see how far that takes you.' }
+      text: 'Your nervous system appears well regulated overall. At this point, the work is more about refining your lowest score than fixing a major problem.' }
   ];
 
   function bandFor(n) {
@@ -201,50 +201,50 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
   var INSIGHTS = [
     /* stimulus */
     { w: 9, t: function () { return num('Boredom') >= 4 && num('Urge intensity') >= 4; },
-      x: 'Two minutes of nothing to do and you are already reaching for something. That is not a willpower problem. It is a nervous system that treats stillness like a threat.' },
+      x: 'Stillness gets uncomfortable fast, so you reach for stimulation almost automatically. That is less about willpower and more about how used your nervous system is to staying activated.' },
     { w: 8, t: function () { return has('What you reach for', 'Work itself'); },
-      x: 'You escape into work. It is the one habit nobody questions, which is exactly why it works so well as an escape.' },
+      x: 'Work may be doing double duty: productivity on the surface, avoidance underneath. Because it looks useful, it is easy to miss when it becomes an escape.' },
     { w: 6, t: function () { return has('What you reach for', 'Scrolling social media') && num('Boredom') >= 4; },
-      x: 'The scrolling is not really a bad habit. It is the fastest way to stop feeling what your body is doing.' },
+      x: 'Scrolling may be less about entertainment and more about escaping the discomfort of having nothing to do. Your attention gets relief, but your nervous system never really settles.' },
     { w: 7, t: function () {
         return has('What you reach for', 'Porn') || has('What you reach for', 'Alcohol') ||
                has('What you reach for', 'Other substances') || has('What you reach for', 'Cigarettes or vaping');
       },
-      x: 'Some of what you use for relief works fast, alcohol, nicotine, that kind of thing. The faster it works, the less your body ever learns to calm itself down without it.' },
+      x: 'Some of your fastest relief comes from external stimulation or substances. The risk is that your nervous system gets fewer opportunities to practise settling without them.' },
     { w: 4, t: function () { return has('What you reach for', 'Sugar or snacking'); },
-      x: 'Reaching for sugar in the afternoon is usually your nervous system asking for a reset, not your body asking for food.' },
+      x: 'Afternoon sugar or snacking may be doing more than feeding hunger. It can also become a quick way to lift your energy or change your state when you feel flat or stressed.' },
 
     /* sleep */
     { w: 10, t: function () { return has('Sleep', 'Waking around 3–5am'); },
-      x: 'Waking up between 3 and 5am is a classic sign of a nervous system stuck on alert. Your body never fully powered down for the day.' },
+      x: 'Waking between 3 and 5am can be a sign that your nervous system is not fully settling overnight. You may be sleeping, but part of your body is still staying on alert.' },
     { w: 8, t: function () { return has('Sleep', 'Racing thoughts at bedtime'); },
-      x: 'Your brain speeds up the second your body stops moving. That is a full day of stress catching up with you all at once.' },
+      x: 'The moment your body stops, your mind takes over. It can feel like the mental load of the day finally catches up with you when you reach the pillow.' },
     { w: 7, t: function () { return has('Sleep', 'Waking tired despite enough hours'); },
-      x: 'Enough hours in bed and still tired means the sleep is not doing its job. Hours in bed and quality of sleep are two different things.' },
+      x: 'You may be getting enough hours without getting enough restoration. Sleep quantity and sleep quality are not the same thing.' },
     { w: 5, t: function () { return has('Sleep', 'Hard to fall asleep') && has('Sleep', 'Light sleep'); },
-      x: 'You take a while to fall asleep, then sleep light once you do. Your body is standing guard all night instead of switching off.' },
+      x: 'Your nervous system seems to have trouble fully downshifting at night. The goal is not just more sleep, but a smoother transition into deeper rest.' },
 
     /* presence */
     { w: 10, t: function () { return has('Relational impact', 'Physically there but mentally elsewhere'); },
-      x: 'People get your body in the room. They rarely get you. That is the gap the people closest to you actually feel, even if they cannot put a word on it.' },
+      x: 'You can be in the room without fully being in the moment. The people closest to you may feel that distance even when you are trying to connect.' },
     { w: 8, t: function (s) { return sc(s, 'presence') !== null && sc(s, 'presence') < 40; },
-      x: 'You go through most of your life on autopilot, watching it happen instead of living it.' },
+      x: 'A lot of your day seems to happen on autopilot. You are functioning, but not always fully experiencing what you are doing.' },
     { w: 6, t: function () { return is('Autopilot', 'Often', 'Very often'); },
-      x: 'Whole chunks of your day pass and you do not remember them. You were there. You were not really there.' },
+      x: 'Parts of your day are happening with very little conscious presence. You are getting through them, but not fully registering them.' },
 
     /* connection */
     { w: 9, t: function () { return is('Isolation under stress', 'I isolate heavily', 'I gradually reduce contact'); },
       x: 'When things get hard you pull away, right when connecting with someone would calm you down fastest. It feels safe. It usually makes things worse.' },
     { w: 7, t: function (s) { return sc(s, 'connection') !== null && sc(s, 'connection') < 40; },
-      x: 'You can be surrounded by people and still feel completely alone. Being around people is not the same as connecting with them.' },
+      x: 'You can be surrounded by people and still feel disconnected. Being around people is not the same as genuinely connecting with them.' },
     { w: 6, t: function () { return has('Relational impact', 'I shut down emotionally'); },
-      x: 'Under pressure you go numb instead of reacting. It looks calm from the outside. It is really your system shutting the door.' },
+      x: 'Under pressure, you tend to pull inward and go emotionally quiet. It can look calm from the outside while feeling completely disconnected on the inside.' },
 
     /* breathing */
     { w: 9, t: function () { var b = num('BOLT score'); return b !== null && b < 15; },
-      x: 'Your BOLT score is under 15 seconds, that measures your tolerance to carbon dioxide. Under 15, your system is basically running with almost no buffer before it hits the alarm button.' },
+      x: 'A BOLT under 15 seconds suggests your breathing control and tolerance to air hunger are worth working on. Stress and nervous system state can influence it too, so treat it as a starting point, not a diagnosis.' },
     { w: 5, t: function () { var b = num('BOLT score'); return b !== null && b >= 15 && b < 25; },
-      x: 'Your BOLT score is decent but not great. There is real room here, and it moves faster than most people expect.' },
+      x: 'Your BOLT gives you a decent starting point, with room to improve breathing control and tolerance to air hunger. It is a useful number to retest over time.' },
     { w: 6, t: function () {
         return is('Night breathing', 'Mostly through the mouth', 'Mixed nose and mouth') ||
                is('Dry mouth on waking', 'Often', 'Almost every morning');
@@ -253,15 +253,15 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
     /* coherence */
     { w: 9, t: function () { var b = num('Blind or guided'); return b !== null && b <= 2; },
-      x: 'When you try to calm yourself down, you are guessing whether it works. No feedback, no proof, which is usually why it does not stick.' },
+      x: 'You are trying to regulate without much feedback, so it is hard to know what actually changes your state. Seeing the shift in real time can make the practice much easier to trust.' },
     { w: 6, t: function () { return is('Coherence response', 'I have never really tried', 'Very little'); },
-      x: 'You have never actually felt a calming technique work in the moment. Doing something without feeling it work is exactly why most people quietly give up on it.' },
+      x: 'Regulation has not felt convincing in your body yet. If you cannot feel a shift, it makes sense that the practice is hard to trust or stick with.' },
     { w: 4, t: function () { return is('Real-time feedback', 'No, never', 'Only nightly averages from a watch or ring'); },
       x: 'You have never watched your own heart rhythm change while you breathe. A sleep tracker tells you what happened last night. It cannot show you what is happening right now.' },
 
     /* autonomic */
     { w: 9, t: function () { var r = num('Return to calm'); return r !== null && r <= 2; },
-      x: 'Once you are wound up, you stay wound up, sometimes the whole day. Your vagus nerve is basically the body\'s brake pedal, and right now it is slow to kick in.' },
+      x: 'Once your nervous system gets activated, it tends to stay there. The priority is making the shift from stress back to recovery faster and more reliable.' },
     { w: 7, t: function () { return is('Morning stress', 'Often', 'Almost every morning'); },
       x: 'You wake up already stressed. Before anything has even happened, your body has decided today is going to be hard.' },
     { w: 6, t: function () { var e = num('Emotional reactivity'); return e !== null && e >= 4; },
@@ -273,7 +273,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
     /* cognitive */
     { w: 7, t: function () { var f = num('Focus'), b = num('Brain fog'); return f !== null && b !== null && f <= 2 && b >= 4; },
-      x: 'Bad focus and heavy fog together are rarely about discipline. Nine times out of ten it comes down to how you sleep and how you breathe.' },
+      x: 'Low focus plus heavy brain fog usually points to more than discipline. Sleep, stress, breathing, stimulation and recovery are all worth looking at.' },
     { w: 7, t: function () { return is('Stimulants', '4 to 5', 'More than 5') && num('Stimulant dependence') >= 4; },
       x: 'You are running on stimulants to keep a tired system going. That works great, until the day it does not.' },
     { w: 4, t: function () { return is('Energy crash', 'Often', 'Almost every day'); },
@@ -281,7 +281,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
     /* somatic load */
     { w: 7, t: function () { return countOf('Tension zones') >= 4; },
-      x: 'You are holding tension in several places at once. That is not bad posture. That is a body braced for something, and it does not even notice it does it anymore.' },
+      x: 'You are carrying tension across several areas at once. That suggests a broader pattern of bracing, not just one tight muscle.' },
     { w: 6, t: function () { return is('Jaw', 'Often', 'Almost constantly'); },
       x: 'Your jaw is doing a job nobody asked it to do. It is one of the last places to relax, and one of the first signs your system is still switched on.' },
     { w: 6, t: function () { return is('Body armour', 'Often', 'Almost always'); },
@@ -291,15 +291,15 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
 
     /* awareness */
     { w: 6, t: function () { var b = num('Body awareness'); return b !== null && b <= 2; },
-      x: 'You barely notice your own body during the day. Which means you miss the early warning signs, the ones that let you catch stress before it piles up.' },
+      x: 'You tend to notice stress once it is already loud. Better body awareness helps you catch the earlier signals before tension starts piling up.' },
 
     /* context */
     { w: 8, t: function () { return is('How long', '1 to 3 years', 'More than 3 years'); },
       x: 'This has been going on for years. Long enough that it stopped feeling like a problem and started feeling like just who you are.' },
     { w: 3, t: function () { var m = num('Motivation'); return m !== null && m >= 4; },
-      x: 'You said you are ready to actually put in the work. That matters more than any score on this page.' },
+      x: 'You are ready to do something with these results, not just read them. That matters more than having a perfect score today.' },
     { w: 3, t: function () { var m = num('Motivation'); return m !== null && m <= 2; },
-      x: 'Right now you are curious more than committed, and that is fine. Just know that nothing on this list changes from reading about it.' }
+      x: 'Right now you are more curious than committed, and that is useful information too. Nothing here needs to change overnight, but change does require practice.' }
   ];
 
   function insightsFor(scores, max) {
@@ -632,7 +632,7 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     body.innerHTML = '';
     body.scrollTop = 0;
 
-    body.appendChild(el('h3', 'audit-q', 'Your Human Performance map'));
+    body.appendChild(el('h3', 'audit-q', 'Your Human Performance Map'));
 
     var overall = overallScore(scores);
     var band = bandFor(overall);
@@ -654,8 +654,8 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     }
 
     body.appendChild(el('p', 'audit-help',
-      'Higher is better. Listed in the order worth working on, weighted so that ' +
-      'what matters most to presence and connection counts for more.'));
+      'Higher is better. Your scores are ranked by what is most worth working on first, ' +
+      'with extra weight given to what most affects presence and connection.'));
 
     var list = el('div', 'audit-scores');
     scores.forEach(function (d, n) {
@@ -670,16 +670,16 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     });
     body.appendChild(list);
     body.appendChild(el('p', 'audit-disclaimer',
-      'This is a self-assessment to point you at a starting place, not a medical diagnosis.'));
+      'This is a self-assessment designed to help identify useful starting points. It is not a medical diagnosis.'));
 
     var weakest = scores.length ? scores[0].name : 'your lowest score';
     var cta = el('div', 'audit-cta');
 
     if (state === 'sending') {
-      cta.appendChild(el('p', 'audit-help', 'Saving your answers…'));
+      cta.appendChild(el('p', 'audit-help', 'Saving your results…'));
     } else {
       var status = state === 'sent'
-        ? '<p class="audit-sent">Sent. I read every one of these personally.</p>'
+        ? '<p class="audit-sent">Sent. I personally review every audit.</p>'
         : '<p class="audit-sent">Here are your results.</p>';
 
       if (mode === 'full') {
@@ -691,27 +691,28 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
         var topBand = BANDS.indexOf(band) === BANDS.length - 1;
         cta.innerHTML = status +
           '<p class="audit-help">' + (topBand
-            ? 'Nothing here is screaming for help. If you want to sharpen <strong>' +
-              esc(weakest) + '</strong> anyway, two options:'
-            : 'Your bottleneck right now is <strong>' + esc(weakest) +
-              '</strong>. Two ways to work on it:') + '</p>' +
+            ? 'Nothing here looks urgent. If you still want to sharpen <strong>' +
+              esc(weakest) + '</strong>, here are two ways to go further.'
+            : 'Your clearest bottleneck right now is <strong>' + esc(weakest) +
+              '</strong>. Here are two ways to work on it.') + '</p>' +
           '<div class="audit-choice">' +
             '<div class="audit-pick">' +
               '<p class="audit-pick-price">Free</p>' +
               '<p class="audit-pick-name">30-minute call</p>' +
-              '<p class="audit-pick-desc">We talk through your scores together. You leave with a ' +
-              'direction you can apply on your own.</p>' +
-              '<a class="btn btn-gold-outline" href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Book the free call</a>' +
+              '<p class="audit-pick-desc">We go through your scores together, identify what matters ' +
+              'most, and leave you with a clear next step you can apply on your own.</p>' +
+              '<a class="btn btn-gold-outline" href="' + CALENDLY_URL + '" target="_blank" rel="noopener">Book your free call</a>' +
             '</div>' +
             '<div class="audit-pick featured">' +
               '<p class="audit-pick-price">&euro;80</p>' +
               '<p class="audit-pick-name">RESET Blueprint</p>' +
-              '<p class="audit-pick-desc">The full 55-question assessment, your written plan with the ' +
-              'exact protocols for ' + esc(weakest) + ', and a 1-hour call to walk through it.</p>' +
-              '<a class="btn btn-gold" href="' + BLUEPRINT_URL + '" target="_blank" rel="noopener">Get my Blueprint</a>' +
+              '<p class="audit-pick-desc">The full 55-question assessment, a written plan built around ' +
+              esc(weakest) + ', the protocols I would prioritise for you, and a 1-hour call ' +
+              'to walk through it together.</p>' +
+              '<a class="btn btn-gold" href="' + BLUEPRINT_URL + '" target="_blank" rel="noopener">Get my RESET Blueprint</a>' +
             '</div>' +
           '</div>' +
-          '<p class="audit-micro">The &euro;80 comes off the price if you join RESET 12 within 30 days.</p>';
+          '<p class="audit-micro">If you join RESET 12 within 30 days, the &euro;80 is deducted from the programme price.</p>';
       }
     }
     body.appendChild(cta);
