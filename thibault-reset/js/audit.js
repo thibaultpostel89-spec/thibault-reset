@@ -575,9 +575,27 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
       if (v === undefined || v === '' || (Array.isArray(v) && !v.length)) return;
       lines.push((q.label || q.q) + ': ' + (Array.isArray(v) ? v.join(', ') : v));
     });
-    var s = scores.map(function (d) { return d.name + ': ' + d.score + '/100'; }).join('\n');
-    return (mode === 'full' ? 'FULL AUDIT (55 questions)' : 'SHORT AUDIT (free)') +
-      '\n\nSCORES\n' + s + '\n\nANSWERS\n' + lines.join('\n');
+
+    /* Mirror what the person just read on screen, so the email is enough on
+       its own to prep a call without re-running their answers by hand. */
+    var overall = overallScore(scores);
+    var band = bandFor(overall);
+    var top = scores[0];
+    var notes = insightsFor(scores, 3);
+
+    var out = (mode === 'full' ? 'FULL AUDIT (55 questions)' : 'SHORT AUDIT (free)');
+    out += '\n\nOVERALL\n' + overall + '/100 - ' + band.label + '\n' + band.text;
+    if (top) {
+      out += '\n\nSTART HERE\n' + top.name + ' (' + top.score + '/100)';
+      if (top.desc) out += '\n' + top.desc;
+    }
+    if (notes.length) {
+      out += '\n\nWHAT STOOD OUT\n' + notes.map(function (t) { return '- ' + t; }).join('\n');
+    }
+    out += '\n\nSCORES (priority order, worst first, weighted)\n' +
+      scores.map(function (d) { return d.name + ': ' + d.score + '/100'; }).join('\n');
+    out += '\n\nANSWERS\n' + lines.join('\n');
+    return out;
   }
 
   function submit(scores) {
@@ -586,12 +604,15 @@ var BLUEPRINT_URL = 'https://wa.me/33613741584?text=' +
     if (!WEB3FORMS_KEY || WEB3FORMS_KEY === 'PASTE_YOUR_KEY_HERE') {
       return Promise.reject(new Error('not configured'));
     }
+    /* score and verdict in the subject, so the inbox list is already triaged */
+    var overall = overallScore(scores);
     return fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         access_key: WEB3FORMS_KEY,
-        subject: (mode === 'full' ? 'RESET Full Audit — ' : 'RESET Audit — ') + name,
+        subject: (mode === 'full' ? 'RESET Full Audit — ' : 'RESET Audit — ') + name +
+          ' — ' + overall + '/100 ' + bandFor(overall).label,
         from_name: 'RESET Audit',
         email: email,
         name: name,
