@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live results — Workshop Quiz</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/thibault-reset/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../quizz.css">
+</head>
+<body>
+
+<div class="qv-setup" id="qvSetup" style="display:none">
+  <h2>Supabase is not configured yet</h2>
+  <p>Open <code>thibault-reset/quizz-vid/config.js</code> and paste your project URL
+  and anon public key. Until then, nothing can be stored or displayed.</p>
+</div>
+
+<main class="qv-dash">
+  <div class="qv-dash-top">
+    <h1 class="qv-dash-title">Live results</h1>
+    <div class="qv-live" id="qvLive">
+      <span class="qv-live-dot"></span><span class="qv-live-text">live</span>
+    </div>
+  </div>
+
+  <div class="qv-rounds" id="qvRounds"></div>
+
+  <div class="qv-lookup">
+    <div class="qv-lookup-row">
+      <input type="text" id="qvLookupInput" placeholder="Look up a first name" autocomplete="off">
+    </div>
+    <div class="qv-lookup-out" id="qvLookupOut"></div>
+  </div>
+</main>
+
+<script src="../config.js"></script>
+<script src="../results.js"></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+/* ============================================================
+   QUIZZ VID — styles
+   Self-contained on purpose: this feature must never depend on,
+   or be able to break, the main site stylesheet.
+   ============================================================ */
+
+:root {
+  --qv-bg: #16130F;
+  --qv-card: #F3EEE4;
+  --qv-white: #FFFFFF;
+  --qv-text: #1C1B18;
+  --qv-muted: #6E6357;
+  --qv-gold: #B08D57;
+  --qv-gold-light: #D2AB74;
+  --qv-border: #E1D6C5;
+  --qv-good: #4E7A54;
+  --qv-bad: #B4552F;
+  --qv-serif: 'DM Serif Display', Georgia, serif;
+  --qv-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--qv-bg);
+  font-family: var(--qv-sans);
+  color: var(--qv-text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; cursor: pointer; }
+
+/* ============================================================
+   PARTICIPANT CARD
+   ============================================================ */
+.qv-stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.qv-card {
+  width: 100%;
+  max-width: 500px;
+  background: var(--qv-card);
+  border-radius: 20px;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.qv-bar {
+  height: 4px;
+  background: var(--qv-border);
+  flex-shrink: 0;
+}
+.qv-bar-fill {
+  height: 100%;
+  width: 0;
+  background: var(--qv-gold);
+  transition: width 0.3s ease;
+}
+
+.qv-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 24px 0;
+}
+.qv-pill {
+  font-family: var(--qv-serif);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--qv-gold);
+  border: 1px solid var(--qv-gold);
+  border-radius: 4px;
+  padding: 2px 9px;
+}
+.qv-step {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--qv-gold);
+}
+
+.qv-body { padding: 22px 24px 6px; flex: 1; }
+
+.qv-q {
+  font-family: var(--qv-serif);
+  font-size: 25px;
+  line-height: 1.3;
+  margin: 0 0 18px;
+}
+.qv-help {
+  font-size: 14.5px;
+  color: var(--qv-muted);
+  margin: -10px 0 16px;
+}
+
+/* Large tap targets: everyone answers on a phone. */
+.qv-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  margin-bottom: 10px;
+  border: 1px solid var(--qv-border);
+  background: var(--qv-white);
+  border-radius: 10px;
+  font-size: 16.5px;
+  color: var(--qv-text);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.qv-opt:hover { border-color: var(--qv-gold); }
+.qv-opt.on {
+  border-color: var(--qv-gold);
+  background: rgba(176, 141, 87, 0.12);
+  font-weight: 700;
+}
+
+.qv-field {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid var(--qv-border);
+  border-radius: 10px;
+  background: var(--qv-white);
+  font-family: var(--qv-sans);
+  font-size: 16px;
+  color: var(--qv-text);
+}
+.qv-field:focus { outline: none; border-color: var(--qv-gold); }
+
+.qv-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--qv-border);
+}
+.qv-back {
+  border: none;
+  background: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--qv-muted);
+  padding: 10px 4px;
+}
+.qv-back:hover:not(:disabled) { color: var(--qv-gold); }
+.qv-back:disabled { opacity: 0.3; cursor: default; }
+.qv-next {
+  min-width: 140px;
+  padding: 13px 26px;
+  border: none;
+  border-radius: 8px;
+  background: var(--qv-gold);
+  color: var(--qv-card);
+  font-size: 16px;
+  font-weight: 700;
+}
+.qv-next:hover { background: #9d7c4b; }
+.qv-next:disabled { opacity: 0.45; cursor: default; }
+
+.qv-note {
+  font-size: 13.5px;
+  color: var(--qv-muted);
+  margin: 14px 0 0;
+}
+.qv-error {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--qv-bad);
+}
+.qv-done-title {
+  font-family: var(--qv-serif);
+  font-size: 30px;
+  margin: 0 0 10px;
+}
+.qv-done-text { font-size: 16px; color: var(--qv-muted); margin: 0; }
+
+@media (max-width: 420px) {
+  .qv-stage { padding: 0; align-items: stretch; }
+  .qv-card { max-width: none; min-height: 100vh; min-height: 100dvh; border-radius: 0; }
+  .qv-q { font-size: 22px; }
+}
+
+/* ============================================================
+   PRESENTER DASHBOARD
+   Sized to be read from the back of a room, on a projector.
+   ============================================================ */
+.qv-dash {
+  padding: 26px 32px 40px;
+  color: var(--qv-card);
+}
+.qv-dash-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(225, 214, 197, 0.18);
+  padding-bottom: 16px;
+  margin-bottom: 26px;
+}
+.qv-dash-title {
+  font-family: var(--qv-serif);
+  font-size: 34px;
+  margin: 0;
+  color: var(--qv-card);
+}
+.qv-live {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--qv-gold-light);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.qv-live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--qv-good);
+}
+.qv-live.stale .qv-live-dot { background: var(--qv-bad); }
+
+.qv-rounds {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+.qv-rounds.two { grid-template-columns: 1fr 1fr; }
+@media (max-width: 900px) {
+  .qv-rounds.two { grid-template-columns: 1fr; }
+}
+
+.qv-round {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(225, 214, 197, 0.16);
+  border-radius: 16px;
+  padding: 24px 26px 28px;
+}
+.qv-round-name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--qv-gold-light);
+  margin: 0 0 4px;
+}
+.qv-round-video {
+  font-size: 15px;
+  color: rgba(243, 238, 228, 0.6);
+  margin: 0 0 18px;
+}
+.qv-big {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+.qv-big-num {
+  font-family: var(--qv-serif);
+  font-size: 84px;
+  line-height: 1;
+  color: var(--qv-gold-light);
+}
+.qv-big-label {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(243, 238, 228, 0.72);
+}
+.qv-count {
+  font-size: 17px;
+  color: rgba(243, 238, 228, 0.72);
+  margin: 0 0 22px;
+}
+.qv-count b { color: var(--qv-card); font-size: 21px; }
+
+.qv-qrow { margin-bottom: 15px; }
+.qv-qrow-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 5px;
+}
+.qv-qrow-label {
+  font-size: 15.5px;
+  color: rgba(243, 238, 228, 0.88);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qv-qrow-pct { font-size: 17px; font-weight: 800; color: var(--qv-card); }
+.qv-track {
+  height: 11px;
+  border-radius: 999px;
+  background: rgba(225, 214, 197, 0.16);
+  overflow: hidden;
+}
+.qv-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--qv-gold);
+  transition: width 0.4s ease;
+}
+.qv-fill.low { background: var(--qv-bad); }
+.qv-fill.high { background: var(--qv-good); }
+
+.qv-empty {
+  font-size: 17px;
+  color: rgba(243, 238, 228, 0.5);
+  padding: 20px 0;
+}
+
+/* name lookup, used once during the HeartMath demo */
+.qv-lookup {
+  margin-top: 32px;
+  border-top: 1px solid rgba(225, 214, 197, 0.18);
+  padding-top: 20px;
+}
+.qv-lookup-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.qv-lookup input {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 15px;
+  border: 1px solid rgba(225, 214, 197, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--qv-card);
+  font-family: var(--qv-sans);
+  font-size: 16px;
+}
+.qv-lookup input::placeholder { color: rgba(243, 238, 228, 0.4); }
+.qv-lookup input:focus { outline: none; border-color: var(--qv-gold); }
+.qv-lookup-out { margin-top: 14px; font-size: 18px; color: var(--qv-card); }
+.qv-lookup-out .hit { margin-bottom: 7px; }
+.qv-lookup-out b { color: var(--qv-gold-light); }
+
+.qv-setup {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 28px 30px;
+  background: rgba(180, 85, 47, 0.12);
+  border: 1px solid var(--qv-bad);
+  border-radius: 14px;
+  color: var(--qv-card);
+}
+.qv-setup h2 { font-family: var(--qv-serif); margin: 0 0 10px; }
+.qv-setup code {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+}
