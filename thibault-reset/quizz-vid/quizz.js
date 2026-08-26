@@ -104,6 +104,14 @@
       body.appendChild(el('h1', 'qv-done-title', 'Got it. Thank you.'));
       body.appendChild(el('p', 'qv-done-text',
         'Your answers are in. Look up at the screen, we go through the results together.'));
+    } else if (state === 'unconfigured') {
+      /* Thibault's own setup step is missing — say so plainly rather than
+         blaming the participant's phone. */
+      body.appendChild(el('h1', 'qv-done-title', 'Not connected yet'));
+      body.appendChild(el('p', 'qv-done-text',
+        'This quiz has no database connected, so answers cannot be saved. ' +
+        'Nothing is wrong with your phone. Tell Thibault: the Supabase keys ' +
+        'are still missing from config.js.'));
     } else {
       body.appendChild(el('h1', 'qv-done-title', 'Could not send'));
       body.appendChild(el('p', 'qv-done-text',
@@ -174,7 +182,7 @@
   function submit() {
     if (sending) return;
     if (!configured()) {
-      shell(renderDone('fail'), {});
+      shell(renderDone('unconfigured'), {});
       return;
     }
     sending = true;
