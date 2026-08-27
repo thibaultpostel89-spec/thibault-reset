@@ -8,7 +8,9 @@
 
   var CFG = window.QUIZZ_VID || {};
   var POLL_MS = 4000;
-  var rows = [];
+  var CUTOFF_KEY = 'quizz_vid_cutoff';
+  var all = [];          // everything the table holds
+  var rows = [];         // what this session counts
   var lastOk = 0;
   var lookupTerm = '';
 
@@ -16,6 +18,34 @@
   var elLive = document.getElementById('qvLive');
   var elLookOut = document.getElementById('qvLookupOut');
   var elLookIn = document.getElementById('qvLookupInput');
+  var elScope = document.getElementById('qvScope');
+  var elNew = document.getElementById('qvNewSession');
+  var elAll = document.getElementById('qvShowAll');
+
+  /* A session is a moment in time, not a delete. Old answers stay in the
+     table but stop counting, so a reset can never destroy anything and
+     never needs delete rights. */
+  function cutoff() {
+    try { return localStorage.getItem(CUTOFF_KEY) || ''; } catch (e) { return ''; }
+  }
+  function setCutoff(v) {
+    try { v ? localStorage.setItem(CUTOFF_KEY, v) : localStorage.removeItem(CUTOFF_KEY); } catch (e) {}
+    applyScope();
+    render();
+  }
+  function applyScope() {
+    var c = cutoff();
+    rows = c ? all.filter(function (r) { return r.created_at > c; }) : all.slice();
+    if (!elScope) return;
+    if (c) {
+      var d = new Date(c);
+      elScope.textContent = 'Counting answers since ' +
+        d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) +
+        ' · ' + (all.length - rows.length) + ' older ignored';
+    } else {
+      elScope.textContent = 'Counting every answer ever sent';
+    }
+  }
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -153,7 +183,8 @@
 
   function tick() {
     fetchRows().then(function (data) {
-      rows = data || [];
+      all = data || [];
+      applyScope();
       lastOk = Date.now();
       render();
     }).catch(function () {
@@ -168,6 +199,16 @@
   if (elLookIn) {
     elLookIn.oninput = function () { lookupTerm = elLookIn.value; renderLookup(); };
   }
+  if (elNew) {
+    elNew.onclick = function () {
+      if (!confirm('Start a fresh session?\n\nAnswers already on screen stop counting. Nothing is deleted.')) return;
+      setCutoff(new Date().toISOString());
+    };
+  }
+  if (elAll) {
+    elAll.onclick = function () { setCutoff(''); };
+  }
+  applyScope();
   tick();
   setInterval(tick, POLL_MS);
 })();

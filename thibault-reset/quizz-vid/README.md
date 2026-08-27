@@ -104,9 +104,33 @@ Le tableau de bord recalcule tout automatiquement. Rien d'autre à modifier.
 3. Quinze minutes plus tard, vidéo 2, puis **round-2**. Les deux manches s'affichent côte à côte dès qu'elles ont chacune une réponse.
 4. Pendant la démo HeartMath, tape un prénom dans le champ de recherche en bas pour sortir le résultat individuel de la personne.
 
-**Un téléphone ne peut envoyer qu'une fois par manche.** Si quelqu'un doit vraiment recommencer, ajoute `?again` au bout de l'adresse.
+**Un téléphone ne peut envoyer qu'une fois par manche, par jour.** Le lendemain,
+le verrou se relâche tout seul : rien à faire entre deux ateliers. Si quelqu'un
+doit recommencer le jour même, il ajoute `?again` au bout de l'adresse.
 
-**Pour tout remettre à zéro avant un autre atelier**, dans le SQL Editor de Supabase :
+---
+
+## Remettre le compteur à zéro
+
+Sur la page **results**, en haut à droite :
+
+| Bouton | Ce qu'il fait |
+|---|---|
+| **Start a fresh session** | Les réponses déjà à l'écran arrêtent d'être comptées. Les compteurs repartent de zéro. **Rien n'est supprimé.** |
+| **Show everything** | Recompte tout depuis le début, y compris les anciennes réponses. |
+
+La ligne de gauche te dit toujours ce qui est compté : *« Counting answers since
+14:30 · 12 older ignored »*.
+
+C'est le moyen le plus sûr : aucune donnée n'est détruite, donc une fausse
+manœuvre en plein atelier ne peut rien casser. Utilise-le entre deux groupes,
+ou si tu veux refaire une manche.
+
+> Le repère est gardé dans le navigateur où tu as cliqué. Si tu ouvres la page
+> sur un autre ordinateur, elle recomptera tout : reclique sur **Start a fresh
+> session** depuis celui-là.
+
+**Pour vraiment vider la table** (rarement utile), dans le SQL Editor :
 
 ```sql
 delete from quizz_vid_responses;

@@ -12,7 +12,10 @@
   var root = document.getElementById('qv');
   if (!spec || !root) return;
 
-  var SENT_KEY = 'quizz_vid_sent_round_' + round;
+  /* Scoped to the day: one submission per phone per round during a workshop,
+     but the next workshop starts clean without anyone clearing anything. */
+  var today = new Date().toISOString().slice(0, 10);
+  var SENT_KEY = 'quizz_vid_sent_r' + round + '_' + today;
   var questions = spec.questions;
   /* screen 0 is the optional first name, then one screen per question */
   var TOTAL = questions.length + 1;

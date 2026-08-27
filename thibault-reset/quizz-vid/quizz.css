@@ -235,6 +235,32 @@ button { font-family: inherit; cursor: pointer; }
 }
 .qv-live.stale .qv-live-dot { background: var(--qv-bad); }
 
+.qv-session {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: -12px 0 24px;
+}
+.qv-scope {
+  font-size: 14.5px;
+  color: rgba(243, 238, 228, 0.55);
+}
+.qv-session-btns { display: flex; gap: 10px; }
+.qv-mini {
+  border: 1px solid rgba(225, 214, 197, 0.32);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--qv-card);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 8px 15px;
+  border-radius: 7px;
+}
+.qv-mini:hover { border-color: var(--qv-gold); color: var(--qv-gold-light); }
+.qv-mini.ghost { opacity: 0.6; }
+
 .qv-rounds {
   display: grid;
   grid-template-columns: 1fr;
