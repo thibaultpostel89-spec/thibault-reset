@@ -22,7 +22,7 @@ window.QUIZZ_VID = {
 
   /* ---------- 1. SUPABASE ---------- */
   supabase: {
-    url: 'PASTE_YOUR_PROJECT_URL_HERE',      // ex. https://abcdefgh.supabase.co
+    url: 'https://ibnvlnaoovbxwjraadsx.supabase.co',
     anonKey: 'PASTE_YOUR_ANON_PUBLIC_KEY_HERE',
     table: 'quizz_vid_responses'
   },
