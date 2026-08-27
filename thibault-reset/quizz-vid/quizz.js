@@ -41,16 +41,23 @@
       s.url.indexOf('PASTE_') !== 0 && s.anonKey.indexOf('PASTE_') !== 0;
   }
 
+  /* Supabase has two public key formats. The legacy anon key is a JWT and
+     doubles as a bearer token; the newer sb_publishable_ key is not, and
+     sending it as one gets rejected. */
+  function authHeaders(key) {
+    var h = { apikey: key };
+    if (key.indexOf('eyJ') === 0) h.Authorization = 'Bearer ' + key;
+    return h;
+  }
+
   function send() {
     var s = CFG.supabase;
+    var headers = authHeaders(s.anonKey);
+    headers['Content-Type'] = 'application/json';
+    headers.Prefer = 'return=minimal';
     return fetch(s.url.replace(/\/+$/, '') + '/rest/v1/' + s.table, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        apikey: s.anonKey,
-        Authorization: 'Bearer ' + s.anonKey,
-        Prefer: 'return=minimal'
-      },
+      headers: headers,
       body: JSON.stringify({
         round: round,
         first_name: name || null,

@@ -57,7 +57,12 @@ Tu as besoin de deux choses :
 | **Project URL** (ex. `https://abcdefgh.supabase.co`) | `url` |
 | **Project API keys** → **anon** **public** | `anonKey` |
 
-> Prends bien la clé **anon public**. Ne prends jamais la clé `service_role` : elle donne tous les droits et ne doit jamais se retrouver dans une page web.
+> Supabase a deux formats de clé publique selon l'ancienneté du projet :
+> une longue chaîne commençant par `eyJ`, ou une clé `sb_publishable_...`.
+> Les deux fonctionnent, le code gère les deux.
+>
+> Ne prends jamais la clé `service_role` ni une clé `sb_secret_...` : elles donnent
+> tous les droits et ne doivent jamais se retrouver dans une page web.
 
 ## 4. Coller les clés
 
