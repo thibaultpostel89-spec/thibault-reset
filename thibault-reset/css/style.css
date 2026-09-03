@@ -349,6 +349,19 @@ button { font-family: inherit; cursor: pointer; }
   .hero-video-mobile { display: block; }
 }
 
+@media (max-width: 600px) {
+  /* vh on a phone measures the viewport with the address bar hidden, so the
+     CTA ended up behind it. svh measures what is actually on screen; browsers
+     without svh keep the 92vh above. */
+  .hero { min-height: 86svh; }
+  .hero-eyebrow { font-size: 14.5px; margin-bottom: 12px; }
+  .hero-problem { font-size: 23.5px; margin-bottom: 18px; }
+  .hero-divider { margin-bottom: 18px; }
+  .hero-title { font-size: 32px; margin-bottom: 18px; }
+  .hero-subtitle { font-size: 17px; margin-bottom: 26px; }
+  .hero-cta { padding: 15px 26px; }
+}
+
 /* ============================================================
    SOUND FAMILIAR / PROBLEM CARDS + REAL PRESENCE CARDS
    ============================================================ */
