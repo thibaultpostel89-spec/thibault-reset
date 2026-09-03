@@ -2098,3 +2098,126 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0 0 12px;
 }
 .audit-notes p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   WHEN DIGITAL WORK STARTS LIVING IN YOUR BODY
+   A drawn figure at the centre, four cards orbiting it.
+   ============================================================ */
+.dl-rule {
+  width: 120px;
+  height: 1px;
+  margin: 0 auto 46px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.dl-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 30px 26px;
+}
+
+/* the dotted links sit behind everything and only make sense
+   once the cards are actually beside the figure */
+.dl-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.dl-links path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.4;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  opacity: 0.55;
+  vector-effect: non-scaling-stroke;
+}
+.dl-links circle { fill: var(--gold); opacity: 0.65; }
+
+.dl-figure {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display: flex;
+  justify-content: center;
+}
+.dl-svg { width: 100%; max-width: 380px; height: auto; }
+
+.dl-svg .dl-body path,
+.dl-svg .dl-body circle {
+  fill: none;
+  stroke: var(--brown-deep);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.75;
+}
+.dl-svg .dl-desk, .dl-svg .dl-seat, .dl-svg .dl-chair { opacity: 0.45; }
+.dl-svg .dl-thought path, .dl-svg .dl-buzz path {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+.dl-svg .dl-buzz path { opacity: 0.45; }
+
+.dl-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 26px 24px 24px;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(74, 59, 44, 0.07);
+}
+.dl-tl { grid-column: 1; grid-row: 1; }
+.dl-tr { grid-column: 3; grid-row: 1; }
+.dl-bl { grid-column: 1; grid-row: 2; }
+.dl-br { grid-column: 3; grid-row: 2; }
+
+.dl-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--gold);
+}
+.dl-card h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gold);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.dl-card p {
+  margin: 0;
+  font-size: 17px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  /* the orbit only reads on a wide screen; stack it instead of squashing it */
+  .dl-stage { grid-template-columns: 1fr; grid-template-rows: none; gap: 20px; }
+  .dl-links { display: none; }
+  .dl-figure { grid-column: 1; grid-row: auto; order: -1; margin-bottom: 6px; }
+  .dl-svg { max-width: 260px; }
+  .dl-tl, .dl-tr, .dl-bl, .dl-br { grid-column: 1; grid-row: auto; }
+  /* a side-by-side card squeezes the title into a column too narrow to
+     hold it, so keep the stacked layout and just shrink the icon */
+  .dl-card { padding: 22px 20px 20px; }
+  .dl-icon { width: 66px; height: 66px; margin: 0 auto 12px; }
+  .dl-icon svg { width: 36px; height: 36px; }
+  .dl-card h3 { font-size: 20px; }
+  .dl-card p { font-size: 16px; }
+}
