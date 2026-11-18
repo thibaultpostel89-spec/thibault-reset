@@ -340,7 +340,7 @@
          '<p class="rx-safety">Breathe through your nose and stay comfortable throughout. ' +
          'Never push to the point of strain. If you feel dizzy, stop and breathe normally.</p>' +
          '<div class="rx-ctas">' +
-           '<a class="btn btn-gold rx-cta" href="../#discovery-call">Book a free discovery call</a>' +
+           '<a class="btn btn-gold rx-cta" href="https://calendly.com/thibault-postel89/new-meeting" target="_blank" rel="noopener">Book a free discovery call</a>' +
            '<a class="btn btn-gold-outline rx-cta" href="../audit/">Go deeper: the full audit</a>' +
          '</div>' +
          '<button type="button" class="rx-again" data-again="1">Start again</button>' +

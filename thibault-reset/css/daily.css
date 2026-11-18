@@ -1,0 +1,239 @@
+/* ============================================================
+   YOUR DAILY RESET
+   Uses the site's existing tokens from style.css :root.
+   ============================================================ */
+
+#daily { max-width: 660px; margin: 0 auto 90px; }
+
+.dl-draft {
+  max-width: 660px;
+  margin: 0 auto 26px;
+  padding: 10px 14px;
+  border: 1px dashed var(--gold);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.dl-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 32px 30px 28px;
+  box-shadow: 0 18px 44px rgba(74, 59, 44, 0.08);
+}
+
+.dl-step {
+  margin: 0 0 8px; text-align: center;
+  font-size: 12.5px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.dl-h {
+  font-family: var(--font-serif); font-weight: 400;
+  font-size: 29px; line-height: 1.2; text-align: center;
+  color: var(--text); margin: 0 0 10px;
+}
+.dl-sub {
+  text-align: center; font-size: 16.5px; line-height: 1.5;
+  color: var(--text-secondary); margin: 0 0 24px;
+}
+.dl-meta {
+  text-align: center; font-size: 14px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--gold); margin: 0 0 22px;
+}
+
+/* ---------- body map ---------- */
+.bm { margin: 0 0 20px; }
+.bm-sides {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 14px;
+}
+.bm-side {
+  cursor: pointer; font-family: var(--font-sans); font-size: 14px;
+  padding: 7px 18px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg-alt); color: var(--text-secondary);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+.bm-side.on { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+.bm-svg { display: block; width: 100%; max-width: 230px; height: auto; margin: 0 auto 16px; }
+.bm-body path, .bm-body ellipse { fill: var(--bg-alt); }
+.bm-zone {
+  fill: transparent; cursor: pointer;
+  transition: fill var(--transition-fast);
+}
+.bm-zone:hover { fill: rgba(210, 171, 116, 0.38); }
+.bm-zone.on { fill: rgba(176, 141, 87, 0.62); }
+.bm-zone:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+.bm-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.bm-chip {
+  cursor: pointer; font-family: var(--font-sans); font-size: 14px;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--white); color: var(--text-secondary);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.bm-chip:hover { border-color: var(--gold-light); }
+.bm-chip.on { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+/* ---------- choices ---------- */
+.dl-goals { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.dl-goal {
+  display: flex; flex-direction: column; gap: 5px; cursor: pointer; text-align: left;
+  background: var(--bg-alt); border: 1.5px solid transparent; border-radius: 16px;
+  padding: 18px 16px; transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.dl-goal:hover { border-color: var(--gold-light); }
+.dl-goal.on { border-color: var(--gold); background: var(--white); }
+.dl-goal-name { font-family: var(--font-serif); font-size: 21px; color: var(--text); }
+.dl-goal-line { font-size: 14.5px; line-height: 1.4; color: var(--text-secondary); }
+
+.dl-times { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.dl-time {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer;
+  font-family: var(--font-serif); font-size: 27px; color: var(--text);
+  background: var(--bg-alt); border: 1.5px solid transparent; border-radius: 16px; padding: 18px 6px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.dl-time:hover { border-color: var(--gold-light); }
+.dl-time span {
+  font-family: var(--font-sans); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+
+.dl-opts { display: flex; flex-direction: column; gap: 10px; }
+.dl-opt {
+  width: 100%; text-align: left; cursor: pointer;
+  font-family: var(--font-sans); font-size: 17px; color: var(--text);
+  background: var(--bg-alt); border: 1.5px solid transparent; border-radius: 14px; padding: 16px 18px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.dl-opt:hover { border-color: var(--gold-light); background: var(--white); }
+
+/* ---------- the plan ---------- */
+.dl-notes {
+  background: var(--bg-alt); border-radius: 12px; padding: 14px 16px; margin: 0 0 20px;
+}
+.dl-notes-t, .dl-soft-t {
+  margin: 0 0 6px; font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--gold);
+}
+.dl-notes p { margin: 0 0 6px; font-size: 15px; line-height: 1.5; color: var(--text); }
+.dl-notes p:last-child { margin-bottom: 0; }
+
+.dl-plan { list-style: none; margin: 0 0 22px; padding: 0; }
+.dl-plan li {
+  display: grid; grid-template-columns: 30px 1fr auto; gap: 10px; align-items: start;
+  border-top: 1px solid var(--border); padding: 15px 0;
+}
+.dl-plan li:last-child { border-bottom: 1px solid var(--border); }
+.dl-pn { font-family: var(--font-serif); font-size: 14px; color: var(--gold); }
+.dl-pt { font-size: 16px; line-height: 1.55; color: var(--text); }
+.dl-pm { font-size: 13.5px; color: var(--text-secondary); white-space: nowrap; }
+
+/* ---------- player ---------- */
+.dp {
+  background: var(--bg-alt); border-radius: 16px; padding: 22px 20px; margin: 0 0 20px;
+}
+.dp-bar { height: 4px; border-radius: 2px; background: var(--border); overflow: hidden; margin-bottom: 16px; }
+.dp-bar-fill { display: block; height: 100%; width: 0; background: var(--gold); transition: width .9s linear; }
+.dp-count {
+  margin: 0 0 4px; text-align: center; font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.dp-time {
+  margin: 0 0 10px; text-align: center;
+  font-family: var(--font-serif); font-size: 40px; color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.dp-text { margin: 0 0 18px; font-size: 16.5px; line-height: 1.6; color: var(--text); }
+.dp-controls { display: flex; gap: 9px; }
+.dp-controls button {
+  flex: 1; cursor: pointer; font-family: var(--font-sans); font-size: 15px; font-weight: 600;
+  padding: 13px 8px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--white); color: var(--text);
+  transition: border-color var(--transition-fast);
+}
+.dp-controls button:hover { border-color: var(--gold-light); }
+.dp-play { background: var(--gold) !important; border-color: var(--gold) !important; color: var(--white) !important; }
+.dp-leave {
+  display: block; margin: 14px auto 0; cursor: pointer; background: none; border: 0;
+  font-family: var(--font-sans); font-size: 14.5px; color: var(--text-secondary); text-decoration: underline;
+}
+
+/* ---------- supporting blocks ---------- */
+.dl-soft { background: var(--bg-alt); border-radius: 12px; padding: 14px 16px; margin: 0 0 16px; }
+.dl-soft p { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--text); }
+.dl-safety { font-size: 14.5px; line-height: 1.5; color: var(--text-secondary); margin: 0 0 20px; }
+
+.dl-row { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin: 0 0 16px; }
+.dl-ghost {
+  cursor: pointer; font-family: var(--font-sans); font-size: 14.5px;
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--white); color: var(--text-secondary);
+  transition: border-color var(--transition-fast);
+}
+.dl-ghost:hover { border-color: var(--gold-light); }
+
+.dl-next {
+  width: 100%; cursor: pointer; font-family: var(--font-sans); font-size: 17px; font-weight: 700;
+  color: var(--white); background: var(--gold); border: 0; border-radius: 14px; padding: 16px;
+}
+.dl-back {
+  display: block; margin: 16px auto 0; cursor: pointer; background: none; border: 0;
+  font-family: var(--font-sans); font-size: 15px; color: var(--text-secondary); text-decoration: underline;
+}
+.dl-note, .dl-disclaimer {
+  text-align: center; font-size: 13px; line-height: 1.5;
+  color: var(--text-secondary); margin: 16px 0 0;
+}
+
+/* ---------- exits ---------- */
+.dl-exits { display: flex; flex-direction: column; gap: 11px; }
+.dl-exit {
+  display: flex; flex-direction: column; gap: 4px; cursor: pointer; text-align: left;
+  text-decoration: none;
+  background: var(--bg-alt); border: 1.5px solid transparent; border-radius: 16px; padding: 18px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+.dl-exit:hover { border-color: var(--gold); background: var(--white); }
+.dl-exit-t { font-family: var(--font-serif); font-size: 20px; color: var(--text); }
+.dl-exit-l { font-size: 15px; line-height: 1.45; color: var(--text-secondary); }
+
+/* ---------- Lisbon ---------- */
+.dl-empty { background: var(--bg-alt); border-radius: 14px; padding: 20px; }
+.dl-empty p { margin: 0 0 10px; font-size: 16px; line-height: 1.55; color: var(--text); }
+.dl-empty p:last-child { margin-bottom: 0; color: var(--text-secondary); font-size: 15px; }
+.dl-place { border-top: 1px solid var(--border); padding: 16px 0; }
+.dl-place h3 { font-family: var(--font-serif); font-weight: 400; font-size: 21px; margin: 0 0 4px; }
+.dl-place-meta { font-size: 13px; text-transform: uppercase; letter-spacing: .07em; color: var(--gold); margin: 0 0 8px; }
+.dl-place-check { font-size: 13px; color: var(--text-secondary); margin: 8px 0 0; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 600px) {
+  .dl-card { padding: 24px 18px 22px; border-radius: 18px; }
+  .dl-h { font-size: 25px; }
+  .dl-goals { grid-template-columns: 1fr; }
+  .dl-times { grid-template-columns: repeat(2, 1fr); }
+  .dl-plan li { grid-template-columns: 26px 1fr; }
+  .dl-pm { grid-column: 2; color: var(--gold); font-size: 12.5px; }
+  .dp-time { font-size: 34px; }
+  .dp-controls { flex-wrap: wrap; }
+  .dp-controls button { flex: 1 1 30%; font-size: 14px; }
+}
+
+/* ---------- accessibility ----------
+   The site had no reduced-motion support at all. This covers
+   the whole page, not only this feature. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* instructions and notes read better ranged left than centred */
+.dl-pt, .dl-pm, .dp-text, .dl-safety,
+.dl-notes p, .dl-soft p, .dl-empty p { text-align: left; }
